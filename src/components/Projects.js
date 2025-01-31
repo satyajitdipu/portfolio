@@ -1,3 +1,4 @@
+// Projects component - Showcase of development projects
 import React from 'react';
 import './Projects.css';
 import { FaGithub, FaExternalLinkAlt, FaStar, FaCodeBranch } from 'react-icons/fa';
