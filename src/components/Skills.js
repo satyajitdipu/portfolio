@@ -1,3 +1,4 @@
+// Skills component - Technical skills display with progress bars
 import React from 'react';
 import './Skills.css';
 import { 
