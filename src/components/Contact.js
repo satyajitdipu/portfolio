@@ -1,3 +1,4 @@
+// Contact component - Contact form and information section
 import React, { useState } from 'react';
 import './Contact.css';
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
