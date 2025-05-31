@@ -1,3 +1,4 @@
+// Main App component - Entry point for the React portfolio application
 import React from 'react';
 import './App.css';
 import Header from './components/Header';
