@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './Header.css';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa';
+import { ThemeContext } from '../App';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { darkMode, toggleTheme } = useContext(ThemeContext);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -34,8 +36,13 @@ const Header = () => {
           <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>
         </ul>
 
-        <div className="hamburger" onClick={toggleMenu}>
-          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        <div className="header-actions">
+          <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </button>
+          <div className="hamburger" onClick={toggleMenu}>
+            {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </div>
         </div>
       </nav>
     </header>

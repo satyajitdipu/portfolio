@@ -1,6 +1,42 @@
+/* CSS Variables for theming */
+:root {
+  --bg-primary: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+  --bg-secondary: #1a1a2e;
+  --text-primary: #ffffff;
+  --text-secondary: #b8c5d6;
+  --accent-primary: #667eea;
+  --accent-secondary: #764ba2;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme {
+  --bg-primary: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+  --bg-secondary: #1a1a2e;
+  --text-primary: #ffffff;
+  --text-secondary: #b8c5d6;
+  --accent-primary: #667eea;
+  --accent-secondary: #764ba2;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+.light-theme {
+  --bg-primary: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --bg-secondary: #ffffff;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --accent-primary: #3498db;
+  --accent-secondary: #2980b9;
+  --card-bg: rgba(0, 0, 0, 0.05);
+  --border-color: rgba(0, 0, 0, 0.1);
+}
+
 .App {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 main {
@@ -21,7 +57,7 @@ section {
   font-weight: 700;
   text-align: center;
   margin-bottom: 60px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -33,7 +69,7 @@ section {
   display: block;
   width: 80px;
   height: 4px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
   margin: 20px auto 0;
   border-radius: 2px;
 }
