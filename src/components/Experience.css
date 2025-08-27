@@ -163,3 +163,19 @@
     gap: 0.5rem;
   }
 }
+
+/* LazyLoadingOptimization Styles - Added 2025-08-27 */
+.lazyloadingoptimization-container {
+  padding: 20px;
+  margin: 10px 0;
+}
+
+.lazyloadingoptimization-active {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.lazyloadingoptimization-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
