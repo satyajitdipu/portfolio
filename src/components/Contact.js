@@ -11,18 +11,80 @@ const Contact = () => {
     message: ''
   });
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = 'Name must be at least 2 characters';
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: ''
+      });
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Create mailto link
-    const mailtoLink = `mailto:satyajits1001@gmail.com?subject=Portfolio Contact from ${formData.name}&body=${formData.message}%0D%0A%0D%0AFrom: ${formData.name}%0D%0AEmail: ${formData.email}`;
-    window.location.href = mailtoLink;
+    setSubmitMessage('');
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Create mailto link
+      const mailtoLink = `mailto:satyajits1001@gmail.com?subject=Portfolio Contact from ${formData.name}&body=${encodeURIComponent(formData.message)}%0D%0A%0D%0AFrom: ${formData.name}%0D%0AEmail: ${formData.email}`;
+      window.location.href = mailtoLink;
+
+      setSubmitMessage('Thank you for your message! Opening your email client...');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      setSubmitMessage('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -126,7 +188,9 @@ const Contact = () => {
                 onChange={handleChange}
                 placeholder="John Doe"
                 required
+                className={errors.name ? 'error' : ''}
               />
+              {errors.name && <span className="error-message">{errors.name}</span>}
             </div>
 
             <div className="form-group">
@@ -139,7 +203,9 @@ const Contact = () => {
                 onChange={handleChange}
                 placeholder="john@example.com"
                 required
+                className={errors.email ? 'error' : ''}
               />
+              {errors.email && <span className="error-message">{errors.email}</span>}
             </div>
 
             <div className="form-group">
@@ -152,12 +218,20 @@ const Contact = () => {
                 placeholder="Your message here..."
                 rows="5"
                 required
+                className={errors.message ? 'error' : ''}
               ></textarea>
+              {errors.message && <span className="error-message">{errors.message}</span>}
             </div>
 
-            <button type="submit" className="submit-btn">
-              Send Message
+            <button type="submit" className="submit-btn" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
+
+            {submitMessage && (
+              <div className={`submit-message ${submitMessage.includes('Thank you') ? 'success' : 'error'}`}>
+                {submitMessage}
+              </div>
+            )}
           </form>
         </div>
       </div>
