@@ -966,3 +966,19 @@
     font-size: 1.2rem;
   }
 }
+
+/* AdvancedFiltering Styles - Added 2025-09-06 */
+.advancedfiltering-container {
+  padding: 20px;
+  margin: 10px 0;
+}
+
+.advancedfiltering-active {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.advancedfiltering-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
