@@ -3,7 +3,7 @@ import Experience from './Experience';
 
 test('renders experience section', () => {
   render(<Experience />);
-  const experienceElement = screen.getByText(/Experience/i);
+  const experienceElement = screen.getByText(/Work Experience/i);
   expect(experienceElement).toBeInTheDocument();
 });
 

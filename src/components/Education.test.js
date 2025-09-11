@@ -3,7 +3,7 @@ import Education from './Education';
 
 test('renders education section', () => {
   render(<Education />);
-  const educationElement = screen.getByText(/Education/i);
+  const educationElement = screen.getByText(/Education & Certifications/i);
   expect(educationElement).toBeInTheDocument();
 });
 
