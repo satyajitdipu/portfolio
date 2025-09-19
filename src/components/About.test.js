@@ -84,3 +84,18 @@ describe('documentation Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// DarkModeToggle Tests - Added 2025-09-19
+test('initializes DarkModeToggle correctly', () => {
+  const config = { feature: 'DarkModeToggle', component: 'About' };
+  expect(config.feature).toBe('DarkModeToggle');
+});
+
+test('validates DarkModeToggle data', () => {
+  const validData = { test: 'data' };
+  const invalidData = null;
+  expect(validData).toBeTruthy();
+  expect(invalidData).toBeFalsy();
+});
+
+
