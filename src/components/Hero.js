@@ -1,3 +1,4 @@
+// Hero component - Main landing section with introduction and social links
 import React from 'react';
 import './Hero.css';
 import { FaGithub, FaLinkedin, FaPhone, FaEnvelope } from 'react-icons/fa';
