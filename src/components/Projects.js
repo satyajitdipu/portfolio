@@ -1,9 +1,48 @@
 // Projects component - Showcase of development projects
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import './Projects.css';
-import { FaGithub, FaExternalLinkAlt, FaStar, FaCodeBranch } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaStar, FaCodeBranch, FaFilter, FaSort } from 'react-icons/fa';
 
 const Projects = () => {
+  const [filterTech, setFilterTech] = useState('All');
+  const [sortBy, setSortBy] = useState('stars'); // 'stars', 'name', 'recent'
+
+  // Get all unique technologies for filter dropdown
+  const allTechnologies = useMemo(() => {
+    const techSet = new Set();
+    projects.forEach(project => {
+      project.technologies.forEach(tech => techSet.add(tech));
+    });
+    return ['All', ...Array.from(techSet).sort()];
+  }, []);
+
+  // Filter and sort projects
+  const filteredAndSortedProjects = useMemo(() => {
+    let filtered = projects;
+
+    // Filter by technology
+    if (filterTech !== 'All') {
+      filtered = projects.filter(project =>
+        project.technologies.includes(filterTech)
+      );
+    }
+
+    // Sort projects
+    const sorted = [...filtered].sort((a, b) => {
+      switch (sortBy) {
+        case 'stars':
+          return b.stars - a.stars;
+        case 'name':
+          return a.name.localeCompare(b.name);
+        case 'recent':
+          return b.id - a.id; // Assuming higher ID = more recent
+        default:
+          return 0;
+      }
+    });
+
+    return sorted;
+  }, [filterTech, sortBy]);
   const projects = [
     {
       id: 1,
@@ -74,9 +113,43 @@ const Projects = () => {
         <p className="section-subtitle">
           Check out my recent work on <a href="https://github.com/satyajitdipu?tab=repositories" target="_blank" rel="noopener noreferrer" className="github-link">GitHub</a>
         </p>
-        
+
+        {/* Filter and Sort Controls */}
+        <div className="projects-controls">
+          <div className="filter-group">
+            <FaFilter className="control-icon" />
+            <label htmlFor="tech-filter">Filter by Technology:</label>
+            <select
+              id="tech-filter"
+              value={filterTech}
+              onChange={(e) => setFilterTech(e.target.value)}
+              className="filter-select"
+            >
+              {allTechnologies.map(tech => (
+                <option key={tech} value={tech}>{tech}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="sort-group">
+            <FaSort className="control-icon" />
+            <label htmlFor="sort-select">Sort by:</label>
+            <select
+              id="sort-select"
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="sort-select"
+            >
+              <option value="stars">Most Stars</option>
+              <option value="name">Name (A-Z)</option>
+              <option value="recent">Most Recent</option>
+            </select>
+          </div>
+        </div>
+
         <div className="projects-grid">
-          {projects.map((project) => (
+          {filteredAndSortedProjects.length > 0 ? (
+            filteredAndSortedProjects.map((project) => (
             <div key={project.id} className="project-card">
               <div className="project-header">
                 <h3 className="project-name">{project.name}</h3>
@@ -109,7 +182,15 @@ const Projects = () => {
                 </span>
               </div>
             </div>
-          ))}
+          ))
+          ) : (
+            <div className="no-projects">
+              <p>No projects found matching the selected filter.</p>
+              <button onClick={() => setFilterTech('All')} className="btn btn-secondary">
+                Show All Projects
+              </button>
+            </div>
+          )}
         </div>
 
         <div className="projects-footer">
