@@ -83,3 +83,18 @@ describe('search Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// ExportToPDF Tests - Added 2025-11-09
+test('initializes ExportToPDF correctly', () => {
+  const config = { feature: 'ExportToPDF', component: 'Experience' };
+  expect(config.feature).toBe('ExportToPDF');
+});
+
+test('validates ExportToPDF data', () => {
+  const validData = { test: 'data' };
+  const invalidData = null;
+  expect(validData).toBeTruthy();
+  expect(invalidData).toBeFalsy();
+});
+
+

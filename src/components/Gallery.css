@@ -570,3 +570,18 @@
     justify-content: center;
   }
 }
+/* ExportToPDF Styles - Added 2025-11-09 */
+.exporttopdf-container {
+  padding: 20px;
+  margin: 10px 0;
+}
+
+.exporttopdf-active {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.exporttopdf-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
