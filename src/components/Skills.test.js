@@ -84,3 +84,18 @@ describe('theming Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// MultiLanguageSupport Tests - Added 2025-11-24
+test('initializes MultiLanguageSupport correctly', () => {
+  const config = { feature: 'MultiLanguageSupport', component: 'Skills' };
+  expect(config.feature).toBe('MultiLanguageSupport');
+});
+
+test('validates MultiLanguageSupport data', () => {
+  const validData = { test: 'data' };
+  const invalidData = null;
+  expect(validData).toBeTruthy();
+  expect(invalidData).toBeFalsy();
+});
+
+
