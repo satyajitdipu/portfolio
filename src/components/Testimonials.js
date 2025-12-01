@@ -1,0 +1,143 @@
+// Testimonials component - Client reviews and feedback
+import React, { useState } from 'react';
+import './Testimonials.css';
+import { FaQuoteLeft, FaStar, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+
+const Testimonials = () => {
+  const testimonials = [
+    {
+      id: 1,
+      name: 'Rajesh Kumar',
+      position: 'CTO, TechCorp Solutions',
+      company: 'TechCorp Solutions',
+      content: 'Satyajit delivered exceptional backend solutions for our e-commerce platform. His expertise in Python and Django helped us scale our system efficiently. The API integrations were seamless and the code quality was outstanding.',
+      rating: 5,
+      image: null
+    },
+    {
+      id: 2,
+      name: 'Priya Sharma',
+      position: 'Project Manager, InnovateLabs',
+      company: 'InnovateLabs',
+      content: 'Working with Satyajit on our HR management system was a great experience. He understood our requirements perfectly and delivered a robust, scalable solution. His problem-solving skills and attention to detail are remarkable.',
+      rating: 5,
+      image: null
+    },
+    {
+      id: 3,
+      name: 'Amit Patel',
+      position: 'Founder, StartupFlow',
+      company: 'StartupFlow',
+      content: 'Satyajit helped us build our vendor management system from ground up. His full-stack development skills and knowledge of modern technologies helped us launch our product ahead of schedule. Highly recommended!',
+      rating: 5,
+      image: null
+    },
+    {
+      id: 4,
+      name: 'Dr. Meera Singh',
+      position: 'Research Director, AgriTech Institute',
+      company: 'AgriTech Institute',
+      content: 'The crop disease detection system developed by Satyajit has been instrumental in our agricultural research. His implementation of machine learning algorithms showed deep understanding of both technology and domain knowledge.',
+      rating: 5,
+      image: null
+    }
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextTestimonial = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevTestimonial = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToTestimonial = (index) => {
+    setCurrentIndex(index);
+  };
+
+  const renderStars = (rating) => {
+    return Array.from({ length: 5 }, (_, index) => (
+      <FaStar
+        key={index}
+        className={index < rating ? 'star filled' : 'star'}
+      />
+    ));
+  };
+
+  return (
+    <section id="testimonials" className="testimonials">
+      <div className="container">
+        <h2 className="section-title">Client Testimonials</h2>
+        <p className="section-subtitle">
+          What clients and colleagues say about working with me
+        </p>
+
+        <div className="testimonials-container">
+          <div className="testimonial-slider">
+            <div
+              className="testimonial-track"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {testimonials.map((testimonial) => (
+                <div key={testimonial.id} className="testimonial-card">
+                  <div className="testimonial-content">
+                    <FaQuoteLeft className="quote-icon" />
+                    <p className="testimonial-text">{testimonial.content}</p>
+                    <div className="testimonial-rating">
+                      {renderStars(testimonial.rating)}
+                    </div>
+                  </div>
+
+                  <div className="testimonial-author">
+                    <div className="author-info">
+                      <h4 className="author-name">{testimonial.name}</h4>
+                      <p className="author-position">{testimonial.position}</p>
+                      <p className="author-company">{testimonial.company}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="testimonial-navigation">
+            <button
+              className="nav-btn prev-btn"
+              onClick={prevTestimonial}
+              aria-label="Previous testimonial"
+            >
+              <FaChevronLeft />
+            </button>
+
+            <div className="testimonial-dots">
+              {testimonials.map((_, index) => (
+                <button
+                  key={index}
+                  className={`dot ${index === currentIndex ? 'active' : ''}`}
+                  onClick={() => goToTestimonial(index)}
+                  aria-label={`Go to testimonial ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            <button
+              className="nav-btn next-btn"
+              onClick={nextTestimonial}
+              aria-label="Next testimonial"
+            >
+              <FaChevronRight />
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Testimonials;
