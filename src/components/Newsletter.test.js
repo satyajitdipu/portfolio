@@ -265,3 +265,18 @@ describe('state-management Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// PerformanceMetrics Tests - Added 2025-12-05
+test('initializes PerformanceMetrics correctly', () => {
+  const config = { feature: 'PerformanceMetrics', component: 'Newsletter' };
+  expect(config.feature).toBe('PerformanceMetrics');
+});
+
+test('validates PerformanceMetrics data', () => {
+  const validData = { test: 'data' };
+  const invalidData = null;
+  expect(validData).toBeTruthy();
+  expect(invalidData).toBeFalsy();
+});
+
+

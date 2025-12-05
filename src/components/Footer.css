@@ -66,3 +66,19 @@
     align-items: center;
   }
 }
+
+/* PerformanceMetrics Styles - Added 2025-12-05 */
+.performancemetrics-container {
+  padding: 20px;
+  margin: 10px 0;
+}
+
+.performancemetrics-active {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.performancemetrics-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
