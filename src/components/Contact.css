@@ -966,3 +966,19 @@
     font-size: 1.2rem;
   }
 }
+
+/* AccessibilityImprovements Styles - Added 2025-12-08 */
+.accessibilityimprovements-container {
+  padding: 20px;
+  margin: 10px 0;
+}
+
+.accessibilityimprovements-active {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.accessibilityimprovements-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
