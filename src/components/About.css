@@ -1,0 +1,99 @@
+.about {
+  background: rgba(26, 26, 46, 0.3);
+  border-radius: 20px;
+  padding: 80px 40px;
+  margin: 40px 0;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-text h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #b0b0b0;
+  margin-bottom: 1.5rem;
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.highlight-item {
+  background: rgba(102, 126, 234, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+  transition: all 0.3s ease;
+}
+
+.highlight-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(102, 126, 234, 0.5);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
+
+.highlight-item h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+}
+
+.highlight-item p {
+  font-size: 1rem;
+  color: #a0a0a0;
+}
+
+.highlight-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.highlight-item ul li {
+  padding: 0.5rem 0;
+  color: #a0a0a0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.highlight-item ul li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: #667eea;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 60px 20px;
+    margin: 20px 0;
+  }
+
+  .about-text h3 {
+    font-size: 1.5rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .about-highlights {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
