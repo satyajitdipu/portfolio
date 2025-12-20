@@ -7,13 +7,23 @@ import {
   FaReact, 
   FaLaravel, 
   FaGitAlt, 
-  FaDatabase 
+  FaDatabase,
+  FaNodeJs 
 } from 'react-icons/fa';
 import { 
   SiMysql, 
   SiPostgresql, 
   SiMongodb,
-  SiPostman
+  SiPostman,
+  SiDjango,
+  SiFlask,
+  SiExpress,
+  SiPytorch,
+  SiScikitlearn,
+  SiTypescript,
+  SiTailwindcss,
+  SiBootstrap,
+  SiSocketdotio
 } from 'react-icons/si';
 
 const Skills = () => {
@@ -22,45 +32,64 @@ const Skills = () => {
       title: 'Backend Development',
       skills: [
         { name: 'Python', icon: <FaPython />, level: 90 },
+        { name: 'Django', icon: <SiDjango />, level: 85 },
+        { name: 'Flask', icon: <SiFlask />, level: 85 },
         { name: 'PHP', icon: <FaPhp />, level: 85 },
-        { name: 'Laravel', icon: <FaLaravel />, level: 85 }
+        { name: 'Laravel', icon: <FaLaravel />, level: 85 },
+        { name: 'Node.js', icon: <FaNodeJs />, level: 80 },
+        { name: 'Express', icon: <SiExpress />, level: 80 }
       ]
     },
     {
-      title: 'Frontend & JavaScript',
+      title: 'Frontend Development',
       skills: [
-        { name: 'JavaScript', icon: <FaJs />, level: 80 },
-        { name: 'React', icon: <FaReact />, level: 75 }
+        { name: 'JavaScript', icon: <FaJs />, level: 85 },
+        { name: 'TypeScript', icon: <SiTypescript />, level: 80 },
+        { name: 'React', icon: <FaReact />, level: 85 },
+        { name: 'Tailwind CSS', icon: <SiTailwindcss />, level: 80 },
+        { name: 'Bootstrap', icon: <SiBootstrap />, level: 80 }
       ]
     },
     {
       title: 'Database Management',
       skills: [
         { name: 'MySQL', icon: <SiMysql />, level: 85 },
-        { name: 'PostgreSQL', icon: <SiPostgresql />, level: 80 },
-        { name: 'MongoDB', icon: <SiMongodb />, level: 75 }
+        { name: 'PostgreSQL', icon: <SiPostgresql />, level: 85 },
+        { name: 'MongoDB', icon: <SiMongodb />, level: 75 },
+        { name: 'SQLite', icon: <FaDatabase />, level: 80 }
+      ]
+    },
+    {
+      title: 'Machine Learning & AI',
+      skills: [
+        { name: 'PyTorch', icon: <SiPytorch />, level: 80 },
+        { name: 'scikit-learn', icon: <SiScikitlearn />, level: 85 },
+        { name: 'Deep Learning', icon: <FaPython />, level: 75 }
       ]
     },
     {
       title: 'Tools & Technologies',
       skills: [
-        { name: 'Git', icon: <FaGitAlt />, level: 85 },
+        { name: 'Git', icon: <FaGitAlt />, level: 90 },
         { name: 'REST API', icon: <SiPostman />, level: 90 },
-        { name: 'JSON', icon: <FaDatabase />, level: 90 }
+        { name: 'Socket.io', icon: <SiSocketdotio />, level: 75 }
       ]
     }
   ];
 
   const coreSkills = [
+    'Full-Stack Development',
     'API Design & Integration',
     'System Architecture',
     'Database Optimization',
+    'Machine Learning & Computer Vision',
+    'E-Commerce Solutions',
+    'HR Management Systems',
+    'Vendor Management',
+    'RESTful Services',
+    'Real-time Applications',
     'Problem Solving',
-    'Clean Code Practices',
-    'Performance Tuning',
-    'Version Control',
-    'CRM Development',
-    'HR Management Systems'
+    'Clean Code Practices'
   ];
 
   return (
