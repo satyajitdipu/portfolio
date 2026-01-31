@@ -1,7 +1,7 @@
 // Resume component - Interactive resume with download functionality
 import React, { useState } from 'react';
 import './Resume.css';
-import { FaDownload, FaPrint, FaEye, FaUser, FaBriefcase, FaGraduationCap, FaCode, FaTrophy, FaCertificate, FaLanguage, FaProjectDiagram } from 'react-icons/fa';
+import { FaDownload, FaPrint, FaEye, FaUser, FaBriefcase, FaGraduationCap, FaCode, FaTrophy, FaCertificate, FaProjectDiagram } from 'react-icons/fa';
 
 const Resume = () => {
   const [activeSection, setActiveSection] = useState('overview');
