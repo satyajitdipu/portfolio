@@ -101,6 +101,41 @@ To customize the portfolio with your own information:
 - **Mobile Menu**: Hamburger menu for mobile devices
 - **Form Handling**: Contact form with mailto functionality
 
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! See [CONTRIBUTING.md](./CONTRIBUTING.md) for:
+- How to set up git authentication properly
+- Development workflow
+- Troubleshooting common issues
+
+## 🔧 Troubleshooting
+
+### Git Push Permission Error (403)
+
+If you encounter a `403` error when pushing to GitHub:
+
+```
+remote: Permission to satyajitdipu/portfolio.git denied to satyajitdipu.
+fatal: unable to access 'https://github.com/satyajitdipu/portfolio.git/': The requested URL returned error: 403
+```
+
+**Quick Fixes:**
+
+1. **Use SSH instead of HTTPS** (Recommended):
+   ```bash
+   git remote set-url origin git@github.com:satyajitdipu/portfolio.git
+   ```
+
+2. **Use GitHub CLI**:
+   ```bash
+   gh auth login
+   gh auth setup-git
+   ```
+
+3. **Use Personal Access Token**: Create a token at GitHub Settings → Developer settings → Personal access tokens, then use it as your password when pushing.
+
+For detailed solutions, see [CONTRIBUTING.md](./CONTRIBUTING.md#git-setup-and-authentication).
+
 ## 📄 License
 
 This project is open source and available for personal use.
