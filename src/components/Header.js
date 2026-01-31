@@ -32,6 +32,7 @@ const Header = () => {
           <li><button onClick={() => scrollToSection('skills')}>Skills</button></li>
           <li><button onClick={() => scrollToSection('experience')}>Experience</button></li>
           <li><button onClick={() => scrollToSection('education')}>Education</button></li>
+          <li><button onClick={() => scrollToSection('timeline')}>Timeline</button></li>
           <li><button onClick={() => scrollToSection('projects')}>Projects</button></li>
           <li><button onClick={() => scrollToSection('testimonials')}>Testimonials</button></li>
           <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>
