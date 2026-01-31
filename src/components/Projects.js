@@ -4,45 +4,6 @@ import './Projects.css';
 import { FaGithub, FaExternalLinkAlt, FaStar, FaCodeBranch, FaFilter, FaSort } from 'react-icons/fa';
 
 const Projects = () => {
-  const [filterTech, setFilterTech] = useState('All');
-  const [sortBy, setSortBy] = useState('stars'); // 'stars', 'name', 'recent'
-
-  // Get all unique technologies for filter dropdown
-  const allTechnologies = useMemo(() => {
-    const techSet = new Set();
-    projects.forEach(project => {
-      project.technologies.forEach(tech => techSet.add(tech));
-    });
-    return ['All', ...Array.from(techSet).sort()];
-  }, []);
-
-  // Filter and sort projects
-  const filteredAndSortedProjects = useMemo(() => {
-    let filtered = projects;
-
-    // Filter by technology
-    if (filterTech !== 'All') {
-      filtered = projects.filter(project =>
-        project.technologies.includes(filterTech)
-      );
-    }
-
-    // Sort projects
-    const sorted = [...filtered].sort((a, b) => {
-      switch (sortBy) {
-        case 'stars':
-          return b.stars - a.stars;
-        case 'name':
-          return a.name.localeCompare(b.name);
-        case 'recent':
-          return b.id - a.id; // Assuming higher ID = more recent
-        default:
-          return 0;
-      }
-    });
-
-    return sorted;
-  }, [filterTech, sortBy]);
   const projects = [
     {
       id: 1,
@@ -105,6 +66,46 @@ const Projects = () => {
       forks: 3
     }
   ];
+
+  const [filterTech, setFilterTech] = useState('All');
+  const [sortBy, setSortBy] = useState('stars'); // 'stars', 'name', 'recent'
+
+  // Get all unique technologies for filter dropdown
+  const allTechnologies = useMemo(() => {
+    const techSet = new Set();
+    projects.forEach(project => {
+      project.technologies.forEach(tech => techSet.add(tech));
+    });
+    return ['All', ...Array.from(techSet).sort()];
+  }, [projects]);
+
+  // Filter and sort projects
+  const filteredAndSortedProjects = useMemo(() => {
+    let filtered = projects;
+
+    // Filter by technology
+    if (filterTech !== 'All') {
+      filtered = projects.filter(project =>
+        project.technologies.includes(filterTech)
+      );
+    }
+
+    // Sort projects
+    const sorted = [...filtered].sort((a, b) => {
+      switch (sortBy) {
+        case 'stars':
+          return b.stars - a.stars;
+        case 'name':
+          return a.name.localeCompare(b.name);
+        case 'recent':
+          return b.id - a.id; // Assuming higher ID = more recent
+        default:
+          return 0;
+      }
+    });
+
+    return sorted;
+  }, [filterTech, sortBy, projects]);
 
   return (
     <section id="projects" className="projects">
