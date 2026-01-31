@@ -4,7 +4,7 @@ import './Projects.css';
 import { FaGithub, FaExternalLinkAlt, FaStar, FaCodeBranch, FaFilter, FaSort } from 'react-icons/fa';
 
 const Projects = () => {
-  const projects = [
+  const projects = useMemo(() => [
     {
       id: 1,
       name: 'E-Commerce Platform',
@@ -65,7 +65,7 @@ const Projects = () => {
       stars: 10,
       forks: 3
     }
-  ];
+  ], []);
 
   const [filterTech, setFilterTech] = useState('All');
   const [sortBy, setSortBy] = useState('stars'); // 'stars', 'name', 'recent'
