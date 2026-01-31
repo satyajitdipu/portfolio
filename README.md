@@ -132,7 +132,7 @@ fatal: unable to access 'https://github.com/satyajitdipu/portfolio.git/': The re
    gh auth setup-git
    ```
 
-3. **Use Personal Access Token**: Create a token at GitHub Settings → Developer settings → Personal access tokens, then use it as your password when pushing.
+3. **Use Personal Access Token**: Create a token at GitHub Settings → Developer settings → Personal access tokens. When pushing, enter your GitHub username and use the token (not your GitHub password) when prompted for password.
 
 For detailed solutions, see [CONTRIBUTING.md](./CONTRIBUTING.md#git-setup-and-authentication).
 

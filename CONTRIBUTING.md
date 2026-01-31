@@ -61,10 +61,24 @@ This is typically caused by authentication issues. Here are the solutions:
    - Select scopes: `repo` (full control of private repositories)
    - Generate and copy the token
 
-2. **Configure git credentials**:
+2. **Configure git credential helper** (choose based on your OS):
+   
+   For macOS:
    ```bash
-   git config --global credential.helper store
+   git config --global credential.helper osxkeychain
    ```
+   
+   For Windows:
+   ```bash
+   git config --global credential.helper wincred
+   ```
+   
+   For Linux:
+   ```bash
+   git config --global credential.helper cache --timeout=3600
+   ```
+   
+   > ⚠️ **Security Note**: Avoid using `credential.helper store` as it saves credentials in plain text. Use platform-specific secure storage or `cache` for temporary storage.
 
 3. **Push with token** (you'll be prompted for credentials):
    ```bash
