@@ -19,6 +19,21 @@
       "react-app"
     ]
   },
+  "jest": {
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    },
+    "testEnvironment": "jsdom"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -33,6 +48,9 @@
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2"
+    "@testing-library/react": "^16.3.2",
+    "@babel/preset-env": "^7.22.0",
+    "@babel/preset-react": "^7.22.0",
+    "identity-obj-proxy": "^3.0.0"
   }
 }
