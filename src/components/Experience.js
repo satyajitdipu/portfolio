@@ -1,3 +1,4 @@
+// Experience component - Work history timeline
 import React from 'react';
 import './Experience.css';
 import { FaCalendar, FaMapMarkerAlt } from 'react-icons/fa';

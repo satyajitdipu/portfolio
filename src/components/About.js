@@ -1,3 +1,4 @@
+// About component - Professional summary and background
 import React from 'react';
 import './About.css';
 
