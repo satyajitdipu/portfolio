@@ -14,17 +14,17 @@ test('renders university name', () => {
   expect(universityElement).toBeInTheDocument();
 });
 
-// Comprehensive test suite for analytics - PR #5
-describe('analytics Enhancement Tests', () => {
+// Comprehensive test suite for navigation - PR #20
+describe('navigation Enhancement Tests', () => {
   let mockData;
   let mockDispatch;
   
   beforeEach(() => {
     mockData = {
-      id: 'test-5',
-      title: 'Test analytics',
-      description: 'Test description for PR 5',
-      metadata: { version: '1.0.5' }
+      id: 'test-20',
+      title: 'Test navigation',
+      description: 'Test description for PR 20',
+      metadata: { version: '1.0.20' }
     };
     mockDispatch = jest.fn();
   });
@@ -33,9 +33,9 @@ describe('analytics Enhancement Tests', () => {
     jest.clearAllMocks();
   });
   
-  test('should handle analytics initialization correctly', () => {
+  test('should handle navigation initialization correctly', () => {
     const { getByTestId } = render(<ComponentUnderTest data={mockData} />);
-    expect(getByTestId('analytics-container')).toBeInTheDocument();
+    expect(getByTestId('navigation-container')).toBeInTheDocument();
   });
   
   test('should optimize performance metrics', () => {
@@ -63,7 +63,7 @@ describe('analytics Enhancement Tests', () => {
   });
 });
 
-describe('analytics Integration Tests', () => {
+describe('navigation Integration Tests', () => {
   test('should integrate with state management', async () => {
     const store = createTestStore();
     const { getByRole } = render(
