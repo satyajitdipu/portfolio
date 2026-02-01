@@ -1,7 +1,7 @@
 // Blog component - Personal blog with articles and insights
 import React, { useState, useMemo } from 'react';
 import './Blog.css';
-import { FaCalendarAlt, FaUser, FaTags, FaSearch, FaFilter, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { FaCalendarAlt, FaUser, FaSearch, FaFilter, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 const Blog = () => {
   const blogPosts = useMemo(() => [
