@@ -139,3 +139,23 @@ describe('styling Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// Automation test suite - PR #33
+describe('Automation functionality', () => {
+  test('should initialize Automation correctly', () => {
+    const config = initializeAutomation();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate Automation data', () => {
+    expect(validateAutomationData({})).toBe(true);
+    expect(validateAutomationData(null)).toBe(false);
+  });
+  
+  test('should process Automation input', () => {
+    const result = processAutomation({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
+});
+
