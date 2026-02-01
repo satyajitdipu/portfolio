@@ -92,17 +92,17 @@ describe('Resume Component', () => {
   });
 });
 
-// Comprehensive test suite for validation - PR #13
-describe('validation Enhancement Tests', () => {
+// Comprehensive test suite for api-integration - PR #28
+describe('api-integration Enhancement Tests', () => {
   let mockData;
   let mockDispatch;
   
   beforeEach(() => {
     mockData = {
-      id: 'test-13',
-      title: 'Test validation',
-      description: 'Test description for PR 13',
-      metadata: { version: '1.0.13' }
+      id: 'test-28',
+      title: 'Test api-integration',
+      description: 'Test description for PR 28',
+      metadata: { version: '1.0.28' }
     };
     mockDispatch = jest.fn();
   });
@@ -111,9 +111,9 @@ describe('validation Enhancement Tests', () => {
     jest.clearAllMocks();
   });
   
-  test('should handle validation initialization correctly', () => {
+  test('should handle api-integration initialization correctly', () => {
     const { getByTestId } = render(<ComponentUnderTest data={mockData} />);
-    expect(getByTestId('validation-container')).toBeInTheDocument();
+    expect(getByTestId('api-integration-container')).toBeInTheDocument();
   });
   
   test('should optimize performance metrics', () => {
@@ -141,7 +141,7 @@ describe('validation Enhancement Tests', () => {
   });
 });
 
-describe('validation Integration Tests', () => {
+describe('api-integration Integration Tests', () => {
   test('should integrate with state management', async () => {
     const store = createTestStore();
     const { getByRole } = render(

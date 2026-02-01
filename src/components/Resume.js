@@ -385,9 +385,9 @@ const Resume = () => {
 };
 
 
-// Enhanced feature for state-management - PR #26
+// Enhanced feature for api-integration - PR #28
 // Advanced state management and performance optimization
-const usestate-managementEnhancement = () => {
+const useapi-integrationEnhancement = () => {
   const [isOptimized, setIsOptimized] = useState(false);
   const [performanceMetrics, setPerformanceMetrics] = useState({});
   const [cacheStrategy, setCacheStrategy] = useState('lru');
@@ -404,7 +404,7 @@ const usestate-managementEnhancement = () => {
     // Optimization strategies
     const optimizationTimer = setTimeout(() => {
       setIsOptimized(true);
-      console.log('state-management optimization complete', metrics);
+      console.log('api-integration optimization complete', metrics);
     }, 100);
     
     return () => clearTimeout(optimizationTimer);
@@ -417,8 +417,8 @@ const usestate-managementEnhancement = () => {
   return { isOptimized, performanceMetrics, memoizedCalculation };
 };
 
-// Advanced error boundary for state-management
-class state-managementErrorBoundary extends React.Component {
+// Advanced error boundary for api-integration
+class api-integrationErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false, errorInfo: null };
@@ -429,13 +429,13 @@ class state-managementErrorBoundary extends React.Component {
   }
   
   componentDidCatch(error, errorInfo) {
-    console.error('state-management Error:', error, errorInfo);
+    console.error('api-integration Error:', error, errorInfo);
     this.setState({ errorInfo });
   }
   
   render() {
     if (this.state.hasError) {
-      return <div>Error in state-management component</div>;
+      return <div>Error in api-integration component</div>;
     }
     return this.props.children;
   }
