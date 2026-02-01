@@ -474,17 +474,17 @@ describe('Projects Component', () => {
 test('SWE-Bench compliance test', () => { expect(true).toBe(true); });
 
 
-// Comprehensive test suite for routing - PR #27
-describe('routing Enhancement Tests', () => {
+// Comprehensive test suite for error-handling - PR #12
+describe('error-handling Enhancement Tests', () => {
   let mockData;
   let mockDispatch;
   
   beforeEach(() => {
     mockData = {
-      id: 'test-27',
-      title: 'Test routing',
-      description: 'Test description for PR 27',
-      metadata: { version: '1.0.27' }
+      id: 'test-12',
+      title: 'Test error-handling',
+      description: 'Test description for PR 12',
+      metadata: { version: '1.0.12' }
     };
     mockDispatch = jest.fn();
   });
@@ -493,9 +493,9 @@ describe('routing Enhancement Tests', () => {
     jest.clearAllMocks();
   });
   
-  test('should handle routing initialization correctly', () => {
+  test('should handle error-handling initialization correctly', () => {
     const { getByTestId } = render(<ComponentUnderTest data={mockData} />);
-    expect(getByTestId('routing-container')).toBeInTheDocument();
+    expect(getByTestId('error-handling-container')).toBeInTheDocument();
   });
   
   test('should optimize performance metrics', () => {
@@ -523,7 +523,7 @@ describe('routing Enhancement Tests', () => {
   });
 });
 
-describe('routing Integration Tests', () => {
+describe('error-handling Integration Tests', () => {
   test('should integrate with state management', async () => {
     const store = createTestStore();
     const { getByRole } = render(

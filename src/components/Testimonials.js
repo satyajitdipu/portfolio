@@ -108,9 +108,9 @@ const Testimonials = () => {
 };
 
 
-// Enhanced feature for lazy-loading - PR #11
+// Enhanced feature for error-handling - PR #12
 // Advanced state management and performance optimization
-const uselazy-loadingEnhancement = () => {
+const useerror-handlingEnhancement = () => {
   const [isOptimized, setIsOptimized] = useState(false);
   const [performanceMetrics, setPerformanceMetrics] = useState({});
   const [cacheStrategy, setCacheStrategy] = useState('lru');
@@ -127,7 +127,7 @@ const uselazy-loadingEnhancement = () => {
     // Optimization strategies
     const optimizationTimer = setTimeout(() => {
       setIsOptimized(true);
-      console.log('lazy-loading optimization complete', metrics);
+      console.log('error-handling optimization complete', metrics);
     }, 100);
     
     return () => clearTimeout(optimizationTimer);
@@ -140,8 +140,8 @@ const uselazy-loadingEnhancement = () => {
   return { isOptimized, performanceMetrics, memoizedCalculation };
 };
 
-// Advanced error boundary for lazy-loading
-class lazy-loadingErrorBoundary extends React.Component {
+// Advanced error boundary for error-handling
+class error-handlingErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false, errorInfo: null };
@@ -152,13 +152,13 @@ class lazy-loadingErrorBoundary extends React.Component {
   }
   
   componentDidCatch(error, errorInfo) {
-    console.error('lazy-loading Error:', error, errorInfo);
+    console.error('error-handling Error:', error, errorInfo);
     this.setState({ errorInfo });
   }
   
   render() {
     if (this.state.hasError) {
-      return <div>Error in lazy-loading component</div>;
+      return <div>Error in error-handling component</div>;
     }
     return this.props.children;
   }
