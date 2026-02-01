@@ -2,7 +2,7 @@
 
 A modern, responsive personal portfolio website built with React.js, showcasing my skills, projects, experience, and blog posts.
 
-## Features
+## 🚀 Features
 
 - **Hero Section**: Eye-catching introduction with call-to-action
 - **About**: Personal background and professional summary
