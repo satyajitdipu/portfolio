@@ -80,17 +80,17 @@ describe('Gallery Component', () => {
   });
 });
 
-// Comprehensive test suite for animation - PR #8
-describe('animation Enhancement Tests', () => {
+// Comprehensive test suite for sorting - PR #23
+describe('sorting Enhancement Tests', () => {
   let mockData;
   let mockDispatch;
   
   beforeEach(() => {
     mockData = {
-      id: 'test-8',
-      title: 'Test animation',
-      description: 'Test description for PR 8',
-      metadata: { version: '1.0.8' }
+      id: 'test-23',
+      title: 'Test sorting',
+      description: 'Test description for PR 23',
+      metadata: { version: '1.0.23' }
     };
     mockDispatch = jest.fn();
   });
@@ -99,9 +99,9 @@ describe('animation Enhancement Tests', () => {
     jest.clearAllMocks();
   });
   
-  test('should handle animation initialization correctly', () => {
+  test('should handle sorting initialization correctly', () => {
     const { getByTestId } = render(<ComponentUnderTest data={mockData} />);
-    expect(getByTestId('animation-container')).toBeInTheDocument();
+    expect(getByTestId('sorting-container')).toBeInTheDocument();
   });
   
   test('should optimize performance metrics', () => {
@@ -129,7 +129,7 @@ describe('animation Enhancement Tests', () => {
   });
 });
 
-describe('animation Integration Tests', () => {
+describe('sorting Integration Tests', () => {
   test('should integrate with state management', async () => {
     const store = createTestStore();
     const { getByRole } = render(
