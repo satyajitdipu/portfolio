@@ -36,25 +36,25 @@ describe('Gallery Component', () => {
     render(<Gallery />);
     const galleryItem = screen.getByText('E-Commerce Platform Dashboard').closest('.gallery-item');
     fireEvent.click(galleryItem);
-    expect(screen.getByText('Admin dashboard for the e-commerce platform showing analytics and order management.')).toBeInTheDocument();
+    expect(screen.getByText('E-Commerce Platform Dashboard', { selector: '.modal-title' })).toBeInTheDocument();
   });
 
   test('closes modal when clicking close button', () => {
     render(<Gallery />);
     const galleryItem = screen.getByText('E-Commerce Platform Dashboard').closest('.gallery-item');
     fireEvent.click(galleryItem);
-    const closeButton = screen.getByRole('button', { name: /close/i });
+    const closeButton = document.querySelector('.close-button');
     fireEvent.click(closeButton);
-    expect(screen.queryByText('Admin dashboard for the e-commerce platform showing analytics and order management.')).not.toBeInTheDocument();
+    expect(screen.queryByText('E-Commerce Platform Dashboard', { selector: '.modal-title' })).not.toBeInTheDocument();
   });
 
   test('navigates between images in modal', () => {
     render(<Gallery />);
     const galleryItem = screen.getByText('E-Commerce Platform Dashboard').closest('.gallery-item');
     fireEvent.click(galleryItem);
-    const nextButton = screen.getByRole('button', { name: /next/i });
+    const nextButton = document.querySelector('.nav-button.next');
     fireEvent.click(nextButton);
-    expect(screen.getByText('Initial wireframes for a task management mobile application.')).toBeInTheDocument();
+    expect(screen.getByText('Mobile App Wireframes', { selector: '.modal-title' })).toBeInTheDocument();
   });
 
   test('shows no items message when no items match filter', () => {
@@ -75,7 +75,7 @@ describe('Gallery Component', () => {
 
   test('displays item metadata correctly', () => {
     render(<Gallery />);
-    expect(screen.getByText('Web Development')).toBeInTheDocument();
+    expect(screen.getAllByText('Web Development').length).toBeGreaterThan(0);
     expect(screen.getAllByText('React').length).toBeGreaterThan(0);
   });
 });

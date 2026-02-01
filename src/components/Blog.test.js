@@ -45,7 +45,7 @@ describe('Blog Component', () => {
     fireEvent.click(blogCard);
     const backButton = screen.getByText('Back to Blog');
     fireEvent.click(backButton);
-    expect(screen.getByText('Thoughts, insights, and tutorials')).toBeInTheDocument();
+    expect(screen.getByText('Thoughts, insights, and tutorials on technology, development, and innovation')).toBeInTheDocument();
   });
 
   test('displays pagination when there are multiple pages', () => {
