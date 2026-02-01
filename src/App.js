@@ -12,6 +12,7 @@ import Projects from './components/Projects';
 import Resume from './components/Resume';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
+import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
 
 // Theme Context
@@ -54,6 +55,7 @@ function App() {
           <Resume />
           <Testimonials />
           <Contact />
+          <Newsletter />
         </main>
         <Footer />
       </div>
