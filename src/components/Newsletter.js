@@ -1,7 +1,7 @@
 // Newsletter component - Enhanced email subscription with validation and success states
 import React, { useState, useContext } from 'react';
 import './Newsletter.css';
-import { FaEnvelope, FaCheck, FaTimes, FaSpinner, FaNewspaper, FaUsers, FaRocket, FaShieldAlt, FaClock } from 'react-icons/fa';
+import { FaEnvelope, FaCheck, FaTimes, FaSpinner, FaNewspaper, FaUsers, FaRocket, FaShieldAlt } from 'react-icons/fa';
 import { ThemeContext } from '../App';
 
 const Newsletter = () => {

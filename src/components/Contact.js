@@ -1,7 +1,7 @@
 // Contact component - Enhanced contact form and information section
 import React, { useState, useContext } from 'react';
 import './Contact.css';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaCalendarAlt, FaVideo, FaComments, FaRocket, FaUsers, FaClock, FaCheckCircle } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaVideo, FaComments, FaRocket, FaUsers, FaClock, FaCheckCircle } from 'react-icons/fa';
 import { SiHackerrank, SiLeetcode } from 'react-icons/si';
 import { ThemeContext } from '../App';
 
