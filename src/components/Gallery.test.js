@@ -148,3 +148,23 @@ describe('sorting Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// MobileApp test suite - PR #38
+describe('MobileApp functionality', () => {
+  test('should initialize MobileApp correctly', () => {
+    const config = initializeMobileApp();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate MobileApp data', () => {
+    expect(validateMobileAppData({})).toBe(true);
+    expect(validateMobileAppData(null)).toBe(false);
+  });
+  
+  test('should process MobileApp input', () => {
+    const result = processMobileApp({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
+});
+
