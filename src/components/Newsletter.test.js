@@ -64,7 +64,9 @@ describe('Newsletter Component', () => {
   test('shows error for empty email', async () => {
     render(<Newsletter />, { wrapper: MockThemeProvider });
     const submitButton = screen.getByText('Subscribe Now');
-    fireEvent.click(submitButton);
+    await act(async () => {
+      fireEvent.click(submitButton);
+    });
     await waitFor(() => {
       expect(screen.getByText('Email address is required')).toBeInTheDocument();
     });
@@ -76,7 +78,9 @@ describe('Newsletter Component', () => {
     const submitButton = screen.getByText('Subscribe Now');
 
     fireEvent.change(emailInput, { target: { value: 'invalid-email' } });
-    fireEvent.click(submitButton);
+    await act(async () => {
+      fireEvent.click(submitButton);
+    });
 
     await waitFor(() => {
       expect(screen.getByText('Please enter a valid email address')).toBeInTheDocument();
@@ -89,7 +93,9 @@ describe('Newsletter Component', () => {
     const submitButton = screen.getByText('Subscribe Now');
 
     fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
-    fireEvent.click(submitButton);
+    await act(async () => {
+      fireEvent.click(submitButton);
+    });
 
     expect(screen.getByText('Subscribing...')).toBeInTheDocument();
     expect(screen.getByText('Subscribing...').closest('button')).toBeDisabled();
