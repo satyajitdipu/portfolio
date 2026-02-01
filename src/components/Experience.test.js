@@ -82,3 +82,23 @@ describe('search Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// Forecasting test suite - PR #36
+describe('Forecasting functionality', () => {
+  test('should initialize Forecasting correctly', () => {
+    const config = initializeForecasting();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate Forecasting data', () => {
+    expect(validateForecastingData({})).toBe(true);
+    expect(validateForecastingData(null)).toBe(false);
+  });
+  
+  test('should process Forecasting input', () => {
+    const result = processForecasting({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
+});
+
