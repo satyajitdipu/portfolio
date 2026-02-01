@@ -149,7 +149,7 @@ describe('App Component', () => {
         <App />
       </MockThemeProvider>
     );
-    expect(screen.getByText('Blog')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Blog' })).toBeInTheDocument();
   });
 
   test('renders gallery section', () => {
@@ -158,6 +158,6 @@ describe('App Component', () => {
         <App />
       </MockThemeProvider>
     );
-    expect(screen.getByText('Gallery')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Gallery' })).toBeInTheDocument();
   });
 });

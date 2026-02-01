@@ -65,6 +65,10 @@ npm test
 npm run build
 ```
 
+## Admin Panel (Local)
+
+An `AdminPanel` component is included on the site to let you add / edit / remove projects locally. Data is stored in the browser's `localStorage` under the key `portfolioData`. To import the bundled sample data open the Admin Panel and click **Import Defaults**. This is intentionally a lightweight local administration interface useful for demoing content without a backend.
+
 ## Project Structure
 
 ```

@@ -16,6 +16,7 @@ import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
 import Blog from './components/Blog';
 import Gallery from './components/Gallery';
+import AdminPanel from './components/AdminPanel';
 
 // Theme Context
 export const ThemeContext = React.createContext();
@@ -61,6 +62,7 @@ function App() {
           <Contact />
           <Newsletter />
         </main>
+        <AdminPanel />
         <Footer />
       </div>
     </ThemeContext.Provider>

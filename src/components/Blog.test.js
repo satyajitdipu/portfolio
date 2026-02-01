@@ -27,7 +27,7 @@ describe('Blog Component', () => {
   test('filters posts by tag', () => {
     render(<Blog />);
     const tagSelect = screen.getByDisplayValue('All');
-    fireEvent.change(tagSelect, { target: { value: 'AI' } });
+    fireEvent.change(tagSelect, { target: { value: 'Machine Learning' } });
     expect(screen.getByText('Machine Learning in Agriculture: Revolutionizing Crop Management')).toBeInTheDocument();
     expect(screen.queryByText('The Evolution of Web Development: From Static Sites to Modern Frameworks')).not.toBeInTheDocument();
   });

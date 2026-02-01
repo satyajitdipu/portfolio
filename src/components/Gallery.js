@@ -3,6 +3,12 @@ import React, { useState, useMemo } from 'react';
 import './Gallery.css';
 import { FaImages, FaFilter, FaSearch, FaTimes, FaChevronLeft, FaChevronRight, FaDownload, FaEye } from 'react-icons/fa';
 
+// Safe fallbacks for icons in test environments
+const ImagesIcon = FaImages || (() => null);
+const FilterIcon = FaFilter || (() => null);
+const SearchIcon = FaSearch || (() => null);
+const EyeIcon = FaEye || (() => null);
+
 const Gallery = () => {
   const galleryItems = useMemo(() => [
     {
@@ -187,7 +193,7 @@ const Gallery = () => {
         {/* Gallery Controls */}
         <div className="gallery-controls">
           <div className="search-group">
-            <FaSearch className="control-icon" />
+            <SearchIcon className="control-icon" />
             <input
               type="text"
               placeholder="Search gallery..."
@@ -198,7 +204,7 @@ const Gallery = () => {
           </div>
 
           <div className="filter-group">
-            <FaFilter className="control-icon" />
+            <FilterIcon className="control-icon" />
             <label htmlFor="category-filter">Filter by Category:</label>
             <select
               id="category-filter"
@@ -225,7 +231,7 @@ const Gallery = () => {
                 <div className="item-image">
                   <img src={item.image} alt={item.title} />
                   <div className="item-overlay">
-                    <FaEye className="view-icon" />
+                    <EyeIcon className="view-icon" />
                     <span className="view-text">View</span>
                   </div>
                 </div>

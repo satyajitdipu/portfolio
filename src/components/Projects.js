@@ -1,8 +1,14 @@
-// Projects component - Showcase of development projects
-import React, { useState, useMemo, useContext } from 'react';
+/**
+ * Projects component
+ * Renders a list of projects with search, filter, sort and modal details.
+ * Data is read from `portfolioData` in localStorage if present, otherwise falls back
+ * to bundled `defaultProjects` sample data used for demos and Admin import.
+ */
+import React, { useState, useMemo, useContext, useEffect } from 'react';
 import './Projects.css';
 import { FaGithub, FaExternalLinkAlt, FaStar, FaCodeBranch, FaSort, FaSearch, FaTimes, FaEye, FaCalendar, FaTag } from 'react-icons/fa';
 import { ThemeContext } from '../App';
+import { useLocalStorage } from '../utils/helpers';
 
 const Projects = () => {
   const { theme } = useContext(ThemeContext);
@@ -13,7 +19,7 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const projects = useMemo(() => [
+  const defaultProjects = useMemo(() => [
     {
       id: 1,
       name: 'E-Commerce Platform',
@@ -112,11 +118,22 @@ const Projects = () => {
     }
   ], []);
 
+  // expose defaults globally for AdminPanel import
+  useEffect(() => { window.__DEFAULT_PROJECTS__ = defaultProjects; }, [defaultProjects]);
+
   // Get all unique technologies for filter dropdown
+
+  // Get all unique technologies for filter dropdown
+  // Provide defaultProjects globally so AdminPanel can import defaults
+  // Use centralized portfolioData to read projects
+  const [portfolio] = useLocalStorage('portfolioData', { projects: defaultProjects });
+  const projects = (portfolio && portfolio.projects) || defaultProjects;  
+
+
   const allTechnologies = useMemo(() => {
     const techSet = new Set();
     projects.forEach(project => {
-      project.technologies.forEach(tech => techSet.add(tech));
+      (project.technologies || []).forEach(tech => techSet.add(tech));
     });
     return Array.from(techSet).sort();
   }, [projects]);
@@ -162,6 +179,17 @@ const Projects = () => {
 
     return sorted;
   }, [searchTerm, selectedTechs, sortBy, projects]);
+
+  // Listen to global localStorage updates to stay in sync when AdminPanel updates projects
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.detail && e.detail.key === 'projects') {
+        setSelectedTechs([]);
+      }
+    };
+    window.addEventListener('localStorageUpdate', handler);
+    return () => window.removeEventListener('localStorageUpdate', handler);
+  }, []);
 
   // Handle technology filter toggle
   const handleTechToggle = (tech) => {

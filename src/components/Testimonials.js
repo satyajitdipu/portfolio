@@ -3,45 +3,12 @@ import React, { useState } from 'react';
 import './Testimonials.css';
 import { FaQuoteLeft, FaStar, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
+import { useLocalStorage } from '../utils/helpers';
+import { defaultPortfolio } from '../data/defaultPortfolio';
+
 const Testimonials = () => {
-  const testimonials = [
-    {
-      id: 1,
-      name: 'Rajesh Kumar',
-      position: 'CTO, TechCorp Solutions',
-      company: 'TechCorp Solutions',
-      content: 'Satyajit delivered exceptional backend solutions for our e-commerce platform. His expertise in Python and Django helped us scale our system efficiently. The API integrations were seamless and the code quality was outstanding.',
-      rating: 5,
-      image: null
-    },
-    {
-      id: 2,
-      name: 'Priya Sharma',
-      position: 'Project Manager, InnovateLabs',
-      company: 'InnovateLabs',
-      content: 'Working with Satyajit on our HR management system was a great experience. He understood our requirements perfectly and delivered a robust, scalable solution. His problem-solving skills and attention to detail are remarkable.',
-      rating: 5,
-      image: null
-    },
-    {
-      id: 3,
-      name: 'Amit Patel',
-      position: 'Founder, StartupFlow',
-      company: 'StartupFlow',
-      content: 'Satyajit helped us build our vendor management system from ground up. His full-stack development skills and knowledge of modern technologies helped us launch our product ahead of schedule. Highly recommended!',
-      rating: 5,
-      image: null
-    },
-    {
-      id: 4,
-      name: 'Dr. Meera Singh',
-      position: 'Research Director, AgriTech Institute',
-      company: 'AgriTech Institute',
-      content: 'The crop disease detection system developed by Satyajit has been instrumental in our agricultural research. His implementation of machine learning algorithms showed deep understanding of both technology and domain knowledge.',
-      rating: 5,
-      image: null
-    }
-  ];
+  const [portfolio] = useLocalStorage('portfolioData', defaultPortfolio);
+  const testimonials = (portfolio && portfolio.testimonials) || defaultPortfolio.testimonials;
 
   const [currentIndex, setCurrentIndex] = useState(0);
 

@@ -2,38 +2,13 @@ import React from 'react';
 import './Education.css';
 import { FaGraduationCap, FaCalendar, FaUniversity } from 'react-icons/fa';
 
-const Education = () => {
-  const education = [
-    {
-      institution: 'Sambalpur University Institute of Information Technology (SUIIT)',
-      degree: 'Bachelor of Technology - BTech',
-      field: 'Computer Science',
-      duration: 'August 2019 - May 2023',
-      description: [
-        'Completed comprehensive Computer Science curriculum',
-        'Gained strong foundation in programming and software development',
-        'Participated in various technical projects and hackathons',
-        'Developed problem-solving and analytical skills'
-      ]
-    },
-    {
-      institution: 'Jawahar Navodaya Vidyalaya (JNV)',
-      degree: '12th Grade',
-      field: 'Science',
-      duration: 'August 2015 - April 2019',
-      description: [
-        'Completed higher secondary education with Science stream',
-        'Strong foundation in Mathematics, Physics, and Chemistry',
-        'Developed early interest in technology and programming'
-      ]
-    }
-  ];
+import { useLocalStorage } from '../utils/helpers';
+import { defaultPortfolio } from '../data/defaultPortfolio';
 
-  const certifications = [
-    'upStart - Priceless Learning Programs from upGrad',
-    'Introduction to Back-End Development',
-    'Skills Boost Arcade Trivia April 2025 Week 1'
-  ];
+const Education = () => {
+  const [portfolio] = useLocalStorage('portfolioData', defaultPortfolio);
+  const education = (portfolio && portfolio.education) || defaultPortfolio.education;
+  const certifications = (portfolio && portfolio.certifications) || defaultPortfolio.certifications;
 
   return (
     <section id="education" className="education">

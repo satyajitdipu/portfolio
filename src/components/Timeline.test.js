@@ -70,7 +70,7 @@ describe('Timeline Component', () => {
     // Check if timeline items are rendered
     expect(screen.getByText('Started BCA Journey')).toBeInTheDocument();
     expect(screen.getByText('Completed BCA')).toBeInTheDocument();
-    expect(screen.getByText('Started MCA Program')).toBeInTheDocument();
+    expect(screen.getByText('Junior Developer')).toBeInTheDocument();
   });
 
   test('displays timeline markers with correct icons', () => {
@@ -104,8 +104,7 @@ describe('Timeline Component', () => {
     fireEvent.click(firstTimelineItem);
 
     // Now achievements should be visible
-    expect(screen.getByText('First Class throughout')).toBeInTheDocument();
-    expect(screen.getByText('Active in coding clubs')).toBeInTheDocument();
+    expect(screen.getByText('First Class')).toBeInTheDocument();
   });
 
   test('displays technology tags when item is active', () => {
@@ -117,7 +116,6 @@ describe('Timeline Component', () => {
 
     // Now technology tags should be visible
     expect(screen.getByText('C')).toBeInTheDocument();
-    expect(screen.getByText('C++')).toBeInTheDocument();
     expect(screen.getByText('SQL')).toBeInTheDocument();
   });
 

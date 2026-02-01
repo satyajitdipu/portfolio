@@ -1,0 +1,18 @@
+.admin-panel{padding:40px 0;background:#f9fafb;color:#111}
+.admin-panel .admin-sub{margin-bottom:18px;color:#444}
+.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.admin-form{background:#fff;padding:18px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.admin-form label{display:block;margin-top:8px;font-weight:600}
+.admin-form input,.admin-form textarea,.admin-form select{width:100%;padding:8px;margin-top:6px;border:1px solid #ddd;border-radius:4px}
+.admin-actions{margin-top:12px;display:flex;gap:8px}
+.admin-list{background:#fff;padding:18px;border-radius:8px;box-shadow:0 1px 4px rgba(0,0,0,0.06)}
+.admin-list ul{list-style:none;padding:0;margin:0}
+.admin-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #eee}
+.admin-item .meta .category{color:#666;font-size:12px;margin-left:8px}
+.admin-import{margin-top:12px}
+.admin-note{margin-top:12px;color:#666;font-size:13px}
+.admin-lock{background:#fff;padding:18px;border-radius:8px;box-shadow:0 1px 6px rgba(0,0,0,0.08);max-width:420px}
+.section-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.section-tabs .tab{padding:8px 12px;border:1px solid #ddd;background:#fff;border-radius:6px;cursor:pointer}
+.section-tabs .tab.active{background:#4F46E5;color:#fff;border-color:#4F46E5}
+@media (max-width:800px){.admin-grid{grid-template-columns:1fr}.section-tabs{overflow:auto}}
