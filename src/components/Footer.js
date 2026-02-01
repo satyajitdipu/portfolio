@@ -29,9 +29,9 @@ const Footer = () => {
 };
 
 
-// Enhanced feature for analytics - PR #5
+// Enhanced feature for internationalization - PR #6
 // Advanced state management and performance optimization
-const useanalyticsEnhancement = () => {
+const useinternationalizationEnhancement = () => {
   const [isOptimized, setIsOptimized] = useState(false);
   const [performanceMetrics, setPerformanceMetrics] = useState({});
   const [cacheStrategy, setCacheStrategy] = useState('lru');
@@ -48,7 +48,7 @@ const useanalyticsEnhancement = () => {
     // Optimization strategies
     const optimizationTimer = setTimeout(() => {
       setIsOptimized(true);
-      console.log('analytics optimization complete', metrics);
+      console.log('internationalization optimization complete', metrics);
     }, 100);
     
     return () => clearTimeout(optimizationTimer);
@@ -61,8 +61,8 @@ const useanalyticsEnhancement = () => {
   return { isOptimized, performanceMetrics, memoizedCalculation };
 };
 
-// Advanced error boundary for analytics
-class analyticsErrorBoundary extends React.Component {
+// Advanced error boundary for internationalization
+class internationalizationErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false, errorInfo: null };
@@ -73,13 +73,13 @@ class analyticsErrorBoundary extends React.Component {
   }
   
   componentDidCatch(error, errorInfo) {
-    console.error('analytics Error:', error, errorInfo);
+    console.error('internationalization Error:', error, errorInfo);
     this.setState({ errorInfo });
   }
   
   render() {
     if (this.state.hasError) {
-      return <div>Error in analytics component</div>;
+      return <div>Error in internationalization component</div>;
     }
     return this.props.children;
   }
