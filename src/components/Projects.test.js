@@ -542,3 +542,23 @@ describe('error-handling Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// DataSync test suite - PR #27
+describe('DataSync functionality', () => {
+  test('should initialize DataSync correctly', () => {
+    const config = initializeDataSync();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate DataSync data', () => {
+    expect(validateDataSyncData({})).toBe(true);
+    expect(validateDataSyncData(null)).toBe(false);
+  });
+  
+  test('should process DataSync input', () => {
+    const result = processDataSync({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
+});
+
