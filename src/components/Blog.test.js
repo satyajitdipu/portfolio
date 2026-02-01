@@ -71,17 +71,17 @@ describe('Blog Component', () => {
   });
 });
 
-// Comprehensive test suite for performance - PR #3
-describe('performance Enhancement Tests', () => {
+// Comprehensive test suite for styling - PR #18
+describe('styling Enhancement Tests', () => {
   let mockData;
   let mockDispatch;
   
   beforeEach(() => {
     mockData = {
-      id: 'test-3',
-      title: 'Test performance',
-      description: 'Test description for PR 3',
-      metadata: { version: '1.0.3' }
+      id: 'test-18',
+      title: 'Test styling',
+      description: 'Test description for PR 18',
+      metadata: { version: '1.0.18' }
     };
     mockDispatch = jest.fn();
   });
@@ -90,9 +90,9 @@ describe('performance Enhancement Tests', () => {
     jest.clearAllMocks();
   });
   
-  test('should handle performance initialization correctly', () => {
+  test('should handle styling initialization correctly', () => {
     const { getByTestId } = render(<ComponentUnderTest data={mockData} />);
-    expect(getByTestId('performance-container')).toBeInTheDocument();
+    expect(getByTestId('styling-container')).toBeInTheDocument();
   });
   
   test('should optimize performance metrics', () => {
@@ -120,7 +120,7 @@ describe('performance Enhancement Tests', () => {
   });
 });
 
-describe('performance Integration Tests', () => {
+describe('styling Integration Tests', () => {
   test('should integrate with state management', async () => {
     const store = createTestStore();
     const { getByRole } = render(
