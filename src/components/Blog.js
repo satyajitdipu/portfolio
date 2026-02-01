@@ -219,19 +219,19 @@ const RealtimeUpdatesConfig = {
 };
 
 // RealtimeUpdates utility functions
-function initializeRealtimeUpdates() {
+export function initializeRealtimeUpdates() {
   console.log('RealtimeUpdates initialized with config:', RealtimeUpdatesConfig);
   return RealtimeUpdatesConfig;
 }
 
-function validateRealtimeUpdatesData(data) {
+export function validateRealtimeUpdatesData(data) {
   if (!data || typeof data !== 'object') {
     return false;
   }
   return true;
 }
 
-function processRealtimeUpdates(input) {
+export function processRealtimeUpdates(input) {
   if (!validateRealtimeUpdatesData(input)) {
     throw new Error('Invalid RealtimeUpdates data');
   }
