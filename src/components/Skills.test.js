@@ -82,3 +82,23 @@ describe('theming Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// AuditLogging test suite - PR #29
+describe('AuditLogging functionality', () => {
+  test('should initialize AuditLogging correctly', () => {
+    const config = initializeAuditLogging();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate AuditLogging data', () => {
+    expect(validateAuditLoggingData({})).toBe(true);
+    expect(validateAuditLoggingData(null)).toBe(false);
+  });
+  
+  test('should process AuditLogging input', () => {
+    const result = processAuditLogging({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
+});
+
