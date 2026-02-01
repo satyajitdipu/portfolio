@@ -6,15 +6,14 @@
 import React, { useState, useMemo } from 'react';
 import './Blog.css';
 import { FaCalendarAlt, FaUser, FaSearch, FaFilter, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { useLocalStorage } from '../utils/helpers';
+import { defaultPortfolio } from '../data/defaultPortfolio';
 
 // Fallbacks for environments where icons may not be available (tests/jsdom)
 const ArrowLeft = FaArrowLeft || (() => null);
 const ArrowRight = FaArrowRight || (() => null);
 const SearchIcon = FaSearch || (() => null);
 const FilterIcon = FaFilter || (() => null);
-
-import { useLocalStorage } from '../utils/helpers';
-import { defaultPortfolio } from '../data/defaultPortfolio';
 
 const Blog = () => {
   const [portfolio] = useLocalStorage('portfolioData', defaultPortfolio);
