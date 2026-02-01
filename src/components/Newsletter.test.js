@@ -101,7 +101,9 @@ describe('Newsletter Component', () => {
     const submitButton = screen.getByText('Subscribe Now');
 
     fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
-    fireEvent.click(submitButton);
+    await act(async () => {
+      fireEvent.click(submitButton);
+    });
 
     // Fast-forward timers to complete the async operation
     jest.advanceTimersByTime(2000);
@@ -117,7 +119,9 @@ describe('Newsletter Component', () => {
     const submitButton = screen.getByText('Subscribe Now');
 
     fireEvent.change(emailInput, { target: { value: 'fail@example.com' } });
-    fireEvent.click(submitButton);
+    await act(async () => {
+      fireEvent.click(submitButton);
+    });
 
     // Fast-forward timers to complete the async operation
     jest.advanceTimersByTime(2000);
@@ -162,7 +166,9 @@ describe('Newsletter Component', () => {
     const submitButton = screen.getByText('Subscribe Now');
 
     fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
-    fireEvent.click(submitButton);
+    await act(async () => {
+      fireEvent.click(submitButton);
+    });
 
     // Fast-forward timers to complete the async operation
     jest.advanceTimersByTime(2000);

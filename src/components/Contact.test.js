@@ -47,18 +47,22 @@ describe('Contact Component', () => {
   test('renders contact methods grid', () => {
     renderWithTheme(<Contact />);
 
-    expect(screen.getByText('Email')).toBeInTheDocument();
-    expect(screen.getByText('Phone')).toBeInTheDocument();
-    expect(screen.getByText('Video Call')).toBeInTheDocument();
-    expect(screen.getByText('Live Chat')).toBeInTheDocument();
+    // Check for contact method descriptions (these are unique)
+    expect(screen.getByText('Send detailed project inquiries')).toBeInTheDocument();
+    expect(screen.getByText('Quick discussions and calls')).toBeInTheDocument();
+    expect(screen.getByText('Schedule a meeting')).toBeInTheDocument();
+    expect(screen.getByText('Instant messaging')).toBeInTheDocument();
   });
 
   test('displays contact information', () => {
     renderWithTheme(<Contact />);
 
     expect(screen.getByText('Contact Information')).toBeInTheDocument();
-    expect(screen.getByText('+91 6372754900')).toBeInTheDocument();
-    expect(screen.getByText('satyajits1001@gmail.com')).toBeInTheDocument();
+    // Use getAllByText for phone and email since they appear in multiple places
+    const phoneElements = screen.getAllByText('+91 6372754900');
+    const emailElements = screen.getAllByText('satyajits1001@gmail.com');
+    expect(phoneElements.length).toBeGreaterThan(0);
+    expect(emailElements.length).toBeGreaterThan(0);
     expect(screen.getByText('Bhubaneswar, Odisha, India')).toBeInTheDocument();
   });
 
@@ -150,8 +154,17 @@ describe('Contact Component', () => {
 
     fireEvent.click(submitButton);
 
+    // Wait for the success message to appear
     await waitFor(() => {
       expect(screen.getByText('Thank you for your message! Opening your email client...')).toBeInTheDocument();
+    }, { timeout: 3000 });
+
+    // Then check that the form has been cleared
+    await waitFor(() => {
+      expect(nameInput.value).toBe('');
+      expect(emailInput.value).toBe('');
+      expect(subjectInput.value).toBe('');
+      expect(messageInput.value).toBe('');
     });
 
     expect(window.location.href).toContain('mailto:satyajits1001@gmail.com');
@@ -251,9 +264,15 @@ describe('Contact Component', () => {
   test('contact method links work correctly', () => {
     renderWithTheme(<Contact />);
 
-    const emailLink = screen.getByText('satyajits1001@gmail.com');
-    const phoneLink = screen.getByText('+91 6372754900');
+    const emailElements = screen.getAllByText('satyajits1001@gmail.com');
+    const phoneElements = screen.getAllByText('+91 6372754900');
 
+    // Find the ones that are links (in contact methods)
+    const emailLink = emailElements.find(el => el.closest('a'));
+    const phoneLink = phoneElements.find(el => el.closest('a'));
+
+    expect(emailLink).toBeInTheDocument();
+    expect(phoneLink).toBeInTheDocument();
     expect(emailLink.closest('a')).toHaveAttribute('href', 'mailto:satyajits1001@gmail.com');
     expect(phoneLink.closest('a')).toHaveAttribute('href', 'tel:+916372754900');
   });
@@ -310,6 +329,12 @@ describe('Contact Component', () => {
 
     fireEvent.click(submitButton);
 
+    // Wait for the success message to appear
+    await waitFor(() => {
+      expect(screen.getByText('Thank you for your message! Opening your email client...')).toBeInTheDocument();
+    }, { timeout: 3000 });
+
+    // Then check that the form has been cleared
     await waitFor(() => {
       expect(nameInput.value).toBe('');
       expect(emailInput.value).toBe('');

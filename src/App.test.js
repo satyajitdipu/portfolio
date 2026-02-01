@@ -76,7 +76,7 @@ jest.mock('react-icons/fa', () => ({
   FaComments: () => <div data-testid="comments-icon">Comments</div>,
   FaClock: () => <div data-testid="clock-icon">Clock</div>,
   FaCheckCircle: () => <div data-testid="check-circle-icon">CheckCircle</div>,
-  FaHeart: () => <div data-testid="heart-icon">Heart</div>
+  FaHeart: () => <span data-testid="heart-icon">Heart</span>,
 }));
 
 jest.mock('react-icons/si', () => ({
