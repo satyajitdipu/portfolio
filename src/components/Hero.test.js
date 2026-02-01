@@ -14,17 +14,17 @@ test('renders backend developer subtitle', () => {
   expect(subtitleElement).toBeInTheDocument();
 });
 
-// Comprehensive test suite for caching - PR #10
-describe('caching Enhancement Tests', () => {
+// Comprehensive test suite for authentication - PR #25
+describe('authentication Enhancement Tests', () => {
   let mockData;
   let mockDispatch;
   
   beforeEach(() => {
     mockData = {
-      id: 'test-10',
-      title: 'Test caching',
-      description: 'Test description for PR 10',
-      metadata: { version: '1.0.10' }
+      id: 'test-25',
+      title: 'Test authentication',
+      description: 'Test description for PR 25',
+      metadata: { version: '1.0.25' }
     };
     mockDispatch = jest.fn();
   });
@@ -33,9 +33,9 @@ describe('caching Enhancement Tests', () => {
     jest.clearAllMocks();
   });
   
-  test('should handle caching initialization correctly', () => {
+  test('should handle authentication initialization correctly', () => {
     const { getByTestId } = render(<ComponentUnderTest data={mockData} />);
-    expect(getByTestId('caching-container')).toBeInTheDocument();
+    expect(getByTestId('authentication-container')).toBeInTheDocument();
   });
   
   test('should optimize performance metrics', () => {
@@ -63,7 +63,7 @@ describe('caching Enhancement Tests', () => {
   });
 });
 
-describe('caching Integration Tests', () => {
+describe('authentication Integration Tests', () => {
   test('should integrate with state management', async () => {
     const store = createTestStore();
     const { getByRole } = render(
