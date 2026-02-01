@@ -1,9 +1,11 @@
-// Newsletter component - Email subscription with validation and success states
-import React, { useState } from 'react';
+// Newsletter component - Enhanced email subscription with validation and success states
+import React, { useState, useContext } from 'react';
 import './Newsletter.css';
-import { FaEnvelope, FaCheck, FaTimes, FaSpinner, FaNewspaper, FaUsers, FaRocket, FaShieldAlt } from 'react-icons/fa';
+import { FaEnvelope, FaCheck, FaTimes, FaSpinner, FaNewspaper, FaUsers, FaRocket, FaShieldAlt, FaClock } from 'react-icons/fa';
+import { ThemeContext } from '../App';
 
 const Newsletter = () => {
+  const { darkMode } = useContext(ThemeContext);
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [subscriptionStatus, setSubscriptionStatus] = useState(null); // null, 'success', 'error'
@@ -82,7 +84,7 @@ const Newsletter = () => {
   ];
 
   return (
-    <section id="newsletter" className="newsletter">
+    <section id="newsletter" className={`newsletter ${darkMode ? 'dark' : ''}`}>
       <div className="container">
         <div className="newsletter-content">
           <div className="newsletter-info">
