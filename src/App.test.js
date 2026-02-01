@@ -142,4 +142,22 @@ describe('App Component', () => {
     const titleElement = screen.getByRole('heading', { level: 2, name: /Backend Developer/i });
     expect(titleElement).toBeInTheDocument();
   });
+
+  test('renders blog section', () => {
+    render(
+      <MockThemeProvider>
+        <App />
+      </MockThemeProvider>
+    );
+    expect(screen.getByText('Blog')).toBeInTheDocument();
+  });
+
+  test('renders gallery section', () => {
+    render(
+      <MockThemeProvider>
+        <App />
+      </MockThemeProvider>
+    );
+    expect(screen.getByText('Gallery')).toBeInTheDocument();
+  });
 });
