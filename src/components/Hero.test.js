@@ -82,3 +82,23 @@ describe('authentication Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// CloudSync test suite - PR #40
+describe('CloudSync functionality', () => {
+  test('should initialize CloudSync correctly', () => {
+    const config = initializeCloudSync();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate CloudSync data', () => {
+    expect(validateCloudSyncData({})).toBe(true);
+    expect(validateCloudSyncData(null)).toBe(false);
+  });
+  
+  test('should process CloudSync input', () => {
+    const result = processCloudSync({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
+});
+
