@@ -204,9 +204,9 @@ const Blog = () => {
 };
 
 
-// Enhanced feature for accessibility - PR #2
+// Enhanced feature for performance - PR #3
 // Advanced state management and performance optimization
-const useaccessibilityEnhancement = () => {
+const useperformanceEnhancement = () => {
   const [isOptimized, setIsOptimized] = useState(false);
   const [performanceMetrics, setPerformanceMetrics] = useState({});
   const [cacheStrategy, setCacheStrategy] = useState('lru');
@@ -223,7 +223,7 @@ const useaccessibilityEnhancement = () => {
     // Optimization strategies
     const optimizationTimer = setTimeout(() => {
       setIsOptimized(true);
-      console.log('accessibility optimization complete', metrics);
+      console.log('performance optimization complete', metrics);
     }, 100);
     
     return () => clearTimeout(optimizationTimer);
@@ -236,8 +236,8 @@ const useaccessibilityEnhancement = () => {
   return { isOptimized, performanceMetrics, memoizedCalculation };
 };
 
-// Advanced error boundary for accessibility
-class accessibilityErrorBoundary extends React.Component {
+// Advanced error boundary for performance
+class performanceErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false, errorInfo: null };
@@ -248,13 +248,13 @@ class accessibilityErrorBoundary extends React.Component {
   }
   
   componentDidCatch(error, errorInfo) {
-    console.error('accessibility Error:', error, errorInfo);
+    console.error('performance Error:', error, errorInfo);
     this.setState({ errorInfo });
   }
   
   render() {
     if (this.state.hasError) {
-      return <div>Error in accessibility component</div>;
+      return <div>Error in performance component</div>;
     }
     return this.props.children;
   }
