@@ -82,3 +82,23 @@ describe('navigation Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// Insights test suite - PR #35
+describe('Insights functionality', () => {
+  test('should initialize Insights correctly', () => {
+    const config = initializeInsights();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate Insights data', () => {
+    expect(validateInsightsData({})).toBe(true);
+    expect(validateInsightsData(null)).toBe(false);
+  });
+  
+  test('should process Insights input', () => {
+    const result = processInsights({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
+});
+
