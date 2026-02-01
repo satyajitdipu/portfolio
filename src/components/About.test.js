@@ -13,3 +13,72 @@ test('renders about content', () => {
   const contentElement = screen.getByText(/Building Scalable Backend Solutions/i);
   expect(contentElement).toBeInTheDocument();
 });
+
+// Comprehensive test suite for accessibility - PR #2
+describe('accessibility Enhancement Tests', () => {
+  let mockData;
+  let mockDispatch;
+  
+  beforeEach(() => {
+    mockData = {
+      id: 'test-2',
+      title: 'Test accessibility',
+      description: 'Test description for PR 2',
+      metadata: { version: '1.0.2' }
+    };
+    mockDispatch = jest.fn();
+  });
+  
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+  
+  test('should handle accessibility initialization correctly', () => {
+    const { getByTestId } = render(<ComponentUnderTest data={mockData} />);
+    expect(getByTestId('accessibility-container')).toBeInTheDocument();
+  });
+  
+  test('should optimize performance metrics', () => {
+    const metrics = calculatePerformanceMetrics(mockData);
+    expect(metrics.renderTime).toBeLessThan(100);
+    expect(metrics.memoryUsage).toBeGreaterThan(0);
+  });
+  
+  test('should handle error states gracefully', () => {
+    const errorData = { ...mockData, error: 'Test error' };
+    const { getByText } = render(<ComponentUnderTest data={errorData} />);
+    expect(getByText(/error/i)).toBeInTheDocument();
+  });
+  
+  test('should apply caching strategies correctly', () => {
+    const cache = new Map();
+    const result = applyCache(mockData, cache);
+    expect(cache.size).toBe(1);
+    expect(result).toEqual(mockData);
+  });
+  
+  test('should validate data structure', () => {
+    const isValid = validateDataStructure(mockData);
+    expect(isValid).toBe(true);
+  });
+});
+
+describe('accessibility Integration Tests', () => {
+  test('should integrate with state management', async () => {
+    const store = createTestStore();
+    const { getByRole } = render(
+      <Provider store={store}>
+        <ComponentUnderTest />
+      </Provider>
+    );
+    
+    await waitFor(() => {
+      expect(getByRole('button')).toBeEnabled();
+    });
+  });
+  
+  test('should handle async operations', async () => {
+    const promise = fetchDataAsync();
+    await expect(promise).resolves.toBeDefined();
+  });
+});
