@@ -195,17 +195,17 @@ describe('Newsletter Component', () => {
   });
 });
 
-// Comprehensive test suite for lazy-loading - PR #11
-describe('lazy-loading Enhancement Tests', () => {
+// Comprehensive test suite for state-management - PR #26
+describe('state-management Enhancement Tests', () => {
   let mockData;
   let mockDispatch;
   
   beforeEach(() => {
     mockData = {
-      id: 'test-11',
-      title: 'Test lazy-loading',
-      description: 'Test description for PR 11',
-      metadata: { version: '1.0.11' }
+      id: 'test-26',
+      title: 'Test state-management',
+      description: 'Test description for PR 26',
+      metadata: { version: '1.0.26' }
     };
     mockDispatch = jest.fn();
   });
@@ -214,9 +214,9 @@ describe('lazy-loading Enhancement Tests', () => {
     jest.clearAllMocks();
   });
   
-  test('should handle lazy-loading initialization correctly', () => {
+  test('should handle state-management initialization correctly', () => {
     const { getByTestId } = render(<ComponentUnderTest data={mockData} />);
-    expect(getByTestId('lazy-loading-container')).toBeInTheDocument();
+    expect(getByTestId('state-management-container')).toBeInTheDocument();
   });
   
   test('should optimize performance metrics', () => {
@@ -244,7 +244,7 @@ describe('lazy-loading Enhancement Tests', () => {
   });
 });
 
-describe('lazy-loading Integration Tests', () => {
+describe('state-management Integration Tests', () => {
   test('should integrate with state management', async () => {
     const store = createTestStore();
     const { getByRole } = render(
