@@ -14,17 +14,17 @@ test('renders VirtualTx experience', () => {
   expect(virtualTxElement).toBeInTheDocument();
 });
 
-// Comprehensive test suite for internationalization - PR #6
-describe('internationalization Enhancement Tests', () => {
+// Comprehensive test suite for search - PR #21
+describe('search Enhancement Tests', () => {
   let mockData;
   let mockDispatch;
   
   beforeEach(() => {
     mockData = {
-      id: 'test-6',
-      title: 'Test internationalization',
-      description: 'Test description for PR 6',
-      metadata: { version: '1.0.6' }
+      id: 'test-21',
+      title: 'Test search',
+      description: 'Test description for PR 21',
+      metadata: { version: '1.0.21' }
     };
     mockDispatch = jest.fn();
   });
@@ -33,9 +33,9 @@ describe('internationalization Enhancement Tests', () => {
     jest.clearAllMocks();
   });
   
-  test('should handle internationalization initialization correctly', () => {
+  test('should handle search initialization correctly', () => {
     const { getByTestId } = render(<ComponentUnderTest data={mockData} />);
-    expect(getByTestId('internationalization-container')).toBeInTheDocument();
+    expect(getByTestId('search-container')).toBeInTheDocument();
   });
   
   test('should optimize performance metrics', () => {
@@ -63,7 +63,7 @@ describe('internationalization Enhancement Tests', () => {
   });
 });
 
-describe('internationalization Integration Tests', () => {
+describe('search Integration Tests', () => {
   test('should integrate with state management', async () => {
     const store = createTestStore();
     const { getByRole } = render(
