@@ -14,17 +14,17 @@ test('renders python skill', () => {
   expect(pythonElement).toBeInTheDocument();
 });
 
-// Comprehensive test suite for optimization - PR #14
-describe('optimization Enhancement Tests', () => {
+// Comprehensive test suite for theming - PR #29
+describe('theming Enhancement Tests', () => {
   let mockData;
   let mockDispatch;
   
   beforeEach(() => {
     mockData = {
-      id: 'test-14',
-      title: 'Test optimization',
-      description: 'Test description for PR 14',
-      metadata: { version: '1.0.14' }
+      id: 'test-29',
+      title: 'Test theming',
+      description: 'Test description for PR 29',
+      metadata: { version: '1.0.29' }
     };
     mockDispatch = jest.fn();
   });
@@ -33,9 +33,9 @@ describe('optimization Enhancement Tests', () => {
     jest.clearAllMocks();
   });
   
-  test('should handle optimization initialization correctly', () => {
+  test('should handle theming initialization correctly', () => {
     const { getByTestId } = render(<ComponentUnderTest data={mockData} />);
-    expect(getByTestId('optimization-container')).toBeInTheDocument();
+    expect(getByTestId('theming-container')).toBeInTheDocument();
   });
   
   test('should optimize performance metrics', () => {
@@ -63,7 +63,7 @@ describe('optimization Enhancement Tests', () => {
   });
 });
 
-describe('optimization Integration Tests', () => {
+describe('theming Integration Tests', () => {
   test('should integrate with state management', async () => {
     const store = createTestStore();
     const { getByRole } = render(
