@@ -1,6 +1,8 @@
 {
   "name": "satyajit-portfolio",
   "version": "1.0.0",
+  "description": "Personal portfolio website built with React showcasing skills, projects, and blog",
+  "keywords": ["portfolio", "react", "web-development", "blog", "gallery"],
   "private": true,
   "dependencies": {
     "react": "^18.2.0",

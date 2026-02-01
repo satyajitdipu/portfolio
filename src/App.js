@@ -14,6 +14,8 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
+import Blog from './components/Blog';
+import Gallery from './components/Gallery';
 
 // Theme Context
 export const ThemeContext = React.createContext();
@@ -54,6 +56,8 @@ function App() {
           <Projects />
           <Resume />
           <Testimonials />
+          <Blog />
+          <Gallery />
           <Contact />
           <Newsletter />
         </main>

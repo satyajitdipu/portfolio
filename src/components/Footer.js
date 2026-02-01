@@ -16,6 +16,10 @@ const Footer = () => {
             © {currentYear} All rights reserved.
           </p>
         </div>
+        <div className="footer-links">
+          <a href="#blog">Blog</a>
+          <a href="#gallery">Gallery</a>
+        </div>
         <div className="footer-tech">
           <p>Powered by React.js</p>
         </div>
