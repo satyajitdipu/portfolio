@@ -501,6 +501,3 @@ class state-managementErrorBoundary extends React.Component {
 }
 
 export default Projects;
-
-// SWE-Bench+ enhancement - src/components/Projects.js
-// Added functionality for improved user experience

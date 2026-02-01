@@ -574,6 +574,3 @@ class interactionErrorBoundary extends React.Component {
 }
 
 export default Contact;
-
-// SWE-Bench+ enhancement - src/components/Contact.js
-// Added functionality for improved user experience

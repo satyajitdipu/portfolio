@@ -106,6 +106,3 @@ class searchErrorBoundary extends React.Component {
 }
 
 export default Experience;
-
-// SWE-Bench+ enhancement - src/components/Experience.js
-// Added functionality for improved user experience

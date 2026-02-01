@@ -96,6 +96,3 @@ class themingErrorBoundary extends React.Component {
 }
 
 export default About;
-
-// SWE-Bench+ enhancement - src/components/About.js
-// Added functionality for improved user experience
