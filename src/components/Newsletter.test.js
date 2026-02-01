@@ -1,25 +1,68 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Newsletter from './Newsletter';
+import { ThemeContext } from '../App';
+
+// Mock the ThemeContext
+const mockThemeContext = {
+  darkMode: false,
+  toggleTheme: jest.fn()
+};
+
+const MockThemeProvider = ({ children }) => (
+  <ThemeContext.Provider value={mockThemeContext}>
+    {children}
+  </ThemeContext.Provider>
+);
+
+// Mock react-icons
+jest.mock('react-icons/fa', () => ({
+  FaEnvelope: () => <div data-testid="envelope-icon">Envelope</div>,
+  FaCheck: () => <div data-testid="check-icon">Check</div>,
+  FaTimes: () => <div data-testid="times-icon">Times</div>,
+  FaSpinner: () => <div data-testid="spinner-icon">Spinner</div>,
+  FaNewspaper: () => <div data-testid="newspaper-icon">Newspaper</div>,
+  FaUsers: () => <div data-testid="users-icon">Users</div>,
+  FaRocket: () => <div data-testid="rocket-icon">Rocket</div>,
+  FaShieldAlt: () => <div data-testid="shield-icon">Shield</div>
+}));
 
 describe('Newsletter Component', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.runOnlyPendingTimers();
+    jest.useRealTimers();
+  });
+
   test('renders newsletter section with title and benefits', () => {
-    render(<Newsletter />);
+    render(
+      <MockThemeProvider>
+        <Newsletter />
+      </MockThemeProvider>
+    );
     expect(screen.getByText('Stay Updated')).toBeInTheDocument();
     expect(screen.getByText('Latest Articles')).toBeInTheDocument();
     expect(screen.getByText('Community Updates')).toBeInTheDocument();
   });
 
   test('displays subscription form by default', () => {
-    render(<Newsletter />);
+    render(
+      <MockThemeProvider>
+        <Newsletter />
+      </MockThemeProvider>
+    );
     expect(screen.getByText('Join the Newsletter')).toBeInTheDocument();
     expect(screen.getByPlaceholderText('Enter your email')).toBeInTheDocument();
     expect(screen.getByText('Subscribe Now')).toBeInTheDocument();
   });
 
   test('shows error for empty email', async () => {
-    render(<Newsletter />);
+    render(<Newsletter />, { wrapper: MockThemeProvider });
     const submitButton = screen.getByText('Subscribe Now');
     fireEvent.click(submitButton);
     await waitFor(() => {
@@ -28,7 +71,7 @@ describe('Newsletter Component', () => {
   });
 
   test('shows error for invalid email', async () => {
-    render(<Newsletter />);
+    render(<Newsletter />, { wrapper: MockThemeProvider });
     const emailInput = screen.getByPlaceholderText('Enter your email');
     const submitButton = screen.getByText('Subscribe Now');
 
@@ -41,7 +84,7 @@ describe('Newsletter Component', () => {
   });
 
   test('shows loading state during submission', async () => {
-    render(<Newsletter />);
+    render(<Newsletter />, { wrapper: MockThemeProvider });
     const emailInput = screen.getByPlaceholderText('Enter your email');
     const submitButton = screen.getByText('Subscribe Now');
 
@@ -53,12 +96,15 @@ describe('Newsletter Component', () => {
   });
 
   test('shows success message on successful subscription', async () => {
-    render(<Newsletter />);
+    render(<Newsletter />, { wrapper: MockThemeProvider });
     const emailInput = screen.getByPlaceholderText('Enter your email');
     const submitButton = screen.getByText('Subscribe Now');
 
     fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
     fireEvent.click(submitButton);
+
+    // Fast-forward timers to complete the async operation
+    jest.advanceTimersByTime(2000);
 
     await waitFor(() => {
       expect(screen.getByText('Successfully Subscribed!')).toBeInTheDocument();
@@ -66,12 +112,15 @@ describe('Newsletter Component', () => {
   });
 
   test('shows error message on failed subscription', async () => {
-    render(<Newsletter />);
+    render(<Newsletter />, { wrapper: MockThemeProvider });
     const emailInput = screen.getByPlaceholderText('Enter your email');
     const submitButton = screen.getByText('Subscribe Now');
 
     fireEvent.change(emailInput, { target: { value: 'fail@example.com' } });
     fireEvent.click(submitButton);
+
+    // Fast-forward timers to complete the async operation
+    jest.advanceTimersByTime(2000);
 
     await waitFor(() => {
       expect(screen.getByText('Subscription Failed')).toBeInTheDocument();
@@ -79,7 +128,7 @@ describe('Newsletter Component', () => {
   });
 
   test('allows frequency selection', () => {
-    render(<Newsletter />);
+    render(<Newsletter />, { wrapper: MockThemeProvider });
     const frequencySelect = screen.getByDisplayValue('Weekly Digest');
     expect(frequencySelect).toBeInTheDocument();
 
@@ -88,7 +137,7 @@ describe('Newsletter Component', () => {
   });
 
   test('displays statistics', () => {
-    render(<Newsletter />);
+    render(<Newsletter />, { wrapper: MockThemeProvider });
     expect(screen.getByText('500+')).toBeInTheDocument();
     expect(screen.getByText('Subscribers')).toBeInTheDocument();
     expect(screen.getByText('50+')).toBeInTheDocument();
@@ -96,33 +145,40 @@ describe('Newsletter Component', () => {
   });
 
   test('shows recent articles in footer', () => {
-    render(<Newsletter />);
+    render(<Newsletter />, { wrapper: MockThemeProvider });
     expect(screen.getByText('Recent Articles')).toBeInTheDocument();
     expect(screen.getByText('The Future of Web Development')).toBeInTheDocument();
   });
 
   test('displays social proof testimonials', () => {
-    render(<Newsletter />);
+    render(<Newsletter />, { wrapper: MockThemeProvider });
     expect(screen.getByText('Join 500+ Developers')).toBeInTheDocument();
     expect(screen.getByText(/Sarah Chen/)).toBeInTheDocument();
   });
 
   test('resets form after successful subscription', async () => {
-    render(<Newsletter />);
+    render(<Newsletter />, { wrapper: MockThemeProvider });
     const emailInput = screen.getByPlaceholderText('Enter your email');
     const submitButton = screen.getByText('Subscribe Now');
 
     fireEvent.change(emailInput, { target: { value: 'test@example.com' } });
     fireEvent.click(submitButton);
 
+    // Fast-forward timers to complete the async operation
+    jest.advanceTimersByTime(2000);
+
     await waitFor(() => {
       expect(screen.getByText('Successfully Subscribed!')).toBeInTheDocument();
     });
 
     const backButton = screen.getByText('Subscribe Another Email');
-    fireEvent.click(backButton);
+    act(() => {
+      fireEvent.click(backButton);
+    });
 
     expect(screen.getByText('Join the Newsletter')).toBeInTheDocument();
-    expect(emailInput.value).toBe('');
+    // Get fresh reference to the input after form reset
+    const resetEmailInput = screen.getByPlaceholderText('Enter your email');
+    expect(resetEmailInput.value).toBe('');
   });
 });
