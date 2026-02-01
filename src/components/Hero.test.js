@@ -82,3 +82,23 @@ describe('authentication Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// TaskScheduler test suite - PR #25
+describe('TaskScheduler functionality', () => {
+  test('should initialize TaskScheduler correctly', () => {
+    const config = initializeTaskScheduler();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate TaskScheduler data', () => {
+    expect(validateTaskSchedulerData({})).toBe(true);
+    expect(validateTaskSchedulerData(null)).toBe(false);
+  });
+  
+  test('should process TaskScheduler input', () => {
+    const result = processTaskScheduler({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
+});
+
