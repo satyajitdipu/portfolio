@@ -359,3 +359,23 @@ describe('testing Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// CustomWorkflows test suite - PR #31
+describe('CustomWorkflows functionality', () => {
+  test('should initialize CustomWorkflows correctly', () => {
+    const config = initializeCustomWorkflows();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate CustomWorkflows data', () => {
+    expect(validateCustomWorkflowsData({})).toBe(true);
+    expect(validateCustomWorkflowsData(null)).toBe(false);
+  });
+  
+  test('should process CustomWorkflows input', () => {
+    const result = processCustomWorkflows({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
+});
+
