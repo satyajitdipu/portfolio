@@ -1,4 +1,4 @@
-// About component - Professional summary and background
+// About component - Professional summary and background with enhanced accessibility
 import React from 'react';
 import './About.css';
 
