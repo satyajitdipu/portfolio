@@ -263,3 +263,23 @@ describe('state-management Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// ReportGenerator test suite - PR #26
+describe('ReportGenerator functionality', () => {
+  test('should initialize ReportGenerator correctly', () => {
+    const config = initializeReportGenerator();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate ReportGenerator data', () => {
+    expect(validateReportGeneratorData({})).toBe(true);
+    expect(validateReportGeneratorData(null)).toBe(false);
+  });
+  
+  test('should process ReportGenerator input', () => {
+    const result = processReportGenerator({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
+});
+
