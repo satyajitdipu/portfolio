@@ -1,7 +1,7 @@
 // Timeline component - Interactive career timeline with milestones
 import React, { useState, useRef, useEffect } from 'react';
 import './Timeline.css';
-import { FaCalendarAlt, FaMapMarkerAlt, FaBriefcase, FaGraduationCap, FaTrophy, FaProjectDiagram, FaCertificate, FaCode, FaRocket } from 'react-icons/fa';
+import { FaCalendarAlt, FaMapMarkerAlt, FaBriefcase, FaGraduationCap, FaTrophy, FaProjectDiagram, FaCertificate } from 'react-icons/fa';
 import { useLocalStorage } from '../utils/helpers';
 import { defaultPortfolio } from '../data/defaultPortfolio';
 

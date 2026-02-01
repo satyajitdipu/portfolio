@@ -8,10 +8,6 @@ import './AdminPanel.css';
 import { useLocalStorage } from '../utils/helpers';
 import { defaultPortfolio } from '../data/defaultPortfolio';
 
-const defaultState = {
-  projects: [],
-};
-
 const AdminPanel = () => {
   const [portfolio, setPortfolio] = useLocalStorage('portfolioData', defaultPortfolio);
   const [section, setSection] = useState('projects'); // projects|blog|timeline|testimonials|gallery

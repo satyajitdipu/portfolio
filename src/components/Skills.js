@@ -1,31 +1,7 @@
 // Skills component - Technical skills display with progress bars
 import React from 'react';
 import './Skills.css';
-import { 
-  FaPython, 
-  FaPhp, 
-  FaJs, 
-  FaReact, 
-  FaLaravel, 
-  FaGitAlt, 
-  FaDatabase,
-  FaNodeJs 
-} from 'react-icons/fa';
-import { 
-  SiMysql, 
-  SiPostgresql, 
-  SiMongodb,
-  SiPostman,
-  SiDjango,
-  SiFlask,
-  SiExpress,
-  SiPytorch,
-  SiScikitlearn,
-  SiTypescript,
-  SiTailwindcss,
-  SiBootstrap,
-  SiSocketdotio
-} from 'react-icons/si';
+// Icon imports intentionally omitted to avoid unused-import warnings. If you need an icon for a skill, add it to the skill entry in data and render it via `skill.icon`.
 
 import { useLocalStorage } from '../utils/helpers';
 import { defaultPortfolio } from '../data/defaultPortfolio';

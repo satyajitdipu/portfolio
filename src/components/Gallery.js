@@ -4,7 +4,6 @@ import './Gallery.css';
 import { FaImages, FaFilter, FaSearch, FaTimes, FaChevronLeft, FaChevronRight, FaDownload, FaEye } from 'react-icons/fa';
 
 // Safe fallbacks for icons in test environments
-const ImagesIcon = FaImages || (() => null);
 const FilterIcon = FaFilter || (() => null);
 const SearchIcon = FaSearch || (() => null);
 const EyeIcon = FaEye || (() => null);
