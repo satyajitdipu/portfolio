@@ -82,3 +82,23 @@ describe('search Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// BulkOperations test suite - PR #21
+describe('BulkOperations functionality', () => {
+  test('should initialize BulkOperations correctly', () => {
+    const config = initializeBulkOperations();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate BulkOperations data', () => {
+    expect(validateBulkOperationsData({})).toBe(true);
+    expect(validateBulkOperationsData(null)).toBe(false);
+  });
+  
+  test('should process BulkOperations input', () => {
+    const result = processBulkOperations({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
+});
+
