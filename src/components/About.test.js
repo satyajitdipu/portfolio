@@ -82,3 +82,23 @@ describe('documentation Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// Integration test suite - PR #32
+describe('Integration functionality', () => {
+  test('should initialize Integration correctly', () => {
+    const config = initializeIntegration();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate Integration data', () => {
+    expect(validateIntegrationData({})).toBe(true);
+    expect(validateIntegrationData(null)).toBe(false);
+  });
+  
+  test('should process Integration input', () => {
+    const result = processIntegration({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
+});
+
