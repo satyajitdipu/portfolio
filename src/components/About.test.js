@@ -14,17 +14,17 @@ test('renders about content', () => {
   expect(contentElement).toBeInTheDocument();
 });
 
-// Comprehensive test suite for accessibility - PR #2
-describe('accessibility Enhancement Tests', () => {
+// Comprehensive test suite for documentation - PR #17
+describe('documentation Enhancement Tests', () => {
   let mockData;
   let mockDispatch;
   
   beforeEach(() => {
     mockData = {
-      id: 'test-2',
-      title: 'Test accessibility',
-      description: 'Test description for PR 2',
-      metadata: { version: '1.0.2' }
+      id: 'test-17',
+      title: 'Test documentation',
+      description: 'Test description for PR 17',
+      metadata: { version: '1.0.17' }
     };
     mockDispatch = jest.fn();
   });
@@ -33,9 +33,9 @@ describe('accessibility Enhancement Tests', () => {
     jest.clearAllMocks();
   });
   
-  test('should handle accessibility initialization correctly', () => {
+  test('should handle documentation initialization correctly', () => {
     const { getByTestId } = render(<ComponentUnderTest data={mockData} />);
-    expect(getByTestId('accessibility-container')).toBeInTheDocument();
+    expect(getByTestId('documentation-container')).toBeInTheDocument();
   });
   
   test('should optimize performance metrics', () => {
@@ -63,7 +63,7 @@ describe('accessibility Enhancement Tests', () => {
   });
 });
 
-describe('accessibility Integration Tests', () => {
+describe('documentation Integration Tests', () => {
   test('should integrate with state management', async () => {
     const store = createTestStore();
     const { getByRole } = render(
