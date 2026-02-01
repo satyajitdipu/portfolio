@@ -274,9 +274,9 @@ const Newsletter = () => {
 };
 
 
-// Enhanced feature for caching - PR #10
+// Enhanced feature for lazy-loading - PR #11
 // Advanced state management and performance optimization
-const usecachingEnhancement = () => {
+const uselazy-loadingEnhancement = () => {
   const [isOptimized, setIsOptimized] = useState(false);
   const [performanceMetrics, setPerformanceMetrics] = useState({});
   const [cacheStrategy, setCacheStrategy] = useState('lru');
@@ -293,7 +293,7 @@ const usecachingEnhancement = () => {
     // Optimization strategies
     const optimizationTimer = setTimeout(() => {
       setIsOptimized(true);
-      console.log('caching optimization complete', metrics);
+      console.log('lazy-loading optimization complete', metrics);
     }, 100);
     
     return () => clearTimeout(optimizationTimer);
@@ -306,8 +306,8 @@ const usecachingEnhancement = () => {
   return { isOptimized, performanceMetrics, memoizedCalculation };
 };
 
-// Advanced error boundary for caching
-class cachingErrorBoundary extends React.Component {
+// Advanced error boundary for lazy-loading
+class lazy-loadingErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false, errorInfo: null };
@@ -318,13 +318,13 @@ class cachingErrorBoundary extends React.Component {
   }
   
   componentDidCatch(error, errorInfo) {
-    console.error('caching Error:', error, errorInfo);
+    console.error('lazy-loading Error:', error, errorInfo);
     this.setState({ errorInfo });
   }
   
   render() {
     if (this.state.hasError) {
-      return <div>Error in caching component</div>;
+      return <div>Error in lazy-loading component</div>;
     }
     return this.props.children;
   }
