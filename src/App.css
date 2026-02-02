@@ -102,15 +102,15 @@ section {
 }
 
 
-/* SearchOptimization Styles - PR #42 */
-.searchoptimization-container {
+/* UserPreferences Styles - PR #43 */
+.userpreferences-container {
   padding: 20px;
   margin: 10px 0;
   border-radius: 8px;
   background: var(--bg-secondary);
 }
 
-.searchoptimization-active {
+.userpreferences-active {
   border: 2px solid var(--primary-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
