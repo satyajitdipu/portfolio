@@ -545,41 +545,41 @@ describe('error-handling Integration Tests', () => {
   });
 });
 
-// ContentRecommendation Test Suite - PR #62
-describe('ContentRecommendation Enhancement Tests', () => {
+// PerformanceDashboard Test Suite - PR #63
+describe('PerformanceDashboard Enhancement Tests', () => {
   const mockData = {
-    id: 'test-62',
-    title: 'Test ContentRecommendation',
-    description: 'Test description for PR 62'
+    id: 'test-63',
+    title: 'Test PerformanceDashboard',
+    description: 'Test description for PR 63'
   };
 
-  test('should initialize ContentRecommendation correctly', () => {
-    const config = initializeContentRecommendation();
+  test('should initialize PerformanceDashboard correctly', () => {
+    const config = initializePerformanceDashboard();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
     expect(config.initialized).toBe(true);
   });
 
-  test('should validate ContentRecommendation data', () => {
-    expect(validateContentRecommendationData(mockData)).toBe(true);
-    expect(validateContentRecommendationData(null)).toBe(false);
+  test('should validate PerformanceDashboard data', () => {
+    expect(validatePerformanceDashboardData(mockData)).toBe(true);
+    expect(validatePerformanceDashboardData(null)).toBe(false);
   });
 
-  test('should process ContentRecommendation input', () => {
-    const result = processContentRecommendation(mockData);
+  test('should process PerformanceDashboard input', () => {
+    const result = processPerformanceDashboard(mockData);
     expect(result.processed).toBe(true);
     expect(result.input).toEqual(mockData);
   });
 
-  test('should optimize ContentRecommendation performance', () => {
+  test('should optimize PerformanceDashboard performance', () => {
     const metrics = { score: 50 };
-    const result = optimizeContentRecommendationPerformance(metrics);
+    const result = optimizePerformanceDashboardPerformance(metrics);
     expect(result.optimized).toBe(true);
     expect(result.score).toBeGreaterThan(50);
   });
 
-  test('should cache ContentRecommendation results', () => {
-    const cached = cacheContentRecommendationResults('key', 'value');
+  test('should cache PerformanceDashboard results', () => {
+    const cached = cachePerformanceDashboardResults('key', 'value');
     expect(cached.key).toBe('key');
     expect(cached.value).toBe('value');
     expect(cached.expires).toBeGreaterThan(Date.now());
