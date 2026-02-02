@@ -84,3 +84,45 @@ describe('documentation Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// AdvancedSearch Test Suite - PR #61
+describe('AdvancedSearch Enhancement Tests', () => {
+  const mockData = {
+    id: 'test-61',
+    title: 'Test AdvancedSearch',
+    description: 'Test description for PR 61'
+  };
+
+  test('should initialize AdvancedSearch correctly', () => {
+    const config = initializeAdvancedSearch();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+    expect(config.initialized).toBe(true);
+  });
+
+  test('should validate AdvancedSearch data', () => {
+    expect(validateAdvancedSearchData(mockData)).toBe(true);
+    expect(validateAdvancedSearchData(null)).toBe(false);
+  });
+
+  test('should process AdvancedSearch input', () => {
+    const result = processAdvancedSearch(mockData);
+    expect(result.processed).toBe(true);
+    expect(result.input).toEqual(mockData);
+  });
+
+  test('should optimize AdvancedSearch performance', () => {
+    const metrics = { score: 50 };
+    const result = optimizeAdvancedSearchPerformance(metrics);
+    expect(result.optimized).toBe(true);
+    expect(result.score).toBeGreaterThan(50);
+  });
+
+  test('should cache AdvancedSearch results', () => {
+    const cached = cacheAdvancedSearchResults('key', 'value');
+    expect(cached.key).toBe('key');
+    expect(cached.value).toBe('value');
+    expect(cached.expires).toBeGreaterThan(Date.now());
+  });
+});
+
