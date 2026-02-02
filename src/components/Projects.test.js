@@ -2,8 +2,6 @@ import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import '@testing-library/jest-dom';
 import Projects from './Projects';
 import { ThemeContext } from '../App';
-import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
-
 
 // Mock the ThemeContext
 const mockThemeContext = {
@@ -545,17 +543,22 @@ describe('error-handling Integration Tests', () => {
   });
 });
 
-// AdvancedFiltering Tests - Added 2025-09-06
-test('initializes AdvancedFiltering correctly', () => {
-  const config = { feature: 'AdvancedFiltering', component: 'Projects' };
-  expect(config.feature).toBe('AdvancedFiltering');
+// DataSync test suite - PR #27
+describe('DataSync functionality', () => {
+  test('should initialize DataSync correctly', () => {
+    const config = initializeDataSync();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate DataSync data', () => {
+    expect(validateDataSyncData({})).toBe(true);
+    expect(validateDataSyncData(null)).toBe(false);
+  });
+  
+  test('should process DataSync input', () => {
+    const result = processDataSync({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
 });
-
-test('validates AdvancedFiltering data', () => {
-  const validData = { test: 'data' };
-  const invalidData = null;
-  expect(validData).toBeTruthy();
-  expect(invalidData).toBeFalsy();
-});
-
 
