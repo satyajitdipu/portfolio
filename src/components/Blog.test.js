@@ -1,7 +1,8 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Blog from './Blog';
+import Blog, { initializeRealtimeUpdates, validateRealtimeUpdatesData, processRealtimeUpdates } from './Blog';
+import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
 
 describe('Blog Component', () => {
   test('renders blog section with title and subtitle', () => {
@@ -140,60 +141,60 @@ describe('styling Integration Tests', () => {
   });
 });
 
-// Automation test suite - PR #33
-describe('Automation functionality', () => {
-  test('should initialize Automation correctly', () => {
-    const config = initializeAutomation();
+// RealtimeUpdates test suite - PR #18
+describe('RealtimeUpdates functionality', () => {
+  test('should initialize RealtimeUpdates correctly', () => {
+    const config = initializeRealtimeUpdates();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
   });
   
-  test('should validate Automation data', () => {
-    expect(validateAutomationData({})).toBe(true);
-    expect(validateAutomationData(null)).toBe(false);
+  test('should validate RealtimeUpdates data', () => {
+    expect(validateRealtimeUpdatesData({})).toBe(true);
+    expect(validateRealtimeUpdatesData(null)).toBe(false);
   });
   
-  test('should process Automation input', () => {
-    const result = processAutomation({ test: 'data' });
+  test('should process RealtimeUpdates input', () => {
+    const result = processRealtimeUpdates({ test: 'data' });
     expect(result.processed).toBe(true);
   });
 });
 
-// DataAnalytics Test Suite - PR #41
-describe('DataAnalytics Enhancement Tests', () => {
+// SearchOptimization Test Suite - PR #42
+describe('SearchOptimization Enhancement Tests', () => {
   const mockData = {
-    id: 'test-41',
-    title: 'Test DataAnalytics',
-    description: 'Test description for PR 41'
+    id: 'test-42',
+    title: 'Test SearchOptimization',
+    description: 'Test description for PR 42'
   };
 
-  test('should initialize DataAnalytics correctly', () => {
-    const config = initializeDataAnalytics();
+  test('should initialize SearchOptimization correctly', () => {
+    const config = initializeSearchOptimization();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
     expect(config.initialized).toBe(true);
   });
 
-  test('should validate DataAnalytics data', () => {
-    expect(validateDataAnalyticsData(mockData)).toBe(true);
-    expect(validateDataAnalyticsData(null)).toBe(false);
+  test('should validate SearchOptimization data', () => {
+    expect(validateSearchOptimizationData(mockData)).toBe(true);
+    expect(validateSearchOptimizationData(null)).toBe(false);
   });
 
-  test('should process DataAnalytics input', () => {
-    const result = processDataAnalytics(mockData);
+  test('should process SearchOptimization input', () => {
+    const result = processSearchOptimization(mockData);
     expect(result.processed).toBe(true);
     expect(result.input).toEqual(mockData);
   });
 
-  test('should optimize DataAnalytics performance', () => {
+  test('should optimize SearchOptimization performance', () => {
     const metrics = { score: 50 };
-    const result = optimizeDataAnalyticsPerformance(metrics);
+    const result = optimizeSearchOptimizationPerformance(metrics);
     expect(result.optimized).toBe(true);
     expect(result.score).toBeGreaterThan(50);
   });
 
-  test('should cache DataAnalytics results', () => {
-    const cached = cacheDataAnalyticsResults('key', 'value');
+  test('should cache SearchOptimization results', () => {
+    const cached = cacheSearchOptimizationResults('key', 'value');
     expect(cached.key).toBe('key');
     expect(cached.value).toBe('value');
     expect(cached.expires).toBeGreaterThan(Date.now());
