@@ -102,15 +102,15 @@ section {
 }
 
 
-/* NotificationCenter Styles - PR #54 */
-.notificationcenter-container {
+/* ActivityFeed Styles - PR #55 */
+.activityfeed-container {
   padding: 20px;
   margin: 10px 0;
   border-radius: 8px;
   background: var(--bg-secondary);
 }
 
-.notificationcenter-active {
+.activityfeed-active {
   border: 2px solid var(--primary-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }

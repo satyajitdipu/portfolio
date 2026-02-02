@@ -160,41 +160,41 @@ describe('RealtimeUpdates functionality', () => {
   });
 });
 
-// NotificationCenter Test Suite - PR #54
-describe('NotificationCenter Enhancement Tests', () => {
+// ActivityFeed Test Suite - PR #55
+describe('ActivityFeed Enhancement Tests', () => {
   const mockData = {
-    id: 'test-54',
-    title: 'Test NotificationCenter',
-    description: 'Test description for PR 54'
+    id: 'test-55',
+    title: 'Test ActivityFeed',
+    description: 'Test description for PR 55'
   };
 
-  test('should initialize NotificationCenter correctly', () => {
-    const config = initializeNotificationCenter();
+  test('should initialize ActivityFeed correctly', () => {
+    const config = initializeActivityFeed();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
     expect(config.initialized).toBe(true);
   });
 
-  test('should validate NotificationCenter data', () => {
-    expect(validateNotificationCenterData(mockData)).toBe(true);
-    expect(validateNotificationCenterData(null)).toBe(false);
+  test('should validate ActivityFeed data', () => {
+    expect(validateActivityFeedData(mockData)).toBe(true);
+    expect(validateActivityFeedData(null)).toBe(false);
   });
 
-  test('should process NotificationCenter input', () => {
-    const result = processNotificationCenter(mockData);
+  test('should process ActivityFeed input', () => {
+    const result = processActivityFeed(mockData);
     expect(result.processed).toBe(true);
     expect(result.input).toEqual(mockData);
   });
 
-  test('should optimize NotificationCenter performance', () => {
+  test('should optimize ActivityFeed performance', () => {
     const metrics = { score: 50 };
-    const result = optimizeNotificationCenterPerformance(metrics);
+    const result = optimizeActivityFeedPerformance(metrics);
     expect(result.optimized).toBe(true);
     expect(result.score).toBeGreaterThan(50);
   });
 
-  test('should cache NotificationCenter results', () => {
-    const cached = cacheNotificationCenterResults('key', 'value');
+  test('should cache ActivityFeed results', () => {
+    const cached = cacheActivityFeedResults('key', 'value');
     expect(cached.key).toBe('key');
     expect(cached.value).toBe('value');
     expect(cached.expires).toBeGreaterThan(Date.now());
