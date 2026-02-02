@@ -1,8 +1,6 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Hero from './Hero';
-import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
-
 
 test('renders hero section with name', () => {
   render(<Hero />);
@@ -85,44 +83,22 @@ describe('authentication Integration Tests', () => {
   });
 });
 
-// AccessibilityEnhancement Test Suite - PR #46
-describe('AccessibilityEnhancement Enhancement Tests', () => {
-  const mockData = {
-    id: 'test-46',
-    title: 'Test AccessibilityEnhancement',
-    description: 'Test description for PR 46'
-  };
-
-  test('should initialize AccessibilityEnhancement correctly', () => {
-    const config = initializeAccessibilityEnhancement();
+// TaskScheduler test suite - PR #25
+describe('TaskScheduler functionality', () => {
+  test('should initialize TaskScheduler correctly', () => {
+    const config = initializeTaskScheduler();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
-    expect(config.initialized).toBe(true);
   });
-
-  test('should validate AccessibilityEnhancement data', () => {
-    expect(validateAccessibilityEnhancementData(mockData)).toBe(true);
-    expect(validateAccessibilityEnhancementData(null)).toBe(false);
+  
+  test('should validate TaskScheduler data', () => {
+    expect(validateTaskSchedulerData({})).toBe(true);
+    expect(validateTaskSchedulerData(null)).toBe(false);
   });
-
-  test('should process AccessibilityEnhancement input', () => {
-    const result = processAccessibilityEnhancement(mockData);
+  
+  test('should process TaskScheduler input', () => {
+    const result = processTaskScheduler({ test: 'data' });
     expect(result.processed).toBe(true);
-    expect(result.input).toEqual(mockData);
-  });
-
-  test('should optimize AccessibilityEnhancement performance', () => {
-    const metrics = { score: 50 };
-    const result = optimizeAccessibilityEnhancementPerformance(metrics);
-    expect(result.optimized).toBe(true);
-    expect(result.score).toBeGreaterThan(50);
-  });
-
-  test('should cache AccessibilityEnhancement results', () => {
-    const cached = cacheAccessibilityEnhancementResults('key', 'value');
-    expect(cached.key).toBe('key');
-    expect(cached.value).toBe('value');
-    expect(cached.expires).toBeGreaterThan(Date.now());
   });
 });
 

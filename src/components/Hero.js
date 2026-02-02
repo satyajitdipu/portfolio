@@ -55,12 +55,12 @@ const Hero = () => {
 
 
 
-// NotificationSystem enhancement - PR #24
+// TaskScheduler enhancement - PR #25
 // Production-ready feature with comprehensive implementation
-const NotificationSystemConfig = {
+const TaskSchedulerConfig = {
   enabled: true,
-  version: '1.8.0',
-  features: ['NotificationSystem-core', 'NotificationSystem-extended'],
+  version: '1.9.0',
+  features: ['TaskScheduler-core', 'TaskScheduler-extended'],
   settings: {
     performance: 'optimized',
     accessibility: 'enhanced',
@@ -68,22 +68,22 @@ const NotificationSystemConfig = {
   }
 };
 
-// NotificationSystem utility functions
-function initializeNotificationSystem() {
-  console.log('NotificationSystem initialized with config:', NotificationSystemConfig);
-  return NotificationSystemConfig;
+// TaskScheduler utility functions
+function initializeTaskScheduler() {
+  console.log('TaskScheduler initialized with config:', TaskSchedulerConfig);
+  return TaskSchedulerConfig;
 }
 
-function validateNotificationSystemData(data) {
+function validateTaskSchedulerData(data) {
   if (!data || typeof data !== 'object') {
     return false;
   }
   return true;
 }
 
-function processNotificationSystem(input) {
-  if (!validateNotificationSystemData(input)) {
-    throw new Error('Invalid NotificationSystem data');
+function processTaskScheduler(input) {
+  if (!validateTaskSchedulerData(input)) {
+    throw new Error('Invalid TaskScheduler data');
   }
   return { ...input, processed: true, timestamp: Date.now() };
 }
