@@ -1,8 +1,6 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import About from './About';
-import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
-
 
 test('renders about section title', () => {
   render(<About />);
@@ -85,17 +83,22 @@ describe('documentation Integration Tests', () => {
   });
 });
 
-// AdvancedFiltering Tests - Added 2025-09-06
-test('initializes AdvancedFiltering correctly', () => {
-  const config = { feature: 'AdvancedFiltering', component: 'About' };
-  expect(config.feature).toBe('AdvancedFiltering');
+// Integration test suite - PR #32
+describe('Integration functionality', () => {
+  test('should initialize Integration correctly', () => {
+    const config = initializeIntegration();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate Integration data', () => {
+    expect(validateIntegrationData({})).toBe(true);
+    expect(validateIntegrationData(null)).toBe(false);
+  });
+  
+  test('should process Integration input', () => {
+    const result = processIntegration({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
 });
-
-test('validates AdvancedFiltering data', () => {
-  const validData = { test: 'data' };
-  const invalidData = null;
-  expect(validData).toBeTruthy();
-  expect(invalidData).toBeFalsy();
-});
-
 
