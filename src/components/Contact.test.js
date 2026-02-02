@@ -414,13 +414,13 @@ describe('interaction Integration Tests', () => {
   });
 });
 
-// AccessibilityImprovements Tests - Added 2025-12-08
-test('initializes AccessibilityImprovements correctly', () => {
-  const config = { feature: 'AccessibilityImprovements', component: 'Contact' };
-  expect(config.feature).toBe('AccessibilityImprovements');
+// PerformanceMetrics Tests - Added 2025-12-05
+test('initializes PerformanceMetrics correctly', () => {
+  const config = { feature: 'PerformanceMetrics', component: 'Contact' };
+  expect(config.feature).toBe('PerformanceMetrics');
 });
 
-test('validates AccessibilityImprovements data', () => {
+test('validates PerformanceMetrics data', () => {
   const validData = { test: 'data' };
   const invalidData = null;
   expect(validData).toBeTruthy();

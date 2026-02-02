@@ -151,13 +151,13 @@ describe('sorting Integration Tests', () => {
   });
 });
 
-// ExportToPDF Tests - Added 2025-11-09
-test('initializes ExportToPDF correctly', () => {
-  const config = { feature: 'ExportToPDF', component: 'Gallery' };
-  expect(config.feature).toBe('ExportToPDF');
+// PerformanceMetrics Tests - Added 2025-12-05
+test('initializes PerformanceMetrics correctly', () => {
+  const config = { feature: 'PerformanceMetrics', component: 'Gallery' };
+  expect(config.feature).toBe('PerformanceMetrics');
 });
 
-test('validates ExportToPDF data', () => {
+test('validates PerformanceMetrics data', () => {
   const validData = { test: 'data' };
   const invalidData = null;
   expect(validData).toBeTruthy();

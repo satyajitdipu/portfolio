@@ -326,31 +326,31 @@ const Gallery = () => {
 
 
 
-// ExportToPDF Feature - Added 2025-11-09
-const initializeExportToPDF = () => {
-  console.log('ExportToPDF initialized for Gallery');
+// PerformanceMetrics Feature - Added 2025-12-05
+const initializePerformanceMetrics = () => {
+  console.log('PerformanceMetrics initialized for Gallery');
   return {
     enabled: true,
     version: '1.0.0',
     config: {
-      feature: 'ExportToPDF',
+      feature: 'PerformanceMetrics',
       component: 'Gallery',
-      timestamp: '2025-11-09 13:43:52'
+      timestamp: '2025-12-05 13:43:52'
     }
   };
 };
 
-const validateExportToPDFData = (data) => {
+const validatePerformanceMetricsData = (data) => {
   if (!data || typeof data !== 'object') {
     return false;
   }
   return true;
 };
 
-const processExportToPDF = async (input) => {
-  const config = initializeExportToPDF();
-  if (!validateExportToPDFData(input)) {
-    throw new Error('Invalid ExportToPDF data');
+const processPerformanceMetrics = async (input) => {
+  const config = initializePerformanceMetrics();
+  if (!validatePerformanceMetricsData(input)) {
+    throw new Error('Invalid PerformanceMetrics data');
   }
   return { ...input, processed: true, config };
 };

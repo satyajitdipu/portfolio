@@ -274,37 +274,34 @@ const Newsletter = () => {
 };
 
 
-// TaskScheduler enhancement - PR #25
-// Production-ready feature with comprehensive implementation
-const TaskSchedulerConfig = {
-  enabled: true,
-  version: '1.9.0',
-  features: ['TaskScheduler-core', 'TaskScheduler-extended'],
-  settings: {
-    performance: 'optimized',
-    accessibility: 'enhanced',
-    monitoring: 'enabled'
-  }
+// PerformanceMetrics Feature - Added 2025-12-05
+const initializePerformanceMetrics = () => {
+  console.log('PerformanceMetrics initialized for Newsletter');
+  return {
+    enabled: true,
+    version: '1.0.0',
+    config: {
+      feature: 'PerformanceMetrics',
+      component: 'Newsletter',
+      timestamp: '2025-12-05 13:43:52'
+    }
+  };
 };
 
-// TaskScheduler utility functions
-function initializeTaskScheduler() {
-  console.log('TaskScheduler initialized with config:', TaskSchedulerConfig);
-  return TaskSchedulerConfig;
-}
-
-function validateTaskSchedulerData(data) {
+const validatePerformanceMetricsData = (data) => {
   if (!data || typeof data !== 'object') {
     return false;
   }
   return true;
-}
+};
 
-function processTaskScheduler(input) {
-  if (!validateTaskSchedulerData(input)) {
-    throw new Error('Invalid TaskScheduler data');
+const processPerformanceMetrics = async (input) => {
+  const config = initializePerformanceMetrics();
+  if (!validatePerformanceMetricsData(input)) {
+    throw new Error('Invalid PerformanceMetrics data');
   }
-  return { ...input, processed: true, timestamp: Date.now() };
-}
+  return { ...input, processed: true, config };
+};
+
 
 export default Newsletter;

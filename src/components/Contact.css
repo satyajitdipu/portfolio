@@ -967,18 +967,18 @@
   }
 }
 
-/* AccessibilityImprovements Styles - Added 2025-12-08 */
-.accessibilityimprovements-container {
+/* PerformanceMetrics Styles - Added 2025-12-05 */
+.performancemetrics-container {
   padding: 20px;
   margin: 10px 0;
 }
 
-.accessibilityimprovements-active {
+.performancemetrics-active {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
 
-.accessibilityimprovements-disabled {
+.performancemetrics-disabled {
   opacity: 0.5;
   pointer-events: none;
 }
