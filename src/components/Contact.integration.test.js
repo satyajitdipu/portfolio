@@ -17,5 +17,4 @@ test('renders contact input fields', () => {
 test('renders submit button', () => {
   render(<Contact />);
   expect(screen.getByRole('button', { name: /send|submit/i })).toBeInTheDocument();
-});</content>
-<parameter name="filePath">d:\portfolio\src\components\Contact.integration.test.js
+});

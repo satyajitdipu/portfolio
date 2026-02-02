@@ -85,13 +85,13 @@ describe('documentation Integration Tests', () => {
   });
 });
 
-// LazyLoadingOptimization Tests - Added 2025-08-27
-test('initializes LazyLoadingOptimization correctly', () => {
-  const config = { feature: 'LazyLoadingOptimization', component: 'About' };
-  expect(config.feature).toBe('LazyLoadingOptimization');
+// AdvancedFiltering Tests - Added 2025-09-06
+test('initializes AdvancedFiltering correctly', () => {
+  const config = { feature: 'AdvancedFiltering', component: 'About' };
+  expect(config.feature).toBe('AdvancedFiltering');
 });
 
-test('validates LazyLoadingOptimization data', () => {
+test('validates AdvancedFiltering data', () => {
   const validData = { test: 'data' };
   const invalidData = null;
   expect(validData).toBeTruthy();

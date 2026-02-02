@@ -948,18 +948,18 @@
   }
 }
 
-/* LazyLoadingOptimization Styles - Added 2025-08-27 */
-.lazyloadingoptimization-container {
+/* AdvancedFiltering Styles - Added 2025-09-06 */
+.advancedfiltering-container {
   padding: 20px;
   margin: 10px 0;
 }
 
-.lazyloadingoptimization-active {
+.advancedfiltering-active {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
 
-.lazyloadingoptimization-disabled {
+.advancedfiltering-disabled {
   opacity: 0.5;
   pointer-events: none;
 }

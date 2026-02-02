@@ -17,5 +17,4 @@ test('renders skill progress bars', () => {
   render(<Skills />);
   const progressBars = document.querySelectorAll('.progress-bar');
   expect(progressBars.length).toBeGreaterThan(0);
-});</content>
-<parameter name="filePath">d:\portfolio\src\components\Skills.integration.test.js
+});
