@@ -1,8 +1,6 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Skills from './Skills';
-import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
-
 
 test('renders skills section', () => {
   render(<Skills />);
@@ -85,17 +83,22 @@ describe('theming Integration Tests', () => {
   });
 });
 
-// AdvancedFiltering Tests - Added 2025-09-06
-test('initializes AdvancedFiltering correctly', () => {
-  const config = { feature: 'AdvancedFiltering', component: 'Skills' };
-  expect(config.feature).toBe('AdvancedFiltering');
+// AuditLogging test suite - PR #29
+describe('AuditLogging functionality', () => {
+  test('should initialize AuditLogging correctly', () => {
+    const config = initializeAuditLogging();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate AuditLogging data', () => {
+    expect(validateAuditLoggingData({})).toBe(true);
+    expect(validateAuditLoggingData(null)).toBe(false);
+  });
+  
+  test('should process AuditLogging input', () => {
+    const result = processAuditLogging({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
 });
-
-test('validates AdvancedFiltering data', () => {
-  const validData = { test: 'data' };
-  const invalidData = null;
-  expect(validData).toBeTruthy();
-  expect(invalidData).toBeFalsy();
-});
-
 
