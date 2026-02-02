@@ -102,15 +102,15 @@ section {
 }
 
 
-/* CollaborationTools Styles - PR #56 */
-.collaborationtools-container {
+/* VersionHistory Styles - PR #57 */
+.versionhistory-container {
   padding: 20px;
   margin: 10px 0;
   border-radius: 8px;
   background: var(--bg-secondary);
 }
 
-.collaborationtools-active {
+.versionhistory-active {
   border: 2px solid var(--primary-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
