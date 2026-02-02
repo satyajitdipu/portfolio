@@ -1,9 +1,8 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Contact, { initializeRealtimeUpdates, validateRealtimeUpdatesData, processRealtimeUpdates } from './Contact';
+import Contact from './Contact';
 import { ThemeContext } from '../App';
-import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
 
 // Mock ThemeContext
 const mockThemeContext = {
@@ -414,17 +413,22 @@ describe('interaction Integration Tests', () => {
   });
 });
 
-// AdvancedFiltering Tests - Added 2025-09-06
-test('initializes AdvancedFiltering correctly', () => {
-  const config = { feature: 'AdvancedFiltering', component: 'Contact' };
-  expect(config.feature).toBe('AdvancedFiltering');
+// Dashboard test suite - PR #34
+describe('Dashboard functionality', () => {
+  test('should initialize Dashboard correctly', () => {
+    const config = initializeDashboard();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate Dashboard data', () => {
+    expect(validateDashboardData({})).toBe(true);
+    expect(validateDashboardData(null)).toBe(false);
+  });
+  
+  test('should process Dashboard input', () => {
+    const result = processDashboard({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
 });
-
-test('validates AdvancedFiltering data', () => {
-  const validData = { test: 'data' };
-  const invalidData = null;
-  expect(validData).toBeTruthy();
-  expect(invalidData).toBeFalsy();
-});
-
 
