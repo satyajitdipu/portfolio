@@ -84,3 +84,45 @@ describe('theming Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// DataAnalytics Test Suite - PR #41
+describe('DataAnalytics Enhancement Tests', () => {
+  const mockData = {
+    id: 'test-41',
+    title: 'Test DataAnalytics',
+    description: 'Test description for PR 41'
+  };
+
+  test('should initialize DataAnalytics correctly', () => {
+    const config = initializeDataAnalytics();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+    expect(config.initialized).toBe(true);
+  });
+
+  test('should validate DataAnalytics data', () => {
+    expect(validateDataAnalyticsData(mockData)).toBe(true);
+    expect(validateDataAnalyticsData(null)).toBe(false);
+  });
+
+  test('should process DataAnalytics input', () => {
+    const result = processDataAnalytics(mockData);
+    expect(result.processed).toBe(true);
+    expect(result.input).toEqual(mockData);
+  });
+
+  test('should optimize DataAnalytics performance', () => {
+    const metrics = { score: 50 };
+    const result = optimizeDataAnalyticsPerformance(metrics);
+    expect(result.optimized).toBe(true);
+    expect(result.score).toBeGreaterThan(50);
+  });
+
+  test('should cache DataAnalytics results', () => {
+    const cached = cacheDataAnalyticsResults('key', 'value');
+    expect(cached.key).toBe('key');
+    expect(cached.value).toBe('value');
+    expect(cached.expires).toBeGreaterThan(Date.now());
+  });
+});
+
