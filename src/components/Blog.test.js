@@ -160,41 +160,41 @@ describe('RealtimeUpdates functionality', () => {
   });
 });
 
-// BookmarkFeature Test Suite - PR #53
-describe('BookmarkFeature Enhancement Tests', () => {
+// NotificationCenter Test Suite - PR #54
+describe('NotificationCenter Enhancement Tests', () => {
   const mockData = {
-    id: 'test-53',
-    title: 'Test BookmarkFeature',
-    description: 'Test description for PR 53'
+    id: 'test-54',
+    title: 'Test NotificationCenter',
+    description: 'Test description for PR 54'
   };
 
-  test('should initialize BookmarkFeature correctly', () => {
-    const config = initializeBookmarkFeature();
+  test('should initialize NotificationCenter correctly', () => {
+    const config = initializeNotificationCenter();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
     expect(config.initialized).toBe(true);
   });
 
-  test('should validate BookmarkFeature data', () => {
-    expect(validateBookmarkFeatureData(mockData)).toBe(true);
-    expect(validateBookmarkFeatureData(null)).toBe(false);
+  test('should validate NotificationCenter data', () => {
+    expect(validateNotificationCenterData(mockData)).toBe(true);
+    expect(validateNotificationCenterData(null)).toBe(false);
   });
 
-  test('should process BookmarkFeature input', () => {
-    const result = processBookmarkFeature(mockData);
+  test('should process NotificationCenter input', () => {
+    const result = processNotificationCenter(mockData);
     expect(result.processed).toBe(true);
     expect(result.input).toEqual(mockData);
   });
 
-  test('should optimize BookmarkFeature performance', () => {
+  test('should optimize NotificationCenter performance', () => {
     const metrics = { score: 50 };
-    const result = optimizeBookmarkFeaturePerformance(metrics);
+    const result = optimizeNotificationCenterPerformance(metrics);
     expect(result.optimized).toBe(true);
     expect(result.score).toBeGreaterThan(50);
   });
 
-  test('should cache BookmarkFeature results', () => {
-    const cached = cacheBookmarkFeatureResults('key', 'value');
+  test('should cache NotificationCenter results', () => {
+    const cached = cacheNotificationCenterResults('key', 'value');
     expect(cached.key).toBe('key');
     expect(cached.value).toBe('value');
     expect(cached.expires).toBeGreaterThan(Date.now());
