@@ -413,21 +413,21 @@ describe('interaction Integration Tests', () => {
   });
 });
 
-// Dashboard test suite - PR #34
-describe('Dashboard functionality', () => {
-  test('should initialize Dashboard correctly', () => {
-    const config = initializeDashboard();
+// AdvancedFilters test suite - PR #19
+describe('AdvancedFilters functionality', () => {
+  test('should initialize AdvancedFilters correctly', () => {
+    const config = initializeAdvancedFilters();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
   });
   
-  test('should validate Dashboard data', () => {
-    expect(validateDashboardData({})).toBe(true);
-    expect(validateDashboardData(null)).toBe(false);
+  test('should validate AdvancedFilters data', () => {
+    expect(validateAdvancedFiltersData({})).toBe(true);
+    expect(validateAdvancedFiltersData(null)).toBe(false);
   });
   
-  test('should process Dashboard input', () => {
-    const result = processDashboard({ test: 'data' });
+  test('should process AdvancedFilters input', () => {
+    const result = processAdvancedFilters({ test: 'data' });
     expect(result.processed).toBe(true);
   });
 });
