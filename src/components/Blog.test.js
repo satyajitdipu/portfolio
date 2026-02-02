@@ -160,41 +160,41 @@ describe('RealtimeUpdates functionality', () => {
   });
 });
 
-// ActivityFeed Test Suite - PR #55
-describe('ActivityFeed Enhancement Tests', () => {
+// CollaborationTools Test Suite - PR #56
+describe('CollaborationTools Enhancement Tests', () => {
   const mockData = {
-    id: 'test-55',
-    title: 'Test ActivityFeed',
-    description: 'Test description for PR 55'
+    id: 'test-56',
+    title: 'Test CollaborationTools',
+    description: 'Test description for PR 56'
   };
 
-  test('should initialize ActivityFeed correctly', () => {
-    const config = initializeActivityFeed();
+  test('should initialize CollaborationTools correctly', () => {
+    const config = initializeCollaborationTools();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
     expect(config.initialized).toBe(true);
   });
 
-  test('should validate ActivityFeed data', () => {
-    expect(validateActivityFeedData(mockData)).toBe(true);
-    expect(validateActivityFeedData(null)).toBe(false);
+  test('should validate CollaborationTools data', () => {
+    expect(validateCollaborationToolsData(mockData)).toBe(true);
+    expect(validateCollaborationToolsData(null)).toBe(false);
   });
 
-  test('should process ActivityFeed input', () => {
-    const result = processActivityFeed(mockData);
+  test('should process CollaborationTools input', () => {
+    const result = processCollaborationTools(mockData);
     expect(result.processed).toBe(true);
     expect(result.input).toEqual(mockData);
   });
 
-  test('should optimize ActivityFeed performance', () => {
+  test('should optimize CollaborationTools performance', () => {
     const metrics = { score: 50 };
-    const result = optimizeActivityFeedPerformance(metrics);
+    const result = optimizeCollaborationToolsPerformance(metrics);
     expect(result.optimized).toBe(true);
     expect(result.score).toBeGreaterThan(50);
   });
 
-  test('should cache ActivityFeed results', () => {
-    const cached = cacheActivityFeedResults('key', 'value');
+  test('should cache CollaborationTools results', () => {
+    const cached = cacheCollaborationToolsResults('key', 'value');
     expect(cached.key).toBe('key');
     expect(cached.value).toBe('value');
     expect(cached.expires).toBeGreaterThan(Date.now());
