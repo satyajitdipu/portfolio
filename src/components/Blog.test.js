@@ -160,41 +160,41 @@ describe('RealtimeUpdates functionality', () => {
   });
 });
 
-// ContentModeration Test Suite - PR #44
-describe('ContentModeration Enhancement Tests', () => {
+// MediaProcessing Test Suite - PR #45
+describe('MediaProcessing Enhancement Tests', () => {
   const mockData = {
-    id: 'test-44',
-    title: 'Test ContentModeration',
-    description: 'Test description for PR 44'
+    id: 'test-45',
+    title: 'Test MediaProcessing',
+    description: 'Test description for PR 45'
   };
 
-  test('should initialize ContentModeration correctly', () => {
-    const config = initializeContentModeration();
+  test('should initialize MediaProcessing correctly', () => {
+    const config = initializeMediaProcessing();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
     expect(config.initialized).toBe(true);
   });
 
-  test('should validate ContentModeration data', () => {
-    expect(validateContentModerationData(mockData)).toBe(true);
-    expect(validateContentModerationData(null)).toBe(false);
+  test('should validate MediaProcessing data', () => {
+    expect(validateMediaProcessingData(mockData)).toBe(true);
+    expect(validateMediaProcessingData(null)).toBe(false);
   });
 
-  test('should process ContentModeration input', () => {
-    const result = processContentModeration(mockData);
+  test('should process MediaProcessing input', () => {
+    const result = processMediaProcessing(mockData);
     expect(result.processed).toBe(true);
     expect(result.input).toEqual(mockData);
   });
 
-  test('should optimize ContentModeration performance', () => {
+  test('should optimize MediaProcessing performance', () => {
     const metrics = { score: 50 };
-    const result = optimizeContentModerationPerformance(metrics);
+    const result = optimizeMediaProcessingPerformance(metrics);
     expect(result.optimized).toBe(true);
     expect(result.score).toBeGreaterThan(50);
   });
 
-  test('should cache ContentModeration results', () => {
-    const cached = cacheContentModerationResults('key', 'value');
+  test('should cache MediaProcessing results', () => {
+    const cached = cacheMediaProcessingResults('key', 'value');
     expect(cached.key).toBe('key');
     expect(cached.value).toBe('value');
     expect(cached.expires).toBeGreaterThan(Date.now());
