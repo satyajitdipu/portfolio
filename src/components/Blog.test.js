@@ -160,41 +160,41 @@ describe('RealtimeUpdates functionality', () => {
   });
 });
 
-// AutoSaveFeature Test Suite - PR #59
-describe('AutoSaveFeature Enhancement Tests', () => {
+// OfflineSupport Test Suite - PR #60
+describe('OfflineSupport Enhancement Tests', () => {
   const mockData = {
-    id: 'test-59',
-    title: 'Test AutoSaveFeature',
-    description: 'Test description for PR 59'
+    id: 'test-60',
+    title: 'Test OfflineSupport',
+    description: 'Test description for PR 60'
   };
 
-  test('should initialize AutoSaveFeature correctly', () => {
-    const config = initializeAutoSaveFeature();
+  test('should initialize OfflineSupport correctly', () => {
+    const config = initializeOfflineSupport();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
     expect(config.initialized).toBe(true);
   });
 
-  test('should validate AutoSaveFeature data', () => {
-    expect(validateAutoSaveFeatureData(mockData)).toBe(true);
-    expect(validateAutoSaveFeatureData(null)).toBe(false);
+  test('should validate OfflineSupport data', () => {
+    expect(validateOfflineSupportData(mockData)).toBe(true);
+    expect(validateOfflineSupportData(null)).toBe(false);
   });
 
-  test('should process AutoSaveFeature input', () => {
-    const result = processAutoSaveFeature(mockData);
+  test('should process OfflineSupport input', () => {
+    const result = processOfflineSupport(mockData);
     expect(result.processed).toBe(true);
     expect(result.input).toEqual(mockData);
   });
 
-  test('should optimize AutoSaveFeature performance', () => {
+  test('should optimize OfflineSupport performance', () => {
     const metrics = { score: 50 };
-    const result = optimizeAutoSaveFeaturePerformance(metrics);
+    const result = optimizeOfflineSupportPerformance(metrics);
     expect(result.optimized).toBe(true);
     expect(result.score).toBeGreaterThan(50);
   });
 
-  test('should cache AutoSaveFeature results', () => {
-    const cached = cacheAutoSaveFeatureResults('key', 'value');
+  test('should cache OfflineSupport results', () => {
+    const cached = cacheOfflineSupportResults('key', 'value');
     expect(cached.key).toBe('key');
     expect(cached.value).toBe('value');
     expect(cached.expires).toBeGreaterThan(Date.now());
