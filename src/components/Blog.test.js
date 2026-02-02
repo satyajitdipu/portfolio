@@ -160,41 +160,41 @@ describe('RealtimeUpdates functionality', () => {
   });
 });
 
-// AdvancedSearch Test Suite - PR #61
-describe('AdvancedSearch Enhancement Tests', () => {
+// ContentRecommendation Test Suite - PR #62
+describe('ContentRecommendation Enhancement Tests', () => {
   const mockData = {
-    id: 'test-61',
-    title: 'Test AdvancedSearch',
-    description: 'Test description for PR 61'
+    id: 'test-62',
+    title: 'Test ContentRecommendation',
+    description: 'Test description for PR 62'
   };
 
-  test('should initialize AdvancedSearch correctly', () => {
-    const config = initializeAdvancedSearch();
+  test('should initialize ContentRecommendation correctly', () => {
+    const config = initializeContentRecommendation();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
     expect(config.initialized).toBe(true);
   });
 
-  test('should validate AdvancedSearch data', () => {
-    expect(validateAdvancedSearchData(mockData)).toBe(true);
-    expect(validateAdvancedSearchData(null)).toBe(false);
+  test('should validate ContentRecommendation data', () => {
+    expect(validateContentRecommendationData(mockData)).toBe(true);
+    expect(validateContentRecommendationData(null)).toBe(false);
   });
 
-  test('should process AdvancedSearch input', () => {
-    const result = processAdvancedSearch(mockData);
+  test('should process ContentRecommendation input', () => {
+    const result = processContentRecommendation(mockData);
     expect(result.processed).toBe(true);
     expect(result.input).toEqual(mockData);
   });
 
-  test('should optimize AdvancedSearch performance', () => {
+  test('should optimize ContentRecommendation performance', () => {
     const metrics = { score: 50 };
-    const result = optimizeAdvancedSearchPerformance(metrics);
+    const result = optimizeContentRecommendationPerformance(metrics);
     expect(result.optimized).toBe(true);
     expect(result.score).toBeGreaterThan(50);
   });
 
-  test('should cache AdvancedSearch results', () => {
-    const cached = cacheAdvancedSearchResults('key', 'value');
+  test('should cache ContentRecommendation results', () => {
+    const cached = cacheContentRecommendationResults('key', 'value');
     expect(cached.key).toBe('key');
     expect(cached.value).toBe('value');
     expect(cached.expires).toBeGreaterThan(Date.now());
