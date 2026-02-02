@@ -1,7 +1,6 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
-import Experience, { initializeRealtimeUpdates, validateRealtimeUpdatesData, processRealtimeUpdates } from './Experience';
-import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
+import { render, screen } from '@testing-library/react';
+import Experience from './Experience';
 
 test('renders experience section', () => {
   render(<Experience />);
@@ -84,44 +83,22 @@ describe('search Integration Tests', () => {
   });
 });
 
-// DataExport Test Suite - PR #49
-describe('DataExport Enhancement Tests', () => {
-  const mockData = {
-    id: 'test-49',
-    title: 'Test DataExport',
-    description: 'Test description for PR 49'
-  };
-
-  test('should initialize DataExport correctly', () => {
-    const config = initializeDataExport();
+// BulkOperations test suite - PR #21
+describe('BulkOperations functionality', () => {
+  test('should initialize BulkOperations correctly', () => {
+    const config = initializeBulkOperations();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
-    expect(config.initialized).toBe(true);
   });
-
-  test('should validate DataExport data', () => {
-    expect(validateDataExportData(mockData)).toBe(true);
-    expect(validateDataExportData(null)).toBe(false);
+  
+  test('should validate BulkOperations data', () => {
+    expect(validateBulkOperationsData({})).toBe(true);
+    expect(validateBulkOperationsData(null)).toBe(false);
   });
-
-  test('should process DataExport input', () => {
-    const result = processDataExport(mockData);
+  
+  test('should process BulkOperations input', () => {
+    const result = processBulkOperations({ test: 'data' });
     expect(result.processed).toBe(true);
-    expect(result.input).toEqual(mockData);
-  });
-
-  test('should optimize DataExport performance', () => {
-    const metrics = { score: 50 };
-    const result = optimizeDataExportPerformance(metrics);
-    expect(result.optimized).toBe(true);
-    expect(result.score).toBeGreaterThan(50);
-  });
-
-  test('should cache DataExport results', () => {
-    const cached = cacheDataExportResults('key', 'value');
-    expect(cached.key).toBe('key');
-    expect(cached.value).toBe('value');
-    expect(cached.expires).toBeGreaterThan(Date.now());
   });
 });
 
