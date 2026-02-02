@@ -162,3 +162,23 @@ describe('api-integration Integration Tests', () => {
     await expect(promise).resolves.toBeDefined();
   });
 });
+
+// BackupRestore test suite - PR #28
+describe('BackupRestore functionality', () => {
+  test('should initialize BackupRestore correctly', () => {
+    const config = initializeBackupRestore();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate BackupRestore data', () => {
+    expect(validateBackupRestoreData({})).toBe(true);
+    expect(validateBackupRestoreData(null)).toBe(false);
+  });
+  
+  test('should process BackupRestore input', () => {
+    const result = processBackupRestore({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
+});
+
