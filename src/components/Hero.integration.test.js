@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Hero from './components/Hero';
+import Hero from './Hero';
 
 test('renders hero section with title', () => {
   render(<Hero />);
@@ -17,5 +17,4 @@ test('renders call-to-action button', () => {
   render(<Hero />);
   const button = screen.getByRole('button', { name: /view projects/i });
   expect(button).toBeInTheDocument();
-});</content>
-<parameter name="filePath">d:\portfolio\src\components\Hero.integration.test.js
+});

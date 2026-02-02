@@ -19,5 +19,4 @@ test('renders navigation links', () => {
 test('renders hero section', () => {
   render(<Portfolio />);
   expect(screen.getByRole('banner')).toBeInTheDocument();
-});</content>
-<parameter name="filePath">d:\portfolio\src\App.integration.test.js
+});

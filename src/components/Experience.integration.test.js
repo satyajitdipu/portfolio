@@ -17,5 +17,4 @@ test('renders job positions', () => {
 test('renders company names', () => {
   render(<Experience />);
   expect(screen.getByText(/company|organization/i)).toBeInTheDocument();
-});</content>
-<parameter name="filePath">d:\portfolio\src\components\Experience.integration.test.js
+});
