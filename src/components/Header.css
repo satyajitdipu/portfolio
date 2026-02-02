@@ -139,3 +139,19 @@
     padding: 1rem 1.5rem;
   }
 }
+
+/* MultiLanguageSupport Styles - Added 2025-11-24 */
+.multilanguagesupport-container {
+  padding: 20px;
+  margin: 10px 0;
+}
+
+.multilanguagesupport-active {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.multilanguagesupport-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

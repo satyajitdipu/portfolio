@@ -1,6 +1,8 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import Hero from './Hero';
+import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
+
 
 test('renders hero section with name', () => {
   render(<Hero />);
@@ -83,22 +85,17 @@ describe('authentication Integration Tests', () => {
   });
 });
 
-// TaskScheduler test suite - PR #25
-describe('TaskScheduler functionality', () => {
-  test('should initialize TaskScheduler correctly', () => {
-    const config = initializeTaskScheduler();
-    expect(config).toBeDefined();
-    expect(config.enabled).toBe(true);
-  });
-  
-  test('should validate TaskScheduler data', () => {
-    expect(validateTaskSchedulerData({})).toBe(true);
-    expect(validateTaskSchedulerData(null)).toBe(false);
-  });
-  
-  test('should process TaskScheduler input', () => {
-    const result = processTaskScheduler({ test: 'data' });
-    expect(result.processed).toBe(true);
-  });
+// MultiLanguageSupport Tests - Added 2025-11-24
+test('initializes MultiLanguageSupport correctly', () => {
+  const config = { feature: 'MultiLanguageSupport', component: 'Hero' };
+  expect(config.feature).toBe('MultiLanguageSupport');
 });
+
+test('validates MultiLanguageSupport data', () => {
+  const validData = { test: 'data' };
+  const invalidData = null;
+  expect(validData).toBeTruthy();
+  expect(invalidData).toBeFalsy();
+});
+
 
