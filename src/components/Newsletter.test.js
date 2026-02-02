@@ -3,6 +3,8 @@ import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import '@testing-library/jest-dom';
 import Newsletter from './Newsletter';
 import { ThemeContext } from '../App';
+import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
+
 
 // Mock the ThemeContext
 const mockThemeContext = {
@@ -264,22 +266,44 @@ describe('state-management Integration Tests', () => {
   });
 });
 
-// AIAssistant test suite - PR #41
-describe('AIAssistant functionality', () => {
-  test('should initialize AIAssistant correctly', () => {
-    const config = initializeAIAssistant();
+// LocalizationSupport Test Suite - PR #48
+describe('LocalizationSupport Enhancement Tests', () => {
+  const mockData = {
+    id: 'test-48',
+    title: 'Test LocalizationSupport',
+    description: 'Test description for PR 48'
+  };
+
+  test('should initialize LocalizationSupport correctly', () => {
+    const config = initializeLocalizationSupport();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
+    expect(config.initialized).toBe(true);
   });
-  
-  test('should validate AIAssistant data', () => {
-    expect(validateAIAssistantData({})).toBe(true);
-    expect(validateAIAssistantData(null)).toBe(false);
+
+  test('should validate LocalizationSupport data', () => {
+    expect(validateLocalizationSupportData(mockData)).toBe(true);
+    expect(validateLocalizationSupportData(null)).toBe(false);
   });
-  
-  test('should process AIAssistant input', () => {
-    const result = processAIAssistant({ test: 'data' });
+
+  test('should process LocalizationSupport input', () => {
+    const result = processLocalizationSupport(mockData);
     expect(result.processed).toBe(true);
+    expect(result.input).toEqual(mockData);
+  });
+
+  test('should optimize LocalizationSupport performance', () => {
+    const metrics = { score: 50 };
+    const result = optimizeLocalizationSupportPerformance(metrics);
+    expect(result.optimized).toBe(true);
+    expect(result.score).toBeGreaterThan(50);
+  });
+
+  test('should cache LocalizationSupport results', () => {
+    const cached = cacheLocalizationSupportResults('key', 'value');
+    expect(cached.key).toBe('key');
+    expect(cached.value).toBe('value');
+    expect(cached.expires).toBeGreaterThan(Date.now());
   });
 });
 

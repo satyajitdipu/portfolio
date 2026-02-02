@@ -85,41 +85,41 @@ describe('documentation Integration Tests', () => {
   });
 });
 
-// SEOOptimization Test Suite - PR #47
-describe('SEOOptimization Enhancement Tests', () => {
+// LocalizationSupport Test Suite - PR #48
+describe('LocalizationSupport Enhancement Tests', () => {
   const mockData = {
-    id: 'test-47',
-    title: 'Test SEOOptimization',
-    description: 'Test description for PR 47'
+    id: 'test-48',
+    title: 'Test LocalizationSupport',
+    description: 'Test description for PR 48'
   };
 
-  test('should initialize SEOOptimization correctly', () => {
-    const config = initializeSEOOptimization();
+  test('should initialize LocalizationSupport correctly', () => {
+    const config = initializeLocalizationSupport();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
     expect(config.initialized).toBe(true);
   });
 
-  test('should validate SEOOptimization data', () => {
-    expect(validateSEOOptimizationData(mockData)).toBe(true);
-    expect(validateSEOOptimizationData(null)).toBe(false);
+  test('should validate LocalizationSupport data', () => {
+    expect(validateLocalizationSupportData(mockData)).toBe(true);
+    expect(validateLocalizationSupportData(null)).toBe(false);
   });
 
-  test('should process SEOOptimization input', () => {
-    const result = processSEOOptimization(mockData);
+  test('should process LocalizationSupport input', () => {
+    const result = processLocalizationSupport(mockData);
     expect(result.processed).toBe(true);
     expect(result.input).toEqual(mockData);
   });
 
-  test('should optimize SEOOptimization performance', () => {
+  test('should optimize LocalizationSupport performance', () => {
     const metrics = { score: 50 };
-    const result = optimizeSEOOptimizationPerformance(metrics);
+    const result = optimizeLocalizationSupportPerformance(metrics);
     expect(result.optimized).toBe(true);
     expect(result.score).toBeGreaterThan(50);
   });
 
-  test('should cache SEOOptimization results', () => {
-    const cached = cacheSEOOptimizationResults('key', 'value');
+  test('should cache LocalizationSupport results', () => {
+    const cached = cacheLocalizationSupportResults('key', 'value');
     expect(cached.key).toBe('key');
     expect(cached.value).toBe('value');
     expect(cached.expires).toBeGreaterThan(Date.now());
