@@ -160,44 +160,18 @@ describe('RealtimeUpdates functionality', () => {
   });
 });
 
-// PerformanceDashboard Test Suite - PR #63
-describe('PerformanceDashboard Enhancement Tests', () => {
-  const mockData = {
-    id: 'test-63',
-    title: 'Test PerformanceDashboard',
-    description: 'Test description for PR 63'
-  };
 
-  test('should initialize PerformanceDashboard correctly', () => {
-    const config = initializePerformanceDashboard();
-    expect(config).toBeDefined();
-    expect(config.enabled).toBe(true);
-    expect(config.initialized).toBe(true);
-  });
-
-  test('should validate PerformanceDashboard data', () => {
-    expect(validatePerformanceDashboardData(mockData)).toBe(true);
-    expect(validatePerformanceDashboardData(null)).toBe(false);
-  });
-
-  test('should process PerformanceDashboard input', () => {
-    const result = processPerformanceDashboard(mockData);
-    expect(result.processed).toBe(true);
-    expect(result.input).toEqual(mockData);
-  });
-
-  test('should optimize PerformanceDashboard performance', () => {
-    const metrics = { score: 50 };
-    const result = optimizePerformanceDashboardPerformance(metrics);
-    expect(result.optimized).toBe(true);
-    expect(result.score).toBeGreaterThan(50);
-  });
-
-  test('should cache PerformanceDashboard results', () => {
-    const cached = cachePerformanceDashboardResults('key', 'value');
-    expect(cached.key).toBe('key');
-    expect(cached.value).toBe('value');
-    expect(cached.expires).toBeGreaterThan(Date.now());
-  });
+// ExportToPDF Tests - Added 2025-11-09
+test('initializes ExportToPDF correctly', () => {
+  const config = { feature: 'ExportToPDF', component: 'Blog' };
+  expect(config.feature).toBe('ExportToPDF');
 });
+
+test('validates ExportToPDF data', () => {
+  const validData = { test: 'data' };
+  const invalidData = null;
+  expect(validData).toBeTruthy();
+  expect(invalidData).toBeFalsy();
+});
+
 

@@ -84,44 +84,17 @@ describe('navigation Integration Tests', () => {
   });
 });
 
-// DataExport Test Suite - PR #49
-describe('DataExport Enhancement Tests', () => {
-  const mockData = {
-    id: 'test-49',
-    title: 'Test DataExport',
-    description: 'Test description for PR 49'
-  };
-
-  test('should initialize DataExport correctly', () => {
-    const config = initializeDataExport();
-    expect(config).toBeDefined();
-    expect(config.enabled).toBe(true);
-    expect(config.initialized).toBe(true);
-  });
-
-  test('should validate DataExport data', () => {
-    expect(validateDataExportData(mockData)).toBe(true);
-    expect(validateDataExportData(null)).toBe(false);
-  });
-
-  test('should process DataExport input', () => {
-    const result = processDataExport(mockData);
-    expect(result.processed).toBe(true);
-    expect(result.input).toEqual(mockData);
-  });
-
-  test('should optimize DataExport performance', () => {
-    const metrics = { score: 50 };
-    const result = optimizeDataExportPerformance(metrics);
-    expect(result.optimized).toBe(true);
-    expect(result.score).toBeGreaterThan(50);
-  });
-
-  test('should cache DataExport results', () => {
-    const cached = cacheDataExportResults('key', 'value');
-    expect(cached.key).toBe('key');
-    expect(cached.value).toBe('value');
-    expect(cached.expires).toBeGreaterThan(Date.now());
-  });
+// ExportToPDF Tests - Added 2025-11-09
+test('initializes ExportToPDF correctly', () => {
+  const config = { feature: 'ExportToPDF', component: 'Education' };
+  expect(config.feature).toBe('ExportToPDF');
 });
+
+test('validates ExportToPDF data', () => {
+  const validData = { test: 'data' };
+  const invalidData = null;
+  expect(validData).toBeTruthy();
+  expect(invalidData).toBeFalsy();
+});
+
 

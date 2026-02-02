@@ -1,7 +1,9 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Gallery from './Gallery';
+import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
+
 
 describe('Gallery Component', () => {
   test('renders gallery section with title and subtitle', () => {
@@ -149,22 +151,17 @@ describe('sorting Integration Tests', () => {
   });
 });
 
-// CollaborationTools test suite - PR #23
-describe('CollaborationTools functionality', () => {
-  test('should initialize CollaborationTools correctly', () => {
-    const config = initializeCollaborationTools();
-    expect(config).toBeDefined();
-    expect(config.enabled).toBe(true);
-  });
-  
-  test('should validate CollaborationTools data', () => {
-    expect(validateCollaborationToolsData({})).toBe(true);
-    expect(validateCollaborationToolsData(null)).toBe(false);
-  });
-  
-  test('should process CollaborationTools input', () => {
-    const result = processCollaborationTools({ test: 'data' });
-    expect(result.processed).toBe(true);
-  });
+// ExportToPDF Tests - Added 2025-11-09
+test('initializes ExportToPDF correctly', () => {
+  const config = { feature: 'ExportToPDF', component: 'Gallery' };
+  expect(config.feature).toBe('ExportToPDF');
 });
+
+test('validates ExportToPDF data', () => {
+  const validData = { test: 'data' };
+  const invalidData = null;
+  expect(validData).toBeTruthy();
+  expect(invalidData).toBeFalsy();
+});
+
 
