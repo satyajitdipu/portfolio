@@ -1,8 +1,7 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Blog, { initializeRealtimeUpdates, validateRealtimeUpdatesData, processRealtimeUpdates } from './Blog';
-import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
+import Blog from './Blog';
 
 describe('Blog Component', () => {
   test('renders blog section with title and subtitle', () => {
@@ -141,21 +140,21 @@ describe('styling Integration Tests', () => {
   });
 });
 
-// RealtimeUpdates test suite - PR #18
-describe('RealtimeUpdates functionality', () => {
-  test('should initialize RealtimeUpdates correctly', () => {
-    const config = initializeRealtimeUpdates();
+// Automation test suite - PR #33
+describe('Automation functionality', () => {
+  test('should initialize Automation correctly', () => {
+    const config = initializeAutomation();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
   });
   
-  test('should validate RealtimeUpdates data', () => {
-    expect(validateRealtimeUpdatesData({})).toBe(true);
-    expect(validateRealtimeUpdatesData(null)).toBe(false);
+  test('should validate Automation data', () => {
+    expect(validateAutomationData({})).toBe(true);
+    expect(validateAutomationData(null)).toBe(false);
   });
   
-  test('should process RealtimeUpdates input', () => {
-    const result = processRealtimeUpdates({ test: 'data' });
+  test('should process Automation input', () => {
+    const result = processAutomation({ test: 'data' });
     expect(result.processed).toBe(true);
   });
 });
