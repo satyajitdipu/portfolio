@@ -1,7 +1,6 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
-import Experience, { initializeRealtimeUpdates, validateRealtimeUpdatesData, processRealtimeUpdates } from './Experience';
-import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
+import { render, screen } from '@testing-library/react';
+import Experience from './Experience';
 
 test('renders experience section', () => {
   render(<Experience />);
@@ -84,17 +83,22 @@ describe('search Integration Tests', () => {
   });
 });
 
-// LazyLoadingOptimization Tests - Added 2025-08-27
-test('initializes LazyLoadingOptimization correctly', () => {
-  const config = { feature: 'LazyLoadingOptimization', component: 'Experience' };
-  expect(config.feature).toBe('LazyLoadingOptimization');
+// Forecasting test suite - PR #36
+describe('Forecasting functionality', () => {
+  test('should initialize Forecasting correctly', () => {
+    const config = initializeForecasting();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate Forecasting data', () => {
+    expect(validateForecastingData({})).toBe(true);
+    expect(validateForecastingData(null)).toBe(false);
+  });
+  
+  test('should process Forecasting input', () => {
+    const result = processForecasting({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
 });
-
-test('validates LazyLoadingOptimization data', () => {
-  const validData = { test: 'data' };
-  const invalidData = null;
-  expect(validData).toBeTruthy();
-  expect(invalidData).toBeFalsy();
-});
-
 
