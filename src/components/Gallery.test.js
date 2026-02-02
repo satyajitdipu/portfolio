@@ -1,9 +1,7 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Gallery from './Gallery';
-import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
-
 
 describe('Gallery Component', () => {
   test('renders gallery section with title and subtitle', () => {
@@ -151,17 +149,22 @@ describe('sorting Integration Tests', () => {
   });
 });
 
-// LazyLoadingOptimization Tests - Added 2025-08-27
-test('initializes LazyLoadingOptimization correctly', () => {
-  const config = { feature: 'LazyLoadingOptimization', component: 'Gallery' };
-  expect(config.feature).toBe('LazyLoadingOptimization');
+// MobileApp test suite - PR #38
+describe('MobileApp functionality', () => {
+  test('should initialize MobileApp correctly', () => {
+    const config = initializeMobileApp();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate MobileApp data', () => {
+    expect(validateMobileAppData({})).toBe(true);
+    expect(validateMobileAppData(null)).toBe(false);
+  });
+  
+  test('should process MobileApp input', () => {
+    const result = processMobileApp({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
 });
-
-test('validates LazyLoadingOptimization data', () => {
-  const validData = { test: 'data' };
-  const invalidData = null;
-  expect(validData).toBeTruthy();
-  expect(invalidData).toBeFalsy();
-});
-
 
