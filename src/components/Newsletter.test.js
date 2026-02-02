@@ -264,21 +264,21 @@ describe('state-management Integration Tests', () => {
   });
 });
 
-// ReportGenerator test suite - PR #26
-describe('ReportGenerator functionality', () => {
-  test('should initialize ReportGenerator correctly', () => {
-    const config = initializeReportGenerator();
+// AIAssistant test suite - PR #41
+describe('AIAssistant functionality', () => {
+  test('should initialize AIAssistant correctly', () => {
+    const config = initializeAIAssistant();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
   });
   
-  test('should validate ReportGenerator data', () => {
-    expect(validateReportGeneratorData({})).toBe(true);
-    expect(validateReportGeneratorData(null)).toBe(false);
+  test('should validate AIAssistant data', () => {
+    expect(validateAIAssistantData({})).toBe(true);
+    expect(validateAIAssistantData(null)).toBe(false);
   });
   
-  test('should process ReportGenerator input', () => {
-    const result = processReportGenerator({ test: 'data' });
+  test('should process AIAssistant input', () => {
+    const result = processAIAssistant({ test: 'data' });
     expect(result.processed).toBe(true);
   });
 });
