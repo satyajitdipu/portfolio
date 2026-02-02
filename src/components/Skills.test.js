@@ -85,41 +85,41 @@ describe('theming Integration Tests', () => {
   });
 });
 
-// SearchOptimization Test Suite - PR #42
-describe('SearchOptimization Enhancement Tests', () => {
+// SEOOptimization Test Suite - PR #47
+describe('SEOOptimization Enhancement Tests', () => {
   const mockData = {
-    id: 'test-42',
-    title: 'Test SearchOptimization',
-    description: 'Test description for PR 42'
+    id: 'test-47',
+    title: 'Test SEOOptimization',
+    description: 'Test description for PR 47'
   };
 
-  test('should initialize SearchOptimization correctly', () => {
-    const config = initializeSearchOptimization();
+  test('should initialize SEOOptimization correctly', () => {
+    const config = initializeSEOOptimization();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
     expect(config.initialized).toBe(true);
   });
 
-  test('should validate SearchOptimization data', () => {
-    expect(validateSearchOptimizationData(mockData)).toBe(true);
-    expect(validateSearchOptimizationData(null)).toBe(false);
+  test('should validate SEOOptimization data', () => {
+    expect(validateSEOOptimizationData(mockData)).toBe(true);
+    expect(validateSEOOptimizationData(null)).toBe(false);
   });
 
-  test('should process SearchOptimization input', () => {
-    const result = processSearchOptimization(mockData);
+  test('should process SEOOptimization input', () => {
+    const result = processSEOOptimization(mockData);
     expect(result.processed).toBe(true);
     expect(result.input).toEqual(mockData);
   });
 
-  test('should optimize SearchOptimization performance', () => {
+  test('should optimize SEOOptimization performance', () => {
     const metrics = { score: 50 };
-    const result = optimizeSearchOptimizationPerformance(metrics);
+    const result = optimizeSEOOptimizationPerformance(metrics);
     expect(result.optimized).toBe(true);
     expect(result.score).toBeGreaterThan(50);
   });
 
-  test('should cache SearchOptimization results', () => {
-    const cached = cacheSearchOptimizationResults('key', 'value');
+  test('should cache SEOOptimization results', () => {
+    const cached = cacheSEOOptimizationResults('key', 'value');
     expect(cached.key).toBe('key');
     expect(cached.value).toBe('value');
     expect(cached.expires).toBeGreaterThan(Date.now());
