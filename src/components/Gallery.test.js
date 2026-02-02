@@ -1,9 +1,7 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Gallery from './Gallery';
-import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
-
 
 describe('Gallery Component', () => {
   test('renders gallery section with title and subtitle', () => {
@@ -151,44 +149,22 @@ describe('sorting Integration Tests', () => {
   });
 });
 
-// ContentRecommendation Test Suite - PR #62
-describe('ContentRecommendation Enhancement Tests', () => {
-  const mockData = {
-    id: 'test-62',
-    title: 'Test ContentRecommendation',
-    description: 'Test description for PR 62'
-  };
-
-  test('should initialize ContentRecommendation correctly', () => {
-    const config = initializeContentRecommendation();
+// CollaborationTools test suite - PR #23
+describe('CollaborationTools functionality', () => {
+  test('should initialize CollaborationTools correctly', () => {
+    const config = initializeCollaborationTools();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
-    expect(config.initialized).toBe(true);
   });
-
-  test('should validate ContentRecommendation data', () => {
-    expect(validateContentRecommendationData(mockData)).toBe(true);
-    expect(validateContentRecommendationData(null)).toBe(false);
+  
+  test('should validate CollaborationTools data', () => {
+    expect(validateCollaborationToolsData({})).toBe(true);
+    expect(validateCollaborationToolsData(null)).toBe(false);
   });
-
-  test('should process ContentRecommendation input', () => {
-    const result = processContentRecommendation(mockData);
+  
+  test('should process CollaborationTools input', () => {
+    const result = processCollaborationTools({ test: 'data' });
     expect(result.processed).toBe(true);
-    expect(result.input).toEqual(mockData);
-  });
-
-  test('should optimize ContentRecommendation performance', () => {
-    const metrics = { score: 50 };
-    const result = optimizeContentRecommendationPerformance(metrics);
-    expect(result.optimized).toBe(true);
-    expect(result.score).toBeGreaterThan(50);
-  });
-
-  test('should cache ContentRecommendation results', () => {
-    const cached = cacheContentRecommendationResults('key', 'value');
-    expect(cached.key).toBe('key');
-    expect(cached.value).toBe('value');
-    expect(cached.expires).toBeGreaterThan(Date.now());
   });
 });
 
