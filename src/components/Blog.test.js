@@ -160,41 +160,41 @@ describe('RealtimeUpdates functionality', () => {
   });
 });
 
-// OfflineSupport Test Suite - PR #60
-describe('OfflineSupport Enhancement Tests', () => {
+// AdvancedSearch Test Suite - PR #61
+describe('AdvancedSearch Enhancement Tests', () => {
   const mockData = {
-    id: 'test-60',
-    title: 'Test OfflineSupport',
-    description: 'Test description for PR 60'
+    id: 'test-61',
+    title: 'Test AdvancedSearch',
+    description: 'Test description for PR 61'
   };
 
-  test('should initialize OfflineSupport correctly', () => {
-    const config = initializeOfflineSupport();
+  test('should initialize AdvancedSearch correctly', () => {
+    const config = initializeAdvancedSearch();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
     expect(config.initialized).toBe(true);
   });
 
-  test('should validate OfflineSupport data', () => {
-    expect(validateOfflineSupportData(mockData)).toBe(true);
-    expect(validateOfflineSupportData(null)).toBe(false);
+  test('should validate AdvancedSearch data', () => {
+    expect(validateAdvancedSearchData(mockData)).toBe(true);
+    expect(validateAdvancedSearchData(null)).toBe(false);
   });
 
-  test('should process OfflineSupport input', () => {
-    const result = processOfflineSupport(mockData);
+  test('should process AdvancedSearch input', () => {
+    const result = processAdvancedSearch(mockData);
     expect(result.processed).toBe(true);
     expect(result.input).toEqual(mockData);
   });
 
-  test('should optimize OfflineSupport performance', () => {
+  test('should optimize AdvancedSearch performance', () => {
     const metrics = { score: 50 };
-    const result = optimizeOfflineSupportPerformance(metrics);
+    const result = optimizeAdvancedSearchPerformance(metrics);
     expect(result.optimized).toBe(true);
     expect(result.score).toBeGreaterThan(50);
   });
 
-  test('should cache OfflineSupport results', () => {
-    const cached = cacheOfflineSupportResults('key', 'value');
+  test('should cache AdvancedSearch results', () => {
+    const cached = cacheAdvancedSearchResults('key', 'value');
     expect(cached.key).toBe('key');
     expect(cached.value).toBe('value');
     expect(cached.expires).toBeGreaterThan(Date.now());

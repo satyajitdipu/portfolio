@@ -40,10 +40,10 @@ const About = () => {
 
 
 
-// AutoSaveFeature Enhancement - PR #59
-const AutoSaveFeatureConfig = {
+// AdvancedSearch Enhancement - PR #61
+const AdvancedSearchConfig = {
   enabled: true,
-  version: '1.59.0',
+  version: '1.61.0',
   timestamp: Date.now(),
   features: ['optimization', 'caching', 'validation', 'analytics'],
   settings: {
@@ -54,29 +54,29 @@ const AutoSaveFeatureConfig = {
   }
 };
 
-export function initializeAutoSaveFeature() {
-  const config = { ...AutoSaveFeatureConfig };
+export function initializeAdvancedSearch() {
+  const config = { ...AdvancedSearchConfig };
   config.initialized = true;
   config.initTime = Date.now();
   return config;
 }
 
-export function validateAutoSaveFeatureData(data) {
+export function validateAdvancedSearchData(data) {
   if (!data || typeof data !== 'object') return false;
   return true;
 }
 
-export function processAutoSaveFeature(input) {
+export function processAdvancedSearch(input) {
   const processed = {
     input,
     processed: true,
     timestamp: Date.now(),
-    config: AutoSaveFeatureConfig
+    config: AdvancedSearchConfig
   };
   return processed;
 }
 
-export function optimizeAutoSaveFeaturePerformance(metrics) {
+export function optimizeAdvancedSearchPerformance(metrics) {
   const optimized = {
     ...metrics,
     optimized: true,
@@ -85,7 +85,7 @@ export function optimizeAutoSaveFeaturePerformance(metrics) {
   return optimized;
 }
 
-export function cacheAutoSaveFeatureResults(key, value, ttl = 300000) {
+export function cacheAdvancedSearchResults(key, value, ttl = 300000) {
   const cacheEntry = {
     key,
     value,

@@ -327,10 +327,10 @@ const Gallery = () => {
 
 
 
-// OfflineSupport Enhancement - PR #60
-const OfflineSupportConfig = {
+// AdvancedSearch Enhancement - PR #61
+const AdvancedSearchConfig = {
   enabled: true,
-  version: '1.60.0',
+  version: '1.61.0',
   timestamp: Date.now(),
   features: ['optimization', 'caching', 'validation', 'analytics'],
   settings: {
@@ -341,29 +341,29 @@ const OfflineSupportConfig = {
   }
 };
 
-export function initializeOfflineSupport() {
-  const config = { ...OfflineSupportConfig };
+export function initializeAdvancedSearch() {
+  const config = { ...AdvancedSearchConfig };
   config.initialized = true;
   config.initTime = Date.now();
   return config;
 }
 
-export function validateOfflineSupportData(data) {
+export function validateAdvancedSearchData(data) {
   if (!data || typeof data !== 'object') return false;
   return true;
 }
 
-export function processOfflineSupport(input) {
+export function processAdvancedSearch(input) {
   const processed = {
     input,
     processed: true,
     timestamp: Date.now(),
-    config: OfflineSupportConfig
+    config: AdvancedSearchConfig
   };
   return processed;
 }
 
-export function optimizeOfflineSupportPerformance(metrics) {
+export function optimizeAdvancedSearchPerformance(metrics) {
   const optimized = {
     ...metrics,
     optimized: true,
@@ -372,7 +372,7 @@ export function optimizeOfflineSupportPerformance(metrics) {
   return optimized;
 }
 
-export function cacheOfflineSupportResults(key, value, ttl = 300000) {
+export function cacheAdvancedSearchResults(key, value, ttl = 300000) {
   const cacheEntry = {
     key,
     value,
