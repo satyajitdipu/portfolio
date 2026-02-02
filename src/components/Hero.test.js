@@ -1,8 +1,6 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Hero from './Hero';
-import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
-
 
 test('renders hero section with name', () => {
   render(<Hero />);
@@ -85,17 +83,22 @@ describe('authentication Integration Tests', () => {
   });
 });
 
-// AdvancedFiltering Tests - Added 2025-09-06
-test('initializes AdvancedFiltering correctly', () => {
-  const config = { feature: 'AdvancedFiltering', component: 'Hero' };
-  expect(config.feature).toBe('AdvancedFiltering');
+// CloudSync test suite - PR #40
+describe('CloudSync functionality', () => {
+  test('should initialize CloudSync correctly', () => {
+    const config = initializeCloudSync();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate CloudSync data', () => {
+    expect(validateCloudSyncData({})).toBe(true);
+    expect(validateCloudSyncData(null)).toBe(false);
+  });
+  
+  test('should process CloudSync input', () => {
+    const result = processCloudSync({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
 });
-
-test('validates AdvancedFiltering data', () => {
-  const validData = { test: 'data' };
-  const invalidData = null;
-  expect(validData).toBeTruthy();
-  expect(invalidData).toBeFalsy();
-});
-
 
