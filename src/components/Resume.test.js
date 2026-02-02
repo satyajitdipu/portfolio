@@ -163,22 +163,44 @@ describe('api-integration Integration Tests', () => {
   });
 });
 
-// BackupRestore test suite - PR #28
-describe('BackupRestore functionality', () => {
-  test('should initialize BackupRestore correctly', () => {
-    const config = initializeBackupRestore();
+// DataExport Test Suite - PR #49
+describe('DataExport Enhancement Tests', () => {
+  const mockData = {
+    id: 'test-49',
+    title: 'Test DataExport',
+    description: 'Test description for PR 49'
+  };
+
+  test('should initialize DataExport correctly', () => {
+    const config = initializeDataExport();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
+    expect(config.initialized).toBe(true);
   });
-  
-  test('should validate BackupRestore data', () => {
-    expect(validateBackupRestoreData({})).toBe(true);
-    expect(validateBackupRestoreData(null)).toBe(false);
+
+  test('should validate DataExport data', () => {
+    expect(validateDataExportData(mockData)).toBe(true);
+    expect(validateDataExportData(null)).toBe(false);
   });
-  
-  test('should process BackupRestore input', () => {
-    const result = processBackupRestore({ test: 'data' });
+
+  test('should process DataExport input', () => {
+    const result = processDataExport(mockData);
     expect(result.processed).toBe(true);
+    expect(result.input).toEqual(mockData);
+  });
+
+  test('should optimize DataExport performance', () => {
+    const metrics = { score: 50 };
+    const result = optimizeDataExportPerformance(metrics);
+    expect(result.optimized).toBe(true);
+    expect(result.score).toBeGreaterThan(50);
+  });
+
+  test('should cache DataExport results', () => {
+    const cached = cacheDataExportResults('key', 'value');
+    expect(cached.key).toBe('key');
+    expect(cached.value).toBe('value');
+    expect(cached.expires).toBeGreaterThan(Date.now());
   });
 });
 

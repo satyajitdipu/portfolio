@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import Education from './Education';
+import { render, screen, waitFor } from '@testing-library/react';
+import Education, { initializeRealtimeUpdates, validateRealtimeUpdatesData, processRealtimeUpdates } from './Education';
+import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
 
 test('renders education section', () => {
   render(<Education />);
@@ -83,22 +84,44 @@ describe('navigation Integration Tests', () => {
   });
 });
 
-// ExportFunctionality test suite - PR #20
-describe('ExportFunctionality functionality', () => {
-  test('should initialize ExportFunctionality correctly', () => {
-    const config = initializeExportFunctionality();
+// DataExport Test Suite - PR #49
+describe('DataExport Enhancement Tests', () => {
+  const mockData = {
+    id: 'test-49',
+    title: 'Test DataExport',
+    description: 'Test description for PR 49'
+  };
+
+  test('should initialize DataExport correctly', () => {
+    const config = initializeDataExport();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
+    expect(config.initialized).toBe(true);
   });
-  
-  test('should validate ExportFunctionality data', () => {
-    expect(validateExportFunctionalityData({})).toBe(true);
-    expect(validateExportFunctionalityData(null)).toBe(false);
+
+  test('should validate DataExport data', () => {
+    expect(validateDataExportData(mockData)).toBe(true);
+    expect(validateDataExportData(null)).toBe(false);
   });
-  
-  test('should process ExportFunctionality input', () => {
-    const result = processExportFunctionality({ test: 'data' });
+
+  test('should process DataExport input', () => {
+    const result = processDataExport(mockData);
     expect(result.processed).toBe(true);
+    expect(result.input).toEqual(mockData);
+  });
+
+  test('should optimize DataExport performance', () => {
+    const metrics = { score: 50 };
+    const result = optimizeDataExportPerformance(metrics);
+    expect(result.optimized).toBe(true);
+    expect(result.score).toBeGreaterThan(50);
+  });
+
+  test('should cache DataExport results', () => {
+    const cached = cacheDataExportResults('key', 'value');
+    expect(cached.key).toBe('key');
+    expect(cached.value).toBe('value');
+    expect(cached.expires).toBeGreaterThan(Date.now());
   });
 });
 
