@@ -84,41 +84,41 @@ describe('search Integration Tests', () => {
   });
 });
 
-// ActivityFeed Test Suite - PR #55
-describe('ActivityFeed Enhancement Tests', () => {
+// DataVisualization Test Suite - PR #58
+describe('DataVisualization Enhancement Tests', () => {
   const mockData = {
-    id: 'test-55',
-    title: 'Test ActivityFeed',
-    description: 'Test description for PR 55'
+    id: 'test-58',
+    title: 'Test DataVisualization',
+    description: 'Test description for PR 58'
   };
 
-  test('should initialize ActivityFeed correctly', () => {
-    const config = initializeActivityFeed();
+  test('should initialize DataVisualization correctly', () => {
+    const config = initializeDataVisualization();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
     expect(config.initialized).toBe(true);
   });
 
-  test('should validate ActivityFeed data', () => {
-    expect(validateActivityFeedData(mockData)).toBe(true);
-    expect(validateActivityFeedData(null)).toBe(false);
+  test('should validate DataVisualization data', () => {
+    expect(validateDataVisualizationData(mockData)).toBe(true);
+    expect(validateDataVisualizationData(null)).toBe(false);
   });
 
-  test('should process ActivityFeed input', () => {
-    const result = processActivityFeed(mockData);
+  test('should process DataVisualization input', () => {
+    const result = processDataVisualization(mockData);
     expect(result.processed).toBe(true);
     expect(result.input).toEqual(mockData);
   });
 
-  test('should optimize ActivityFeed performance', () => {
+  test('should optimize DataVisualization performance', () => {
     const metrics = { score: 50 };
-    const result = optimizeActivityFeedPerformance(metrics);
+    const result = optimizeDataVisualizationPerformance(metrics);
     expect(result.optimized).toBe(true);
     expect(result.score).toBeGreaterThan(50);
   });
 
-  test('should cache ActivityFeed results', () => {
-    const cached = cacheActivityFeedResults('key', 'value');
+  test('should cache DataVisualization results', () => {
+    const cached = cacheDataVisualizationResults('key', 'value');
     expect(cached.key).toBe('key');
     expect(cached.value).toBe('value');
     expect(cached.expires).toBeGreaterThan(Date.now());
