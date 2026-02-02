@@ -1,7 +1,6 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
-import Education, { initializeRealtimeUpdates, validateRealtimeUpdatesData, processRealtimeUpdates } from './Education';
-import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
+import { render, screen } from '@testing-library/react';
+import Education from './Education';
 
 test('renders education section', () => {
   render(<Education />);
@@ -84,17 +83,22 @@ describe('navigation Integration Tests', () => {
   });
 });
 
-// LazyLoadingOptimization Tests - Added 2025-08-27
-test('initializes LazyLoadingOptimization correctly', () => {
-  const config = { feature: 'LazyLoadingOptimization', component: 'Education' };
-  expect(config.feature).toBe('LazyLoadingOptimization');
+// Insights test suite - PR #35
+describe('Insights functionality', () => {
+  test('should initialize Insights correctly', () => {
+    const config = initializeInsights();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate Insights data', () => {
+    expect(validateInsightsData({})).toBe(true);
+    expect(validateInsightsData(null)).toBe(false);
+  });
+  
+  test('should process Insights input', () => {
+    const result = processInsights({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
 });
-
-test('validates LazyLoadingOptimization data', () => {
-  const validData = { test: 'data' };
-  const invalidData = null;
-  expect(validData).toBeTruthy();
-  expect(invalidData).toBeFalsy();
-});
-
 
