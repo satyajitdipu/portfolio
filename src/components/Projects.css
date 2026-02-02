@@ -948,18 +948,18 @@
   }
 }
 
-/* DarkModeToggle Styles - Added 2025-09-19 */
-.darkmodetoggle-container {
+/* AdvancedFiltering Styles - Added 2025-09-06 */
+.advancedfiltering-container {
   padding: 20px;
   margin: 10px 0;
 }
 
-.darkmodetoggle-active {
+.advancedfiltering-active {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
 
-.darkmodetoggle-disabled {
+.advancedfiltering-disabled {
   opacity: 0.5;
   pointer-events: none;
 }

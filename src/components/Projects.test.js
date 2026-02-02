@@ -545,13 +545,13 @@ describe('error-handling Integration Tests', () => {
   });
 });
 
-// DarkModeToggle Tests - Added 2025-09-19
-test('initializes DarkModeToggle correctly', () => {
-  const config = { feature: 'DarkModeToggle', component: 'Projects' };
-  expect(config.feature).toBe('DarkModeToggle');
+// AdvancedFiltering Tests - Added 2025-09-06
+test('initializes AdvancedFiltering correctly', () => {
+  const config = { feature: 'AdvancedFiltering', component: 'Projects' };
+  expect(config.feature).toBe('AdvancedFiltering');
 });
 
-test('validates DarkModeToggle data', () => {
+test('validates AdvancedFiltering data', () => {
   const validData = { test: 'data' };
   const invalidData = null;
   expect(validData).toBeTruthy();
