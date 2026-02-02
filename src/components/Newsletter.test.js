@@ -3,8 +3,6 @@ import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import '@testing-library/jest-dom';
 import Newsletter from './Newsletter';
 import { ThemeContext } from '../App';
-import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
-
 
 // Mock the ThemeContext
 const mockThemeContext = {
@@ -266,17 +264,22 @@ describe('state-management Integration Tests', () => {
   });
 });
 
-// DarkModeToggle Tests - Added 2025-09-19
-test('initializes DarkModeToggle correctly', () => {
-  const config = { feature: 'DarkModeToggle', component: 'Newsletter' };
-  expect(config.feature).toBe('DarkModeToggle');
+// ReportGenerator test suite - PR #26
+describe('ReportGenerator functionality', () => {
+  test('should initialize ReportGenerator correctly', () => {
+    const config = initializeReportGenerator();
+    expect(config).toBeDefined();
+    expect(config.enabled).toBe(true);
+  });
+  
+  test('should validate ReportGenerator data', () => {
+    expect(validateReportGeneratorData({})).toBe(true);
+    expect(validateReportGeneratorData(null)).toBe(false);
+  });
+  
+  test('should process ReportGenerator input', () => {
+    const result = processReportGenerator({ test: 'data' });
+    expect(result.processed).toBe(true);
+  });
 });
-
-test('validates DarkModeToggle data', () => {
-  const validData = { test: 'data' };
-  const invalidData = null;
-  expect(validData).toBeTruthy();
-  expect(invalidData).toBeFalsy();
-});
-
 
