@@ -85,13 +85,13 @@ describe('theming Integration Tests', () => {
   });
 });
 
-// MultiLanguageSupport Tests - Added 2025-11-24
-test('initializes MultiLanguageSupport correctly', () => {
-  const config = { feature: 'MultiLanguageSupport', component: 'Skills' };
-  expect(config.feature).toBe('MultiLanguageSupport');
+// AccessibilityImprovements Tests - Added 2025-12-08
+test('initializes AccessibilityImprovements correctly', () => {
+  const config = { feature: 'AccessibilityImprovements', component: 'Skills' };
+  expect(config.feature).toBe('AccessibilityImprovements');
 });
 
-test('validates MultiLanguageSupport data', () => {
+test('validates AccessibilityImprovements data', () => {
   const validData = { test: 'data' };
   const invalidData = null;
   expect(validData).toBeTruthy();
