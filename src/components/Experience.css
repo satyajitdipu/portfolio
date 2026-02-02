@@ -164,18 +164,18 @@
   }
 }
 
-/* ResponsiveDesignEnhancement Styles - Added 2025-12-11 */
-.responsivedesignenhancement-container {
+/* LazyLoadingOptimization Styles - Added 2025-08-27 */
+.lazyloadingoptimization-container {
   padding: 20px;
   margin: 10px 0;
 }
 
-.responsivedesignenhancement-active {
+.lazyloadingoptimization-active {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
 
-.responsivedesignenhancement-disabled {
+.lazyloadingoptimization-disabled {
   opacity: 0.5;
   pointer-events: none;
 }

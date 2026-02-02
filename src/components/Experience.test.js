@@ -84,13 +84,13 @@ describe('search Integration Tests', () => {
   });
 });
 
-// ResponsiveDesignEnhancement Tests - Added 2025-12-11
-test('initializes ResponsiveDesignEnhancement correctly', () => {
-  const config = { feature: 'ResponsiveDesignEnhancement', component: 'Experience' };
-  expect(config.feature).toBe('ResponsiveDesignEnhancement');
+// LazyLoadingOptimization Tests - Added 2025-08-27
+test('initializes LazyLoadingOptimization correctly', () => {
+  const config = { feature: 'LazyLoadingOptimization', component: 'Experience' };
+  expect(config.feature).toBe('LazyLoadingOptimization');
 });
 
-test('validates ResponsiveDesignEnhancement data', () => {
+test('validates LazyLoadingOptimization data', () => {
   const validData = { test: 'data' };
   const invalidData = null;
   expect(validData).toBeTruthy();

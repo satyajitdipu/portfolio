@@ -18,5 +18,4 @@ test('renders project links', () => {
   render(<Projects />);
   const links = screen.getAllByRole('link');
   expect(links.length).toBeGreaterThan(0);
-});</content>
-<parameter name="filePath">d:\portfolio\src\components\Projects.integration.test.js
+});
