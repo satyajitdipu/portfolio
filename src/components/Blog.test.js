@@ -160,41 +160,41 @@ describe('RealtimeUpdates functionality', () => {
   });
 });
 
-// SocialSharing Test Suite - PR #50
-describe('SocialSharing Enhancement Tests', () => {
+// CommentSystem Test Suite - PR #51
+describe('CommentSystem Enhancement Tests', () => {
   const mockData = {
-    id: 'test-50',
-    title: 'Test SocialSharing',
-    description: 'Test description for PR 50'
+    id: 'test-51',
+    title: 'Test CommentSystem',
+    description: 'Test description for PR 51'
   };
 
-  test('should initialize SocialSharing correctly', () => {
-    const config = initializeSocialSharing();
+  test('should initialize CommentSystem correctly', () => {
+    const config = initializeCommentSystem();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
     expect(config.initialized).toBe(true);
   });
 
-  test('should validate SocialSharing data', () => {
-    expect(validateSocialSharingData(mockData)).toBe(true);
-    expect(validateSocialSharingData(null)).toBe(false);
+  test('should validate CommentSystem data', () => {
+    expect(validateCommentSystemData(mockData)).toBe(true);
+    expect(validateCommentSystemData(null)).toBe(false);
   });
 
-  test('should process SocialSharing input', () => {
-    const result = processSocialSharing(mockData);
+  test('should process CommentSystem input', () => {
+    const result = processCommentSystem(mockData);
     expect(result.processed).toBe(true);
     expect(result.input).toEqual(mockData);
   });
 
-  test('should optimize SocialSharing performance', () => {
+  test('should optimize CommentSystem performance', () => {
     const metrics = { score: 50 };
-    const result = optimizeSocialSharingPerformance(metrics);
+    const result = optimizeCommentSystemPerformance(metrics);
     expect(result.optimized).toBe(true);
     expect(result.score).toBeGreaterThan(50);
   });
 
-  test('should cache SocialSharing results', () => {
-    const cached = cacheSocialSharingResults('key', 'value');
+  test('should cache CommentSystem results', () => {
+    const cached = cacheCommentSystemResults('key', 'value');
     expect(cached.key).toBe('key');
     expect(cached.value).toBe('value');
     expect(cached.expires).toBeGreaterThan(Date.now());
