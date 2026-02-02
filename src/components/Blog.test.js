@@ -1,7 +1,8 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Blog from './Blog';
+import Blog, { initializeRealtimeUpdates, validateRealtimeUpdatesData, processRealtimeUpdates } from './Blog';
+import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
 
 describe('Blog Component', () => {
   test('renders blog section with title and subtitle', () => {

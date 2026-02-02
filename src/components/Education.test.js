@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import Education from './Education';
+import { render, screen, waitFor } from '@testing-library/react';
+import Education, { initializeRealtimeUpdates, validateRealtimeUpdatesData, processRealtimeUpdates } from './Education';
+import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
 
 test('renders education section', () => {
   render(<Education />);

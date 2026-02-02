@@ -2,6 +2,8 @@ import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import '@testing-library/jest-dom';
 import Projects from './Projects';
 import { ThemeContext } from '../App';
+import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
+
 
 // Mock the ThemeContext
 const mockThemeContext = {

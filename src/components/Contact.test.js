@@ -1,8 +1,9 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Contact from './Contact';
+import Contact, { initializeRealtimeUpdates, validateRealtimeUpdatesData, processRealtimeUpdates } from './Contact';
 import { ThemeContext } from '../App';
+import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
 
 // Mock ThemeContext
 const mockThemeContext = {

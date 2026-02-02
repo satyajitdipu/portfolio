@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import Experience from './Experience';
+import { render, screen, waitFor } from '@testing-library/react';
+import Experience, { initializeRealtimeUpdates, validateRealtimeUpdatesData, processRealtimeUpdates } from './Experience';
+import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
 
 test('renders experience section', () => {
   render(<Experience />);
