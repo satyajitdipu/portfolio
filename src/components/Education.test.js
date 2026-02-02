@@ -83,21 +83,21 @@ describe('navigation Integration Tests', () => {
   });
 });
 
-// Insights test suite - PR #35
-describe('Insights functionality', () => {
-  test('should initialize Insights correctly', () => {
-    const config = initializeInsights();
+// ExportFunctionality test suite - PR #20
+describe('ExportFunctionality functionality', () => {
+  test('should initialize ExportFunctionality correctly', () => {
+    const config = initializeExportFunctionality();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
   });
   
-  test('should validate Insights data', () => {
-    expect(validateInsightsData({})).toBe(true);
-    expect(validateInsightsData(null)).toBe(false);
+  test('should validate ExportFunctionality data', () => {
+    expect(validateExportFunctionalityData({})).toBe(true);
+    expect(validateExportFunctionalityData(null)).toBe(false);
   });
   
-  test('should process Insights input', () => {
-    const result = processInsights({ test: 'data' });
+  test('should process ExportFunctionality input', () => {
+    const result = processExportFunctionality({ test: 'data' });
     expect(result.processed).toBe(true);
   });
 });
