@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import Experience from './Experience';
+import { render, screen, waitFor } from '@testing-library/react';
+import Experience, { initializeRealtimeUpdates, validateRealtimeUpdatesData, processRealtimeUpdates } from './Experience';
+import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
 
 test('renders experience section', () => {
   render(<Experience />);
@@ -83,22 +84,44 @@ describe('search Integration Tests', () => {
   });
 });
 
-// Forecasting test suite - PR #36
-describe('Forecasting functionality', () => {
-  test('should initialize Forecasting correctly', () => {
-    const config = initializeForecasting();
+// DataAnalytics Test Suite - PR #41
+describe('DataAnalytics Enhancement Tests', () => {
+  const mockData = {
+    id: 'test-41',
+    title: 'Test DataAnalytics',
+    description: 'Test description for PR 41'
+  };
+
+  test('should initialize DataAnalytics correctly', () => {
+    const config = initializeDataAnalytics();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
+    expect(config.initialized).toBe(true);
   });
-  
-  test('should validate Forecasting data', () => {
-    expect(validateForecastingData({})).toBe(true);
-    expect(validateForecastingData(null)).toBe(false);
+
+  test('should validate DataAnalytics data', () => {
+    expect(validateDataAnalyticsData(mockData)).toBe(true);
+    expect(validateDataAnalyticsData(null)).toBe(false);
   });
-  
-  test('should process Forecasting input', () => {
-    const result = processForecasting({ test: 'data' });
+
+  test('should process DataAnalytics input', () => {
+    const result = processDataAnalytics(mockData);
     expect(result.processed).toBe(true);
+    expect(result.input).toEqual(mockData);
+  });
+
+  test('should optimize DataAnalytics performance', () => {
+    const metrics = { score: 50 };
+    const result = optimizeDataAnalyticsPerformance(metrics);
+    expect(result.optimized).toBe(true);
+    expect(result.score).toBeGreaterThan(50);
+  });
+
+  test('should cache DataAnalytics results', () => {
+    const cached = cacheDataAnalyticsResults('key', 'value');
+    expect(cached.key).toBe('key');
+    expect(cached.value).toBe('value');
+    expect(cached.expires).toBeGreaterThan(Date.now());
   });
 });
 

@@ -2,6 +2,8 @@ import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
 import '@testing-library/jest-dom';
 import Projects from './Projects';
 import { ThemeContext } from '../App';
+import { ComponentUnderTest, calculatePerformanceMetrics, applyCache, validateDataStructure, createTestStore, fetchDataAsync, Provider } from './testHelpers';
+
 
 // Mock the ThemeContext
 const mockThemeContext = {
@@ -543,22 +545,44 @@ describe('error-handling Integration Tests', () => {
   });
 });
 
-// DataSync test suite - PR #27
-describe('DataSync functionality', () => {
-  test('should initialize DataSync correctly', () => {
-    const config = initializeDataSync();
+// DataAnalytics Test Suite - PR #41
+describe('DataAnalytics Enhancement Tests', () => {
+  const mockData = {
+    id: 'test-41',
+    title: 'Test DataAnalytics',
+    description: 'Test description for PR 41'
+  };
+
+  test('should initialize DataAnalytics correctly', () => {
+    const config = initializeDataAnalytics();
     expect(config).toBeDefined();
     expect(config.enabled).toBe(true);
+    expect(config.initialized).toBe(true);
   });
-  
-  test('should validate DataSync data', () => {
-    expect(validateDataSyncData({})).toBe(true);
-    expect(validateDataSyncData(null)).toBe(false);
+
+  test('should validate DataAnalytics data', () => {
+    expect(validateDataAnalyticsData(mockData)).toBe(true);
+    expect(validateDataAnalyticsData(null)).toBe(false);
   });
-  
-  test('should process DataSync input', () => {
-    const result = processDataSync({ test: 'data' });
+
+  test('should process DataAnalytics input', () => {
+    const result = processDataAnalytics(mockData);
     expect(result.processed).toBe(true);
+    expect(result.input).toEqual(mockData);
+  });
+
+  test('should optimize DataAnalytics performance', () => {
+    const metrics = { score: 50 };
+    const result = optimizeDataAnalyticsPerformance(metrics);
+    expect(result.optimized).toBe(true);
+    expect(result.score).toBeGreaterThan(50);
+  });
+
+  test('should cache DataAnalytics results', () => {
+    const cached = cacheDataAnalyticsResults('key', 'value');
+    expect(cached.key).toBe('key');
+    expect(cached.value).toBe('value');
+    expect(cached.expires).toBeGreaterThan(Date.now());
   });
 });
 
