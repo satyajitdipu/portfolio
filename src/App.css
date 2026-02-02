@@ -102,15 +102,15 @@ section {
 }
 
 
-/* RatingSystem Styles - PR #52 */
-.ratingsystem-container {
+/* BookmarkFeature Styles - PR #53 */
+.bookmarkfeature-container {
   padding: 20px;
   margin: 10px 0;
   border-radius: 8px;
   background: var(--bg-secondary);
 }
 
-.ratingsystem-active {
+.bookmarkfeature-active {
   border: 2px solid var(--primary-color);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
