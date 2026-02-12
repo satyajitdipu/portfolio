@@ -78,13 +78,5 @@ const validateAccessibilityImprovementsData = (data) => {
   return true;
 };
 
-const processAccessibilityImprovements = async (input) => {
-  const config = initializeAccessibilityImprovements();
-  if (!validateAccessibilityImprovementsData(input)) {
-    throw new Error('Invalid AccessibilityImprovements data');
-  }
-  return { ...input, processed: true, config };
-};
-
 
 export default Skills;

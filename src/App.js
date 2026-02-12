@@ -10,13 +10,8 @@ import Education from './components/Education';
 import Timeline from './components/Timeline';
 import Projects from './components/Projects';
 import Resume from './components/Resume';
-import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
-import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
-import Blog from './components/Blog';
-import Gallery from './components/Gallery';
-import AdminPanel from './components/AdminPanel';
 
 // Theme Context
 export const ThemeContext = React.createContext();

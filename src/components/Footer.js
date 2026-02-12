@@ -85,13 +85,5 @@ const validatePerformanceMetricsData = (data) => {
   return true;
 };
 
-const processPerformanceMetrics = async (input) => {
-  const config = initializePerformanceMetrics();
-  if (!validatePerformanceMetricsData(input)) {
-    throw new Error('Invalid PerformanceMetrics data');
-  }
-  return { ...input, processed: true, config };
-};
-
 
 export default Footer;

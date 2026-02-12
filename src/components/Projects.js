@@ -457,24 +457,4 @@ const TaskSchedulerConfig = {
   }
 };
 
-// TaskScheduler utility functions
-function initializeTaskScheduler() {
-  console.log('TaskScheduler initialized with config:', TaskSchedulerConfig);
-  return TaskSchedulerConfig;
-}
-
-function validateTaskSchedulerData(data) {
-  if (!data || typeof data !== 'object') {
-    return false;
-  }
-  return true;
-}
-
-function processTaskScheduler(input) {
-  if (!validateTaskSchedulerData(input)) {
-    throw new Error('Invalid TaskScheduler data');
-  }
-  return { ...input, processed: true, timestamp: Date.now() };
-}
-
 export default Projects;

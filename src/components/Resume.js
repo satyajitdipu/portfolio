@@ -1,7 +1,7 @@
 // Resume component - Interactive resume with download functionality
 import React, { useState } from 'react';
 import './Resume.css';
-import { FaDownload, FaPrint, FaEye, FaUser, FaBriefcase, FaGraduationCap, FaCode, FaTrophy, FaCertificate, FaProjectDiagram } from 'react-icons/fa';
+import { FaDownload, FaPrint, FaEye, FaUser, FaBriefcase, FaGraduationCap, FaCertificate, FaProjectDiagram } from 'react-icons/fa';
 import { useLocalStorage } from '../utils/helpers';
 import { defaultPortfolio } from '../data/defaultPortfolio';
 
@@ -251,14 +251,6 @@ const validateAccessibilityImprovementsData = (data) => {
     return false;
   }
   return true;
-};
-
-const processAccessibilityImprovements = async (input) => {
-  const config = initializeAccessibilityImprovements();
-  if (!validateAccessibilityImprovementsData(input)) {
-    throw new Error('Invalid AccessibilityImprovements data');
-  }
-  return { ...input, processed: true, config };
 };
 
 

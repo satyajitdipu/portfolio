@@ -78,13 +78,5 @@ const validateMultiLanguageSupportData = (data) => {
   return true;
 };
 
-const processMultiLanguageSupport = async (input) => {
-  const config = initializeMultiLanguageSupport();
-  if (!validateMultiLanguageSupportData(input)) {
-    throw new Error('Invalid MultiLanguageSupport data');
-  }
-  return { ...input, processed: true, config };
-};
-
 
 export default Header;

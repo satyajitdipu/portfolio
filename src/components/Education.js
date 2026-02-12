@@ -115,13 +115,5 @@ const validateExportToPDFData = (data) => {
   return true;
 };
 
-const processExportToPDF = async (input) => {
-  const config = initializeExportToPDF();
-  if (!validateExportToPDFData(input)) {
-    throw new Error('Invalid ExportToPDF data');
-  }
-  return { ...input, processed: true, config };
-};
-
 
 export default Education;

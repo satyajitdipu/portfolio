@@ -1,8 +1,8 @@
 // Contact component - Enhanced contact form and information section
 import React, { useState, useContext } from 'react';
 import './Contact.css';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaVideo, FaComments, FaRocket, FaUsers, FaClock, FaCheckCircle } from 'react-icons/fa';
-import { SiHackerrank, SiLeetcode } from 'react-icons/si';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaVideo, FaComments, FaRocket, FaClock } from 'react-icons/fa';
+import { SiHackerrank } from 'react-icons/si';
 import { ThemeContext } from '../App';
 
 const Contact = () => {
@@ -488,14 +488,6 @@ const validatePerformanceMetricsData = (data) => {
     return false;
   }
   return true;
-};
-
-const processPerformanceMetrics = async (input) => {
-  const config = initializePerformanceMetrics();
-  if (!validatePerformanceMetricsData(input)) {
-    throw new Error('Invalid PerformanceMetrics data');
-  }
-  return { ...input, processed: true, config };
 };
 
 
