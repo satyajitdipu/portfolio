@@ -512,7 +512,7 @@ export const defaultPortfolio = {
       { q: 'What is your availability?', a: 'Open for full-time and remote opportunities.' }
     ],
     stats: [
-      { label: 'Years Experience', value: '7+' },
+      { label: 'Years Experience', value: '3+' },
       { label: 'Projects Completed', value: '15+' }
     ]
   },

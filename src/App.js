@@ -56,13 +56,13 @@ function App() {
           <Timeline />
           <Projects />
           <Resume />
-          <Testimonials />
-          <Blog />
-          <Gallery />
+          {/* <Testimonials /> */}
+          {/* <Blog /> */}
+          {/* <Gallery /> */}
           <Contact />
-          <Newsletter />
+          {/* <Newsletter /> */}
         </main>
-        <AdminPanel />
+        {/* <AdminPanel /> */}
         <Footer />
       </div>
     </ThemeContext.Provider>

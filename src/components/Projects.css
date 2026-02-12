@@ -1,17 +1,17 @@
 /* Projects Component Styles */
 .projects {
   padding: 100px 0;
-  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+  background: linear-gradient(180deg, #0a0e27 0%, #1e1b4b 100%);
   min-height: 100vh;
   position: relative;
 }
 
 .projects.dark {
-  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+  background: linear-gradient(180deg, #0a0e27 0%, #1e1b4b 100%);
 }
 
 .projects.light {
-  background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
 }
 
 .section-title {
@@ -19,7 +19,7 @@
   font-weight: 700;
   text-align: center;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -29,21 +29,21 @@
 .section-subtitle {
   text-align: center;
   font-size: 1.1rem;
-  color: #b0b0b0;
+  color: #cbd5e1;
   margin-bottom: 3rem;
   animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .projects.dark .section-subtitle {
-  color: #b0b0b0;
+  color: #cbd5e1;
 }
 
 .projects.light .section-subtitle {
-  color: #6c757d;
+  color: #475569;
 }
 
 .github-link {
-  color: #667eea;
+  color: #6366f1;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
@@ -51,7 +51,7 @@
 }
 
 .github-link:hover {
-  color: #764ba2;
+  color: #8b5cf6;
   text-decoration: underline;
   transform: translateY(-2px);
 }
@@ -69,9 +69,9 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(99, 102, 241, 0.08);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(102, 126, 234, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.2);
   border-radius: 12px;
   padding: 0.75rem 1rem;
   transition: all 0.3s ease;
@@ -79,13 +79,13 @@
 }
 
 .projects.light .search-group {
-  background: rgba(255, 255, 255, 0.8);
-  border-color: rgba(102, 126, 234, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(99, 102, 241, 0.25);
 }
 
 .search-group:focus-within {
-  border-color: #667eea;
-  box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+  border-color: #6366f1;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
   transform: translateY(-2px);
 }
 
@@ -93,22 +93,22 @@
   flex: 1;
   background: transparent;
   border: none;
-  color: #e0e0e0;
+  color: #f8fafc;
   font-size: 1rem;
   outline: none;
   padding: 0.5rem;
 }
 
 .projects.light .search-input {
-  color: #495057;
+  color: #0f172a;
 }
 
 .search-input::placeholder {
-  color: #888;
+  color: #94a3b8;
 }
 
 .projects.light .search-input::placeholder {
-  color: #6c757d;
+  color: #64748b;
 }
 
 .clear-search {
@@ -134,14 +134,14 @@
 }
 
 .filter-label {
-  color: #e0e0e0;
+  color: #f8fafc;
   font-size: 0.9rem;
   font-weight: 500;
   white-space: nowrap;
 }
 
 .projects.light .filter-label {
-  color: #495057;
+  color: #0f172a;
 }
 
 .tech-buttons {

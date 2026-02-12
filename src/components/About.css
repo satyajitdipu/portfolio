@@ -1,8 +1,9 @@
 .about {
-  background: rgba(26, 26, 46, 0.3);
+  background: rgba(99, 102, 241, 0.08);
   border-radius: 20px;
   padding: 80px 40px;
   margin: 40px 0;
+  border: 1px solid rgba(99, 102, 241, 0.2);
 }
 
 .about-content {
@@ -13,7 +14,7 @@
 .about-text h3 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -22,7 +23,7 @@
 .about-text p {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #b0b0b0;
+  color: #cbd5e1;
   margin-bottom: 1.5rem;
 }
 
@@ -34,28 +35,29 @@
 }
 
 .highlight-item {
-  background: rgba(102, 126, 234, 0.05);
+  background: rgba(99, 102, 241, 0.08);
   padding: 2rem;
   border-radius: 12px;
-  border: 1px solid rgba(102, 126, 234, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.2);
   transition: all 0.3s ease;
 }
 
 .highlight-item:hover {
   transform: translateY(-5px);
-  border-color: rgba(102, 126, 234, 0.5);
-  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.25);
+  background: rgba(99, 102, 241, 0.12);
 }
 
 .highlight-item h4 {
   font-size: 1.3rem;
   margin-bottom: 1rem;
-  color: #e0e0e0;
+  color: #f8fafc;
 }
 
 .highlight-item p {
   font-size: 1rem;
-  color: #a0a0a0;
+  color: #cbd5e1;
 }
 
 .highlight-item ul {
@@ -65,7 +67,7 @@
 
 .highlight-item ul li {
   padding: 0.5rem 0;
-  color: #a0a0a0;
+  color: #cbd5e1;
   position: relative;
   padding-left: 1.5rem;
 }
@@ -74,7 +76,7 @@
   content: '▹';
   position: absolute;
   left: 0;
-  color: #667eea;
+  color: #6366f1;
   font-weight: bold;
 }
 

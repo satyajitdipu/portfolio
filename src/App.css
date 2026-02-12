@@ -1,35 +1,53 @@
 /* CSS Variables for theming */
 :root {
-  --bg-primary: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
-  --bg-secondary: #1a1a2e;
-  --text-primary: #ffffff;
-  --text-secondary: #b8c5d6;
-  --accent-primary: #667eea;
-  --accent-secondary: #764ba2;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --border-color: rgba(255, 255, 255, 0.1);
+  --bg-primary: linear-gradient(135deg, #0a0e27 0%, #1e1b4b 100%);
+  --bg-secondary: #1e1b4b;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --accent-primary: #6366f1;
+  --accent-secondary: #8b5cf6;
+  --accent-tertiary: #06b6d4;
+  --card-bg: rgba(99, 102, 241, 0.08);
+  --card-bg-hover: rgba(99, 102, 241, 0.15);
+  --border-color: rgba(99, 102, 241, 0.2);
+  --border-hover: rgba(99, 102, 241, 0.4);
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
 }
 
 .dark-theme {
-  --bg-primary: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
-  --bg-secondary: #1a1a2e;
-  --text-primary: #ffffff;
-  --text-secondary: #b8c5d6;
-  --accent-primary: #667eea;
-  --accent-secondary: #764ba2;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --border-color: rgba(255, 255, 255, 0.1);
+  --bg-primary: linear-gradient(135deg, #0a0e27 0%, #1e1b4b 100%);
+  --bg-secondary: #1e1b4b;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --accent-primary: #6366f1;
+  --accent-secondary: #8b5cf6;
+  --accent-tertiary: #06b6d4;
+  --card-bg: rgba(99, 102, 241, 0.08);
+  --card-bg-hover: rgba(99, 102, 241, 0.15);
+  --border-color: rgba(99, 102, 241, 0.2);
+  --border-hover: rgba(99, 102, 241, 0.4);
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
 }
 
 .light-theme {
-  --bg-primary: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  --bg-primary: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
   --bg-secondary: #ffffff;
-  --text-primary: #2c3e50;
-  --text-secondary: #7f8c8d;
-  --accent-primary: #3498db;
-  --accent-secondary: #2980b9;
-  --card-bg: rgba(0, 0, 0, 0.05);
-  --border-color: rgba(0, 0, 0, 0.1);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent-primary: #6366f1;
+  --accent-secondary: #8b5cf6;
+  --accent-tertiary: #06b6d4;
+  --card-bg: rgba(99, 102, 241, 0.05);
+  --card-bg-hover: rgba(99, 102, 241, 0.1);
+  --border-color: rgba(99, 102, 241, 0.15);
+  --border-hover: rgba(99, 102, 241, 0.3);
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
 }
 
 .App {

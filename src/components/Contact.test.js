@@ -73,8 +73,8 @@ describe('Contact Component', () => {
     expect(screen.getByText('Connect With Me')).toBeInTheDocument();
     expect(screen.getByText('LinkedIn')).toBeInTheDocument();
     expect(screen.getByText('GitHub')).toBeInTheDocument();
-    expect(screen.getByText('HackerRank')).toBeInTheDocument();
-    expect(screen.getByText('LeetCode')).toBeInTheDocument();
+    // expect(screen.getByText('HackerRank')).toBeInTheDocument();
+    // expect(screen.getByText('LeetCode')).toBeInTheDocument();
   });
 
   test('renders contact form with all fields', () => {

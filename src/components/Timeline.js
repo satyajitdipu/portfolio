@@ -127,7 +127,7 @@ const Timeline = () => {
 
         <div className="timeline-stats">
           <div className="stat-card">
-            <div className="stat-number">7+</div>
+            <div className="stat-number">3+</div>
             <div className="stat-label">Years Experience</div>
           </div>
           <div className="stat-card">

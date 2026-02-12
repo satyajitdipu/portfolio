@@ -204,12 +204,7 @@ This message was sent from the portfolio contact form.
       url: 'https://www.hackerrank.com/profile/19btcse40',
       color: '#00ea64'
     },
-    {
-      icon: <SiLeetcode />,
-      name: 'LeetCode',
-      url: 'https://leetcode.com/u/satyajitdipu/',
-      color: '#ffa116'
-    }
+   
   ];
 
   const faqs = [
@@ -232,10 +227,10 @@ This message was sent from the portfolio contact form.
   ];
 
   const stats = [
-    { icon: <FaRocket />, value: '50+', label: 'Projects Completed' },
-    { icon: <FaUsers />, value: '25+', label: 'Happy Clients' },
-    { icon: <FaClock />, value: '2+', label: 'Years Experience' },
-    { icon: <FaCheckCircle />, value: '100%', label: 'Client Satisfaction' }
+    { icon: <FaRocket />, value: '10+', label: 'Projects Completed' },
+    // { icon: <FaUsers />, value: '25+', label: 'Happy Clients' },
+    { icon: <FaClock />, value: '3+', label: 'Years Experience' },
+    // { icon: <FaCheckCircle />, value: '100%', label: 'Client Satisfaction' }
   ];
 
   return (
