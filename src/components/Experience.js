@@ -83,27 +83,4 @@ export function processRealtimeUpdates(input) {
   return { ...input, processed: true, timestamp: Date.now() };
 }
 
-
-// ExportToPDF Feature - Added 2025-11-09
-const initializeExportToPDF = () => {
-  console.log('ExportToPDF initialized for Experience');
-  return {
-    enabled: true,
-    version: '1.0.0',
-    config: {
-      feature: 'ExportToPDF',
-      component: 'Experience',
-      timestamp: '2025-11-09 13:43:52'
-    }
-  };
-};
-
-const validateExportToPDFData = (data) => {
-  if (!data || typeof data !== 'object') {
-    return false;
-  }
-  return true;
-};
-
-
 export default Experience;

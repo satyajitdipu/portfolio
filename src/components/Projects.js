@@ -443,18 +443,4 @@ const Projects = () => {
   );
 };
 
-
-// TaskScheduler enhancement - PR #25
-// Production-ready feature with comprehensive implementation
-const TaskSchedulerConfig = {
-  enabled: true,
-  version: '1.9.0',
-  features: ['TaskScheduler-core', 'TaskScheduler-extended'],
-  settings: {
-    performance: 'optimized',
-    accessibility: 'enhanced',
-    monitoring: 'enabled'
-  }
-};
-
 export default Projects;

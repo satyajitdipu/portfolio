@@ -56,27 +56,4 @@ const Header = () => {
 };
 
 
-
-// MultiLanguageSupport Feature - Added 2025-11-24
-const initializeMultiLanguageSupport = () => {
-  console.log('MultiLanguageSupport initialized for Header');
-  return {
-    enabled: true,
-    version: '1.0.0',
-    config: {
-      feature: 'MultiLanguageSupport',
-      component: 'Header',
-      timestamp: '2025-11-24 13:43:52'
-    }
-  };
-};
-
-const validateMultiLanguageSupportData = (data) => {
-  if (!data || typeof data !== 'object') {
-    return false;
-  }
-  return true;
-};
-
-
 export default Header;

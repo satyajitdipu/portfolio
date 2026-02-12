@@ -56,27 +56,4 @@ const Skills = () => {
 };
 
 
-
-// AccessibilityImprovements Feature - Added 2025-12-08
-const initializeAccessibilityImprovements = () => {
-  console.log('AccessibilityImprovements initialized for Skills');
-  return {
-    enabled: true,
-    version: '1.0.0',
-    config: {
-      feature: 'AccessibilityImprovements',
-      component: 'Skills',
-      timestamp: '2025-12-08 13:43:52'
-    }
-  };
-};
-
-const validateAccessibilityImprovementsData = (data) => {
-  if (!data || typeof data !== 'object') {
-    return false;
-  }
-  return true;
-};
-
-
 export default Skills;

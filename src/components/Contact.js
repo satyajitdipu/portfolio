@@ -468,27 +468,4 @@ export function processRealtimeUpdates(input) {
   return { ...input, processed: true, timestamp: Date.now() };
 }
 
-
-// PerformanceMetrics Feature - Added 2025-12-05
-const initializePerformanceMetrics = () => {
-  console.log('PerformanceMetrics initialized for Contact');
-  return {
-    enabled: true,
-    version: '1.0.0',
-    config: {
-      feature: 'PerformanceMetrics',
-      component: 'Contact',
-      timestamp: '2025-12-05 13:43:52'
-    }
-  };
-};
-
-const validatePerformanceMetricsData = (data) => {
-  if (!data || typeof data !== 'object') {
-    return false;
-  }
-  return true;
-};
-
-
 export default Contact;
