@@ -1,9 +1,14 @@
 .about {
-  background: rgba(99, 102, 241, 0.08);
+  background: var(--card-bg);
   border-radius: 20px;
   padding: 80px 40px;
   margin: 40px 0;
-  border: 1px solid rgba(99, 102, 241, 0.2);
+  border: 1px solid var(--border-color);
+}
+
+.light-theme .about {
+  background: rgba(99, 102, 241, 0.03);
+  border-color: rgba(99, 102, 241, 0.15);
 }
 
 .about-content {
@@ -23,8 +28,12 @@
 .about-text p {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #cbd5e1;
+  color: var(--text-secondary);
   margin-bottom: 1.5rem;
+}
+
+.light-theme .about-text p {
+  color: #475569;
 }
 
 .about-highlights {
@@ -52,12 +61,30 @@
 .highlight-item h4 {
   font-size: 1.3rem;
   margin-bottom: 1rem;
-  color: #f8fafc;
+  color: var(--text-primary);
 }
 
 .highlight-item p {
   font-size: 1rem;
-  color: #cbd5e1;
+  color: var(--text-secondary);
+}
+
+.light-theme .highlight-item {
+  background: rgba(99, 102, 241, 0.05);
+  border-color: rgba(99, 102, 241, 0.15);
+}
+
+.light-theme .highlight-item:hover {
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+.light-theme .highlight-item h4 {
+  color: #0f172a;
+}
+
+.light-theme .highlight-item p {
+  color: #475569;
 }
 
 .highlight-item ul {
@@ -67,9 +94,13 @@
 
 .highlight-item ul li {
   padding: 0.5rem 0;
-  color: #cbd5e1;
+  color: var(--text-secondary);
   position: relative;
   padding-left: 1.5rem;
+}
+
+.light-theme .highlight-item ul li {
+  color: #475569;
 }
 
 .highlight-item ul li::before {

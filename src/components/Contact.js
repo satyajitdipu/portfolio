@@ -11,10 +11,6 @@ const Contact = () => {
     name: '',
     email: '',
     subject: '',
-    priority: 'normal',
-    projectType: 'general',
-    budget: '',
-    timeline: '',
     message: ''
   });
 
@@ -96,10 +92,6 @@ Project Inquiry Details:
 Name: ${formData.name}
 Email: ${formData.email}
 Subject: ${formData.subject}
-Priority: ${formData.priority}
-Project Type: ${formData.projectType}
-Budget Range: ${formData.budget || 'Not specified'}
-Timeline: ${formData.timeline || 'Not specified'}
 
 Message:
 ${formData.message}
@@ -234,7 +226,7 @@ This message was sent from the portfolio contact form.
   ];
 
   return (
-    <section id="contact" className={`contact ${darkMode ? 'dark' : ''}`}>
+    <section id="contact" className={`contact ${darkMode ? 'dark' : 'light'}`}>
       <div className="contact-hero">
         <h2 className="section-title">Get In Touch</h2>
         <p className="contact-subtitle">
@@ -386,76 +378,6 @@ This message was sent from the portfolio contact form.
                   className={errors.subject ? 'error' : ''}
                 />
                 {errors.subject && <span className="error-message">{errors.subject}</span>}
-              </div>
-
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="priority">Priority Level</label>
-                  <select
-                    id="priority"
-                    name="priority"
-                    value={formData.priority}
-                    onChange={handleChange}
-                  >
-                    <option value="low">Low - General inquiry</option>
-                    <option value="normal">Normal - Project discussion</option>
-                    <option value="high">High - Urgent requirement</option>
-                    <option value="urgent">Urgent - Immediate attention needed</option>
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="projectType">Project Type</label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={handleChange}
-                  >
-                    <option value="general">General Inquiry</option>
-                    <option value="web-development">Web Development</option>
-                    <option value="mobile-app">Mobile App</option>
-                    <option value="api-development">API Development</option>
-                    <option value="consultation">Technical Consultation</option>
-                    <option value="maintenance">System Maintenance</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="budget">Budget Range</label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                  >
-                    <option value="">Not specified</option>
-                    <option value="under-5k">Under $5,000</option>
-                    <option value="5k-15k">$5,000 - $15,000</option>
-                    <option value="15k-50k">$15,000 - $50,000</option>
-                    <option value="over-50k">Over $50,000</option>
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="timeline">Project Timeline</label>
-                  <select
-                    id="timeline"
-                    name="timeline"
-                    value={formData.timeline}
-                    onChange={handleChange}
-                  >
-                    <option value="">Not specified</option>
-                    <option value="asap">ASAP</option>
-                    <option value="1-month">Within 1 month</option>
-                    <option value="2-3-months">2-3 months</option>
-                    <option value="3-6-months">3-6 months</option>
-                    <option value="flexible">Flexible</option>
-                  </select>
-                </div>
               </div>
 
               <div className="form-group">
