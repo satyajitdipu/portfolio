@@ -78,39 +78,6 @@ const Resume = () => {
                 </div>
               </div>
             </div>
-
-            <div className="sidebar-section">
-              <h3><FaCode /> Skills</h3>
-              <div className="skills-section">
-                <h4>Technical Skills</h4>
-                {skills.technical.map((skill, index) => (
-                  <div key={index} className="skill-item">
-                    <span className="skill-name">{skill.name}</span>
-                    <div className="skill-bar">
-                      <div className="skill-fill" style={{ width: `${skill.level}%` }}></div>
-                    </div>
-                    <span className="skill-percent">{skill.level}%</span>
-                  </div>
-                ))}
-
-                <h4>Tools & Technologies</h4>
-                <div className="tools-list">
-                  {skills.tools.map((tool, index) => (
-                    <span key={index} className="tool-tag">{tool}</span>
-                  ))}
-                </div>
-
-                <h4>Languages</h4>
-                <div className="languages-list">
-                  {skills.languages.map((lang, index) => (
-                    <div key={index} className="language-item">
-                      <span>{lang.name}</span>
-                      <span className="language-level">{lang.level}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
           </div>
 
           <div className="resume-main">
