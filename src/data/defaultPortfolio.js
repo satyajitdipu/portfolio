@@ -166,16 +166,11 @@ export const defaultPortfolio = {
   ],
 
   timeline: [
-    { id: 1, date: '2013', title: 'Started BCA Journey', subtitle: 'University', description: 'Began my computer science education.', type: 'education', icon: 'graduation', location: 'Kolkata, India', achievements: ['First Class'], technologies: ['C', 'SQL'] },
-    { id: 2, date: '2016', title: 'Completed BCA', subtitle: 'University of Calcutta', description: 'Graduated with First Class', type: 'education', icon: 'graduation', location: 'Kolkata, India', achievements: ['Best Project Award'], technologies: ['Java'] },
-    { id: 3, date: '2019', title: 'Junior Developer', subtitle: 'StartupXYZ', description: 'First professional role', type: 'work', icon: 'briefcase', location: 'Kolkata, India', achievements: ['Built e-commerce platform'], technologies: ['PHP'] },
-    { id: 4, date: '2020', title: 'Full Stack Developer', subtitle: 'Digital Innovations Ltd', description: 'Promoted to full stack developer', type: 'work', icon: 'briefcase', location: 'Kolkata, India', achievements: ['Led MERN projects'], technologies: ['React', 'Node.js'] },
-    { id: 5, date: '2021', title: 'AWS Certification', subtitle: 'Amazon', description: 'Achieved AWS certification', type: 'certification', icon: 'certificate', location: 'Online', achievements: ['SAA-C02 passed'], technologies: ['AWS'] },
-    { id: 6, date: '2022', title: 'Senior Full Stack', subtitle: 'Tech Solutions', description: 'Led development teams', type: 'work', icon: 'briefcase', location: 'Remote', achievements: ['Led microservices architecture'], technologies: ['Docker', 'Kubernetes'] },
-    { id: 7, date: '2023', title: 'Crop Disease Detection Project', subtitle: 'Open Source', description: 'Developed ML crop disease detector', type: 'project', icon: 'project', location: 'GitHub', achievements: ['200+ stars'], technologies: ['PyTorch'] },
-    { id: 8, date: '2023', title: 'Google Cloud Certification', subtitle: 'Google', description: 'GCP certification', type: 'certification', icon: 'certificate', location: 'Online', achievements: [], technologies: ['GCP'] },
-    { id: 9, date: '2023', title: 'Hackathon Winner', subtitle: 'National', description: 'Won 2nd place in hackathon', type: 'achievement', icon: 'trophy', location: 'Mumbai, India', achievements: ['2nd place'], technologies: [] },
-    { id: 10, date: '2024', title: 'Portfolio Launch', subtitle: 'Personal', description: 'Launched portfolio site', type: 'project', icon: 'code', location: 'Online', achievements: ['SEO optimized'], technologies: ['React'] }
+    { id: 1, date: '2015-2019', title: '12th Grade', subtitle: 'Jawahar Navodaya Vidyalaya', description: 'Completed higher secondary education with Science stream', type: 'education', icon: 'graduation', location: 'India', achievements: [], technologies: [] },
+    { id: 2, date: '2019-2023', title: 'BTech Computer Science', subtitle: 'SUIIT, Sambalpur University', description: 'Bachelor of Technology in Computer Science', type: 'education', icon: 'graduation', location: 'India', achievements: [], technologies: ['Python', 'Java', 'Data Structures'] },
+    { id: 3, date: 'Feb 2023', title: 'Junior Software Developer Trainee', subtitle: 'HyScaler', description: 'Completed intensive training in backend development', type: 'work', icon: 'briefcase', location: 'Bhubaneswar, India', achievements: [], technologies: ['Laravel', 'PHP'] },
+    { id: 4, date: 'Jun 2023', title: 'Junior Technical Programmer', subtitle: 'HyScaler', description: 'Designed and implemented CRM and HR management systems', type: 'work', icon: 'briefcase', location: 'Bhubaneswar, India', achievements: [], technologies: ['PHP', 'Laravel', 'MySQL'] },
+    { id: 5, date: 'Aug 2024', title: 'Software Developer', subtitle: 'VirtualTx', description: 'Developing and maintaining scalable backend systems', type: 'work', icon: 'briefcase', location: 'Remote', achievements: [], technologies: ['Python', 'PHP', 'JavaScript'] }
   ],
 
   projects: [
@@ -421,14 +416,7 @@ export const defaultPortfolio = {
     }
   ],
 
-  testimonials: [
-    { id: 1, name: 'Rajesh Kumar', position: 'CTO', company: 'TechCorp', content: 'Exceptional backend solutions.', rating: 5, image: null },
-    { id: 2, name: 'Priya Sharma', position: 'PM', company: 'InnovateLabs', content: 'Delivered a robust, scalable solution.', rating: 5, image: null },
-    { id: 3, name: 'Amit Patel', position: 'Founder', company: 'StartupFlow', content: 'Great full-stack skills.', rating: 5, image: null },
-    { id: 4, name: 'Dr. Meera Singh', position: 'Research Director', company: 'AgriTech', content: 'ML implementation was excellent.', rating: 5, image: null },
-    { id: 5, name: 'Rina Das', position: 'Lead Engineer', company: 'CloudOps', content: 'Solid architecture decisions.', rating: 5, image: null },
-    { id: 6, name: 'Sanjay Rao', position: 'Product Lead', company: 'RetailX', content: 'Delivered on time and with quality.', rating: 4, image: null }
-  ],
+  testimonials: [],
 
   blog: [
     {
@@ -518,7 +506,7 @@ export const defaultPortfolio = {
     ],
     socialLinks: [
       { label: 'GitHub', url: 'https://github.com/satyajitdipu' },
-      { label: 'LinkedIn', url: 'https://www.linkedin.com/in/satyajit-sahoo-/' }
+      { label: 'LinkedIn', url: 'https://www.linkedin.com/in/satyajit-sahoo-2457601a6/' }
     ],
     faqs: [
       { q: 'What is your availability?', a: 'Open for full-time and remote opportunities.' }
@@ -538,7 +526,7 @@ export const defaultPortfolio = {
   footer: {
     links: [
       { label: 'GitHub', url: 'https://github.com/satyajitdipu' },
-      { label: 'LinkedIn', url: 'https://www.linkedin.com/in/satyajit-sahoo-/' }
+      { label: 'LinkedIn', url: 'https://www.linkedin.com/in/satyajit-sahoo-2457601a6/' }
     ],
     copyright: `© ${new Date().getFullYear()} Satyajit Dipu`
   }

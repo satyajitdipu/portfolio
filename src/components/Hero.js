@@ -28,7 +28,7 @@ const Hero = () => {
             <a href="https://github.com/satyajitdipu" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <FaGithub />
             </a>
-            <a href="https://www.linkedin.com/in/satyajit-sahoo-backend" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/satyajit-sahoo-2457601a6/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <FaLinkedin />
             </a>
             <a href="https://www.hackerrank.com/profile/19btcse40" target="_blank" rel="noopener noreferrer" aria-label="HackerRank">
