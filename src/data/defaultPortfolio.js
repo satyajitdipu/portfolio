@@ -166,11 +166,92 @@ export const defaultPortfolio = {
   ],
 
   timeline: [
-    { id: 1, date: '2015-2019', title: '12th Grade', subtitle: 'Jawahar Navodaya Vidyalaya', description: 'Completed higher secondary education with Science stream', type: 'education', icon: 'graduation', location: 'India', achievements: [], technologies: [] },
-    { id: 2, date: '2019-2023', title: 'BTech Computer Science', subtitle: 'SUIIT, Sambalpur University', description: 'Bachelor of Technology in Computer Science', type: 'education', icon: 'graduation', location: 'India', achievements: [], technologies: ['Python', 'Java', 'Data Structures'] },
-    { id: 3, date: 'Feb 2023', title: 'Junior Software Developer Trainee', subtitle: 'HyScaler', description: 'Completed intensive training in backend development', type: 'work', icon: 'briefcase', location: 'Bhubaneswar, India', achievements: [], technologies: ['Laravel', 'PHP'] },
-    { id: 4, date: 'Jun 2023', title: 'Junior Technical Programmer', subtitle: 'HyScaler', description: 'Designed and implemented CRM and HR management systems', type: 'work', icon: 'briefcase', location: 'Bhubaneswar, India', achievements: [], technologies: ['PHP', 'Laravel', 'MySQL'] },
-    { id: 5, date: 'Aug 2024', title: 'Software Developer', subtitle: 'VirtualTx', description: 'Developing and maintaining scalable backend systems', type: 'work', icon: 'briefcase', location: 'Remote', achievements: [], technologies: ['Python', 'PHP', 'JavaScript'] }
+    { 
+      id: 1, 
+      date: '2015-2019', 
+      title: '12th Grade', 
+      subtitle: 'Jawahar Navodaya Vidyalaya', 
+      description: 'Completed higher secondary education with Science stream', 
+      type: 'education', 
+      icon: 'graduation', 
+      location: 'India', 
+      achievements: [
+        'Strong foundation in Mathematics, Physics, and Chemistry',
+        'Developed early interest in technology and programming'
+      ], 
+      technologies: ['Mathematics', 'Physics', 'Chemistry'] 
+    },
+    { 
+      id: 2, 
+      date: '2019-2023', 
+      title: 'BTech Computer Science', 
+      subtitle: 'SUIIT, Sambalpur University', 
+      description: 'Bachelor of Technology in Computer Science', 
+      type: 'education', 
+      icon: 'graduation', 
+      location: 'Sambalpur, India', 
+      achievements: [
+        'Completed comprehensive Computer Science curriculum',
+        'Participated in various technical projects and hackathons',
+        'Developed problem-solving and analytical skills',
+        'Built foundation in software development and programming'
+      ], 
+      technologies: ['Python', 'Java', 'Data Structures', 'Algorithms', 'Database Management', 'Operating Systems'] 
+    },
+    { 
+      id: 3, 
+      date: 'Feb 2023 - Jun 2023', 
+      title: 'Junior Software Developer Trainee', 
+      subtitle: 'HyScaler', 
+      description: 'Intensive training in backend development with hands-on experience', 
+      type: 'work', 
+      icon: 'briefcase', 
+      location: 'Bhubaneswar, India', 
+      achievements: [
+        'Completed intensive training in backend development',
+        'Learned Laravel framework and modern development practices',
+        'Worked on real-world projects under senior developers',
+        'Gained hands-on experience with API development and testing',
+        'Participated in code reviews and team meetings'
+      ], 
+      technologies: ['Laravel', 'PHP', 'MySQL', 'REST API', 'Git'] 
+    },
+    { 
+      id: 4, 
+      date: 'Jun 2023 - Apr 2024', 
+      title: 'Junior Technical Programmer', 
+      subtitle: 'HyScaler', 
+      description: 'Designed and implemented CRM and HR management systems with focus on backend architecture', 
+      type: 'work', 
+      icon: 'briefcase', 
+      location: 'Bhubaneswar, India', 
+      achievements: [
+        'Designed and implemented CRM and HR management systems',
+        'Ensured smooth data flow and clean architecture',
+        'Developed and integrated RESTful APIs',
+        'Optimized database queries for improved performance',
+        'Collaborated with cross-functional teams on complex projects'
+      ], 
+      technologies: ['PHP', 'Laravel', 'MySQL', 'JavaScript', 'REST API', 'Database Optimization'] 
+    },
+    { 
+      id: 5, 
+      date: 'Aug 2024 - Present', 
+      title: 'Software Developer', 
+      subtitle: 'VirtualTx', 
+      description: 'Developing and maintaining scalable backend systems with modern tech stack', 
+      type: 'work', 
+      icon: 'briefcase', 
+      location: 'Remote', 
+      achievements: [
+        'Developing and maintaining scalable backend systems',
+        'Working with modern tech stack (Python, PHP, JavaScript)',
+        'Collaborating with cross-functional teams to deliver high-quality solutions',
+        'Contributing to system architecture and design decisions',
+        'Implementing best practices for code quality and performance'
+      ], 
+      technologies: ['Python', 'PHP', 'JavaScript', 'Laravel', 'Django', 'REST API', 'System Architecture'] 
+    }
   ],
 
   projects: [
