@@ -1,55 +1,57 @@
-/* CSS Variables for theming */
+/* ============================================
+   Design tokens
+   ============================================ */
 :root {
-  --bg-primary: linear-gradient(135deg, #0a0e27 0%, #1e1b4b 100%);
-  --bg-secondary: #1e1b4b;
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
   --accent-primary: #6366f1;
   --accent-secondary: #8b5cf6;
   --accent-tertiary: #06b6d4;
-  --card-bg: rgba(99, 102, 241, 0.08);
-  --card-bg-hover: rgba(99, 102, 241, 0.15);
-  --border-color: rgba(99, 102, 241, 0.2);
-  --border-hover: rgba(99, 102, 241, 0.4);
+  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 55%, #06b6d4 100%);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-full: 999px;
+
+  --container-width: 1140px;
+
   --success-color: #10b981;
   --warning-color: #f59e0b;
   --error-color: #ef4444;
 }
 
 .dark-theme {
-  --bg-primary: linear-gradient(135deg, #0a0e27 0%, #1e1b4b 100%);
-  --bg-secondary: #1e1b4b;
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --accent-primary: #6366f1;
-  --accent-secondary: #8b5cf6;
-  --accent-tertiary: #06b6d4;
-  --card-bg: rgba(99, 102, 241, 0.08);
-  --card-bg-hover: rgba(99, 102, 241, 0.15);
-  --border-color: rgba(99, 102, 241, 0.2);
-  --border-hover: rgba(99, 102, 241, 0.4);
-  --success-color: #10b981;
-  --warning-color: #f59e0b;
-  --error-color: #ef4444;
+  --bg-primary: #0a0e1a;
+  --bg-secondary: #0d1220;
+  --surface: #121a2e;
+  --surface-alt: #0d1220;
+  --text-primary: #f1f5f9;
+  --text-secondary: #98a2b8;
+  --card-bg: rgba(148, 163, 184, 0.06);
+  --card-bg-hover: rgba(148, 163, 184, 0.1);
+  --border-color: rgba(148, 163, 184, 0.12);
+  --border-hover: rgba(99, 102, 241, 0.45);
+  --shadow-color: rgba(2, 6, 20, 0.55);
+  --header-bg: rgba(10, 14, 26, 0.75);
 }
 
 .light-theme {
-  --bg-primary: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+  --bg-primary: #fafbff;
   --bg-secondary: #ffffff;
+  --surface: #ffffff;
+  --surface-alt: #f4f6fc;
   --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --accent-primary: #6366f1;
-  --accent-secondary: #8b5cf6;
-  --accent-tertiary: #06b6d4;
+  --text-secondary: #5b6479;
   --card-bg: rgba(99, 102, 241, 0.05);
-  --card-bg-hover: rgba(99, 102, 241, 0.1);
-  --border-color: rgba(99, 102, 241, 0.15);
-  --border-hover: rgba(99, 102, 241, 0.3);
-  --success-color: #10b981;
-  --warning-color: #f59e0b;
-  --error-color: #ef4444;
+  --card-bg-hover: rgba(99, 102, 241, 0.09);
+  --border-color: rgba(15, 23, 42, 0.08);
+  --border-hover: rgba(99, 102, 241, 0.35);
+  --shadow-color: rgba(30, 41, 59, 0.1);
+  --header-bg: rgba(255, 255, 255, 0.75);
 }
 
+/* ============================================
+   Base layout
+   ============================================ */
 .App {
   min-height: 100vh;
   background: var(--bg-primary);
@@ -59,40 +61,158 @@
 
 main {
   width: 100%;
-  max-width: 1400px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 section {
-  padding: 80px 0;
-  min-height: auto;
+  padding: 112px 0;
+  position: relative;
+  scroll-margin-top: 84px;
 }
 
-/* Section Titles */
+section:nth-of-type(even) {
+  background: var(--surface-alt);
+}
+
+/* ============================================
+   Section headers
+   ============================================ */
+.section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 64px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  margin-bottom: 12px;
+}
+
 .section-title {
   font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 60px;
-  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 0;
+  background: var(--accent-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  position: relative;
 }
 
-.section-title::after {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-  margin: 20px auto 0;
-  border-radius: 2px;
+.section-subtitle {
+  margin-top: 14px;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
 }
 
-/* Animations */
+/* ============================================
+   Shared card
+   ============================================ */
+.surface-card {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 24px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.surface-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-hover);
+  box-shadow: 0 16px 40px var(--shadow-color);
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--accent-gradient);
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(99, 102, 241, 0.45);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent-primary);
+  border: 2px solid var(--accent-primary);
+}
+
+.btn-secondary:hover {
+  background: rgba(99, 102, 241, 0.1);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   Reveal-on-scroll
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ============================================
+   Animations
+   ============================================ */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -108,13 +228,19 @@ section {
   animation: fadeInUp 0.6s ease-out;
 }
 
-/* Responsive */
+/* ============================================
+   Responsive
+   ============================================ */
 @media (max-width: 768px) {
   section {
-    padding: 60px 0;
+    padding: 72px 0;
   }
 
   .section-title {
     font-size: 2rem;
+  }
+
+  .section-header {
+    margin-bottom: 44px;
   }
 }

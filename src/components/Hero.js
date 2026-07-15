@@ -1,13 +1,23 @@
 // Hero component - Main landing section with introduction and social links
 import React from 'react';
 import './Hero.css';
-import { FaGithub, FaLinkedin, FaPhone, FaEnvelope, FaDownload } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaPhone, FaEnvelope, FaDownload, FaChevronDown } from 'react-icons/fa';
 
 const Hero = () => {
   return (
     <section id="hero" className="hero">
-      <div className="hero-content">
+      <div className="hero-bg" aria-hidden="true">
+        <div className="hero-blob hero-blob-1"></div>
+        <div className="hero-blob hero-blob-2"></div>
+        <div className="hero-grid"></div>
+      </div>
+
+      <div className="container hero-content">
         <div className="hero-text">
+          <span className="hero-eyebrow">
+            <span className="status-dot"></span> Open to new opportunities
+          </span>
+
           <h1 className="hero-title">
             Hi, I'm <span className="gradient-text">Satyajit Sahoo</span>
           </h1>
@@ -57,8 +67,20 @@ const Hero = () => {
               fetchpriority="high"
             />
           </div>
+          <div className="floating-badge floating-badge-top">
+            <strong>3+</strong>
+            <span>Years Experience</span>
+          </div>
+          <div className="floating-badge floating-badge-bottom">
+            <strong>5+</strong>
+            <span>Key Projects</span>
+          </div>
         </div>
       </div>
+
+      <a href="#about" className="scroll-cue" aria-label="Scroll to About section">
+        <FaChevronDown />
+      </a>
     </section>
   );
 };

@@ -1,27 +1,30 @@
 // Projects component - Featured projects grid
-import React, { useContext } from 'react';
+import React from 'react';
 import './Projects.css';
 import { FaGithub } from 'react-icons/fa';
-import { ThemeContext } from '../App';
+import Reveal from './Reveal';
 import { useLocalStorage } from '../utils/helpers';
 import { defaultPortfolio } from '../data/defaultPortfolio';
 
 const Projects = () => {
-  const { darkMode } = useContext(ThemeContext);
   const [portfolio] = useLocalStorage('portfolioData', defaultPortfolio);
   const projects = (portfolio && portfolio.projects) || defaultPortfolio.projects;
 
   return (
-    <section id="projects" className={`projects ${darkMode ? 'dark' : 'light'}`}>
+    <section id="projects" className="projects">
       <div className="container">
-        <h2 className="section-title">Featured Projects</h2>
-        <p className="section-subtitle">
-          Check out more of my work on <a href="https://github.com/satyajitdipu?tab=repositories" target="_blank" rel="noopener noreferrer" className="github-link">GitHub</a>
-        </p>
+        <Reveal className="section-header">
+          <span className="eyebrow">Things I've built</span>
+          <h2 className="section-title">Featured Projects</h2>
+          <p className="section-subtitle">
+            Check out more of my work on{' '}
+            <a href="https://github.com/satyajitdipu?tab=repositories" target="_blank" rel="noopener noreferrer" className="github-link">GitHub</a>
+          </p>
+        </Reveal>
 
-        <div className="projects-display grid">
-          {projects.map((project) => (
-            <article key={project.id} className="project-card">
+        <div className="projects-grid">
+          {projects.map((project, index) => (
+            <Reveal key={project.id} delay={(index % 3) * 100} as="article" className="project-card surface-card">
               <div className="project-header">
                 <div className="project-info">
                   <h3 className="project-name">{project.name}</h3>
@@ -35,11 +38,11 @@ const Projects = () => {
               <p className="project-description">{project.description}</p>
 
               <div className="project-tech">
-                {project.technologies.map((tech, index) => (
-                  <span key={index} className="tech-tag">{tech}</span>
+                {project.technologies.map((tech, idx) => (
+                  <span key={idx} className="tech-tag">{tech}</span>
                 ))}
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
 

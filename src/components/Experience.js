@@ -2,6 +2,7 @@
 import React from 'react';
 import './Experience.css';
 import { FaCalendar, FaMapMarkerAlt } from 'react-icons/fa';
+import Reveal from './Reveal';
 
 import { useLocalStorage } from '../utils/helpers';
 import { defaultPortfolio } from '../data/defaultPortfolio';
@@ -12,45 +13,51 @@ const Experience = () => {
 
   return (
     <section id="experience" className="experience">
-      <h2 className="section-title">Work Experience</h2>
-      <div className="timeline">
-        {experiences.map((exp, index) => (
-          <div key={index} className="timeline-item">
-            <div className="timeline-marker"></div>
-            <div className="timeline-content">
-              <div className="experience-header">
-                <div>
-                  <h3>{exp.role}</h3>
-                  <h4>{exp.company}</h4>
+      <div className="container">
+        <Reveal className="section-header">
+          <span className="eyebrow">Where I've worked</span>
+          <h2 className="section-title">Work Experience</h2>
+        </Reveal>
+
+        <div className="timeline">
+          {experiences.map((exp, index) => (
+            <Reveal key={index} delay={index * 120} className="timeline-item">
+              <div className="timeline-marker"></div>
+              <div className="timeline-content surface-card">
+                <div className="experience-header">
+                  <div>
+                    <h3>{exp.role}</h3>
+                    <h4>{exp.company}</h4>
+                  </div>
+                  <span className="experience-type">{exp.type}</span>
                 </div>
-                <span className="experience-type">{exp.type}</span>
-              </div>
 
-              <div className="experience-meta">
-                <span className="meta-item">
-                  <FaCalendar /> {exp.duration}
-                </span>
-                <span className="meta-item">
-                  <FaMapMarkerAlt /> {exp.location}
-                </span>
-              </div>
+                <div className="experience-meta">
+                  <span className="meta-item">
+                    <FaCalendar /> {exp.duration}
+                  </span>
+                  <span className="meta-item">
+                    <FaMapMarkerAlt /> {exp.location}
+                  </span>
+                </div>
 
-              <ul className="experience-description">
-                {exp.description.map((item, idx) => (
-                  <li key={idx}>{item}</li>
-                ))}
-              </ul>
-
-              {exp.technologies && (
-                <div className="experience-technologies">
-                  {exp.technologies.map((tech, idx) => (
-                    <span key={idx} className="tech-tag">{tech}</span>
+                <ul className="experience-description">
+                  {exp.description.map((item, idx) => (
+                    <li key={idx}>{item}</li>
                   ))}
-                </div>
-              )}
-            </div>
-          </div>
-        ))}
+                </ul>
+
+                {exp.technologies && (
+                  <div className="experience-technologies">
+                    {exp.technologies.map((tech, idx) => (
+                      <span key={idx} className="tech-tag">{tech}</span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
