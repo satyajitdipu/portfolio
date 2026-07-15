@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Personal portfolio website for Satyajit Sahoo, Software Engineer — full-stack, backend & AI/ML integration",
   "keywords": ["portfolio", "react", "software-engineer", "full-stack", "backend"],
-  "homepage": "https://satyajitdipu.github.io/portfolio",
+  "homepage": "https://portfolio-sage-sigma-60.vercel.app",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
