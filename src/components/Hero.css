@@ -61,7 +61,8 @@
 
 .hero-buttons {
   display: flex;
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin-top: 1rem;
 }
 
@@ -97,6 +98,26 @@
   background: rgba(99, 102, 241, 0.1);
   transform: translateY(-2px);
   box-shadow: 0 5px 20px rgba(99, 102, 241, 0.2);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.light-theme .btn-outline {
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+.btn-outline:hover {
+  transform: translateY(-2px);
+  border-color: #6366f1;
+  color: #6366f1;
 }
 
 .social-links {
@@ -252,20 +273,4 @@
     width: 100%;
     max-width: 300px;
   }
-}
-
-/* MultiLanguageSupport Styles - Added 2025-11-24 */
-.multilanguagesupport-container {
-  padding: 20px;
-  margin: 10px 0;
-}
-
-.multilanguagesupport-active {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-.multilanguagesupport-disabled {
-  opacity: 0.5;
-  pointer-events: none;
 }

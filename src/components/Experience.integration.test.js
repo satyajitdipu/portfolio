@@ -3,9 +3,9 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Experience from './Experience';
 
-test('renders experience section', () => {
+test('renders experience section heading', () => {
   render(<Experience />);
-  expect(screen.getByText('Experience')).toBeInTheDocument();
+  expect(screen.getByRole('heading', { level: 2, name: /Work Experience/i })).toBeInTheDocument();
 });
 
 test('renders job positions', () => {
@@ -16,5 +16,5 @@ test('renders job positions', () => {
 
 test('renders company names', () => {
   render(<Experience />);
-  expect(screen.getByText(/company|organization/i)).toBeInTheDocument();
+  expect(screen.getByText(/Hyscaler/i)).toBeInTheDocument();
 });

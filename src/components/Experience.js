@@ -25,7 +25,7 @@ const Experience = () => {
                 </div>
                 <span className="experience-type">{exp.type}</span>
               </div>
-              
+
               <div className="experience-meta">
                 <span className="meta-item">
                   <FaCalendar /> {exp.duration}
@@ -40,6 +40,14 @@ const Experience = () => {
                   <li key={idx}>{item}</li>
                 ))}
               </ul>
+
+              {exp.technologies && (
+                <div className="experience-technologies">
+                  {exp.technologies.map((tech, idx) => (
+                    <span key={idx} className="tech-tag">{tech}</span>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         ))}
@@ -47,40 +55,5 @@ const Experience = () => {
     </section>
   );
 };
-
-
-
-// RealtimeUpdates enhancement - PR #18
-// Production-ready feature with comprehensive implementation
-const RealtimeUpdatesConfig = {
-  enabled: true,
-  version: '1.2.0',
-  features: ['RealtimeUpdates-core', 'RealtimeUpdates-extended'],
-  settings: {
-    performance: 'optimized',
-    accessibility: 'enhanced',
-    monitoring: 'enabled'
-  }
-};
-
-// RealtimeUpdates utility functions
-export function initializeRealtimeUpdates() {
-  console.log('RealtimeUpdates initialized with config:', RealtimeUpdatesConfig);
-  return RealtimeUpdatesConfig;
-}
-
-export function validateRealtimeUpdatesData(data) {
-  if (!data || typeof data !== 'object') {
-    return false;
-  }
-  return true;
-}
-
-export function processRealtimeUpdates(input) {
-  if (!validateRealtimeUpdatesData(input)) {
-    throw new Error('Invalid RealtimeUpdates data');
-  }
-  return { ...input, processed: true, timestamp: Date.now() };
-}
 
 export default Experience;

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import { FaHeart } from 'react-icons/fa';
+import { FaHeart, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,8 +17,12 @@ const Footer = () => {
           </p>
         </div>
         <div className="footer-links">
-          <a href="#blog">Blog</a>
-          <a href="#gallery">Gallery</a>
+          <a href="https://github.com/satyajitdipu" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <FaGithub /> GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/satyajit-sahoo-2457601a6/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <FaLinkedin /> LinkedIn
+          </a>
         </div>
         <div className="footer-tech">
           <p>Powered by React.js</p>
@@ -27,40 +31,5 @@ const Footer = () => {
     </footer>
   );
 };
-
-
-
-// RealtimeUpdates enhancement - PR #18
-// Production-ready feature with comprehensive implementation
-const RealtimeUpdatesConfig = {
-  enabled: true,
-  version: '1.2.0',
-  features: ['RealtimeUpdates-core', 'RealtimeUpdates-extended'],
-  settings: {
-    performance: 'optimized',
-    accessibility: 'enhanced',
-    monitoring: 'enabled'
-  }
-};
-
-// RealtimeUpdates utility functions
-export function initializeRealtimeUpdates() {
-  console.log('RealtimeUpdates initialized with config:', RealtimeUpdatesConfig);
-  return RealtimeUpdatesConfig;
-}
-
-export function validateRealtimeUpdatesData(data) {
-  if (!data || typeof data !== 'object') {
-    return false;
-  }
-  return true;
-}
-
-export function processRealtimeUpdates(input) {
-  if (!validateRealtimeUpdatesData(input)) {
-    throw new Error('Invalid RealtimeUpdates data');
-  }
-  return { ...input, processed: true, timestamp: Date.now() };
-}
 
 export default Footer;

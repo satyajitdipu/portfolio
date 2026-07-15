@@ -31,18 +31,19 @@ const Header = () => {
           <li><button onClick={() => scrollToSection('about')}>About</button></li>
           <li><button onClick={() => scrollToSection('skills')}>Skills</button></li>
           <li><button onClick={() => scrollToSection('experience')}>Experience</button></li>
-          <li><button onClick={() => scrollToSection('education')}>Education</button></li>
-          <li><button onClick={() => scrollToSection('timeline')}>Timeline</button></li>
           <li><button onClick={() => scrollToSection('projects')}>Projects</button></li>
-          <li><button onClick={() => scrollToSection('resume')}>Resume</button></li>
-          <li><button onClick={() => scrollToSection('testimonials')}>Testimonials</button></li>
-          <li><button onClick={() => scrollToSection('blog')}>Blog</button></li>
-          <li><button onClick={() => scrollToSection('gallery')}>Gallery</button></li>
+          <li><button onClick={() => scrollToSection('education')}>Education</button></li>
           <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>
-          <li><button onClick={() => scrollToSection('newsletter')}>Newsletter</button></li>
         </ul>
 
         <div className="header-actions">
+          <a
+            href={`${process.env.PUBLIC_URL}/Satyajit_Sahoo_Resume.pdf`}
+            download="Satyajit_Sahoo_Resume.pdf"
+            className="btn btn-resume"
+          >
+            Resume
+          </a>
           <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
             {darkMode ? <FaSun /> : <FaMoon />}
           </button>

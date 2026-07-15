@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://satyajitdipu.github.io/portfolio/sitemap.xml

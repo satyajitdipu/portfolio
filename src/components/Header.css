@@ -103,6 +103,23 @@
   transform: scale(1.1);
 }
 
+.btn-resume {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-resume:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .hamburger {
@@ -138,20 +155,9 @@
   .navbar {
     padding: 1rem 1.5rem;
   }
-}
 
-/* MultiLanguageSupport Styles - Added 2025-11-24 */
-.multilanguagesupport-container {
-  padding: 20px;
-  margin: 10px 0;
-}
-
-.multilanguagesupport-active {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-.multilanguagesupport-disabled {
-  opacity: 0.5;
-  pointer-events: none;
+  .btn-resume {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.85rem;
+  }
 }

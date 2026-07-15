@@ -1,35 +1,39 @@
-// Contact component - Enhanced contact form and information section
+// Contact component - Contact information and message form
 import React, { useState, useContext } from 'react';
 import './Contact.css';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub, FaVideo, FaComments, FaRocket, FaClock } from 'react-icons/fa';
-import { SiHackerrank } from 'react-icons/si';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { ThemeContext } from '../App';
+import { useLocalStorage } from '../utils/helpers';
+import { defaultPortfolio } from '../data/defaultPortfolio';
+
+const iconMap = {
+  email: <FaEnvelope />,
+  phone: <FaPhone />,
+  location: <FaMapMarkerAlt />
+};
+
+const socialIconMap = {
+  GitHub: <FaGithub />,
+  LinkedIn: <FaLinkedin />
+};
 
 const Contact = () => {
   const { darkMode } = useContext(ThemeContext);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+  const [portfolio] = useLocalStorage('portfolioData', defaultPortfolio);
+  const contact = (portfolio && portfolio.contact) || defaultPortfolio.contact;
 
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
-  const [activeTab, setActiveTab] = useState('form');
 
   const validateForm = () => {
     const newErrors = {};
 
-    // Name validation
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
-    } else if (formData.name.trim().length < 2) {
-      newErrors.name = 'Name must be at least 2 characters';
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
@@ -37,14 +41,10 @@ const Contact = () => {
       newErrors.email = 'Please enter a valid email address';
     }
 
-    // Subject validation
     if (!formData.subject.trim()) {
       newErrors.subject = 'Subject is required';
-    } else if (formData.subject.trim().length < 5) {
-      newErrors.subject = 'Subject must be at least 5 characters';
     }
 
-    // Message validation
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
     } else if (formData.message.trim().length < 10) {
@@ -57,21 +57,13 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-
-    // Clear error when user starts typing
+    setFormData(prev => ({ ...prev, [name]: value }));
     if (errors[name]) {
-      setErrors({
-        ...errors,
-        [name]: ''
-      });
+      setErrors(prev => ({ ...prev, [name]: '' }));
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitMessage('');
 
@@ -81,205 +73,33 @@ const Contact = () => {
 
     setIsSubmitting(true);
 
-    try {
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1500));
+    const emailBody = `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`;
+    const mailtoLink = `mailto:${defaultPortfolio.personal.email}?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`;
+    window.location.href = mailtoLink;
 
-      // Create detailed mailto link
-      const emailBody = `
-Project Inquiry Details:
-------------------------
-Name: ${formData.name}
-Email: ${formData.email}
-Subject: ${formData.subject}
-
-Message:
-${formData.message}
-
----
-This message was sent from the portfolio contact form.
-      `.trim();
-
-      const mailtoLink = `mailto:satyajits1001@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`;
-      window.location.href = mailtoLink;
-
-      setSubmitMessage('Thank you for your message! Opening your email client...');
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        priority: 'normal',
-        projectType: 'general',
-        budget: '',
-        timeline: '',
-        message: ''
-      });
-    } catch (error) {
-      setSubmitMessage('Failed to send message. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
+    setSubmitMessage('Thank you for your message! Opening your email client...');
+    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(false);
   };
-
-  const contactMethods = [
-    {
-      icon: <FaEnvelope />,
-      title: 'Email',
-      description: 'Send detailed project inquiries',
-      value: 'satyajits1001@gmail.com',
-      link: 'mailto:satyajits1001@gmail.com',
-      color: '#ea4335'
-    },
-    {
-      icon: <FaPhone />,
-      title: 'Phone',
-      description: 'Quick discussions and calls',
-      value: '+91 6372754900',
-      link: 'tel:+916372754900',
-      color: '#34a853'
-    },
-    {
-      icon: <FaVideo />,
-      title: 'Video Call',
-      description: 'Schedule a meeting',
-      value: 'Available on request',
-      link: '#',
-      color: '#4285f4'
-    },
-    {
-      icon: <FaComments />,
-      title: 'Live Chat',
-      description: 'Instant messaging',
-      value: 'Coming soon',
-      link: '#',
-      color: '#00d4aa'
-    }
-  ];
-
-  const contactInfo = [
-    {
-      icon: <FaPhone />,
-      title: 'Phone',
-      value: '+91 6372754900',
-      link: 'tel:+916372754900'
-    },
-    {
-      icon: <FaEnvelope />,
-      title: 'Email',
-      value: 'satyajits1001@gmail.com',
-      link: 'mailto:satyajits1001@gmail.com'
-    },
-    {
-      icon: <FaMapMarkerAlt />,
-      title: 'Location',
-      value: 'Bhubaneswar, Odisha, India',
-      link: null
-    }
-  ];
-
-  const socialLinks = [
-    {
-      icon: <FaLinkedin />,
-      name: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/satyajit-sahoo-backend',
-      color: '#0077b5'
-    },
-    {
-      icon: <FaGithub />,
-      name: 'GitHub',
-      url: 'https://github.com/satyajitdipu',
-      color: '#333'
-    },
-    {
-      icon: <SiHackerrank />,
-      name: 'HackerRank',
-      url: 'https://www.hackerrank.com/profile/19btcse40',
-      color: '#00ea64'
-    },
-   
-  ];
-
-  const faqs = [
-    {
-      question: 'What types of projects do you work on?',
-      answer: 'I specialize in full-stack web development, including React applications, Node.js backends, database design, and cloud deployment. I also work on mobile apps, APIs, and system integrations.'
-    },
-    {
-      question: 'What is your typical project timeline?',
-      answer: 'Project timelines vary based on complexity. Simple websites take 1-2 weeks, while complex applications may take 2-6 months. I provide detailed timelines during our initial consultation.'
-    },
-    {
-      question: 'Do you work with international clients?',
-      answer: 'Yes! I have experience working with clients from various countries. I handle time zone differences professionally and communicate regularly through preferred channels.'
-    },
-    {
-      question: 'What is your availability for new projects?',
-      answer: 'I am currently available for new projects. My typical response time is within 24 hours for inquiries, and I can usually start new projects within 1-2 weeks.'
-    }
-  ];
-
-  const stats = [
-    { icon: <FaRocket />, value: '10+', label: 'Projects Completed' },
-    // { icon: <FaUsers />, value: '25+', label: 'Happy Clients' },
-    { icon: <FaClock />, value: '3+', label: 'Years Experience' },
-    // { icon: <FaCheckCircle />, value: '100%', label: 'Client Satisfaction' }
-  ];
 
   return (
     <section id="contact" className={`contact ${darkMode ? 'dark' : 'light'}`}>
       <div className="contact-hero">
         <h2 className="section-title">Get In Touch</h2>
         <p className="contact-subtitle">
-          Ready to bring your ideas to life? Let's discuss your project and create something amazing together.
+          I'm open to backend / full-stack engineering opportunities — feel free to reach out.
         </p>
       </div>
 
-      {/* Contact Statistics */}
-      <div className="contact-stats">
-        {stats.map((stat, index) => (
-          <div key={index} className="stat-card">
-            <div className="stat-icon">{stat.icon}</div>
-            <div className="stat-value">{stat.value}</div>
-            <div className="stat-label">{stat.label}</div>
-          </div>
-        ))}
-      </div>
-
       <div className="contact-container">
-        {/* Contact Methods */}
         <div className="contact-methods-section">
-          <h3>Choose Your Contact Method</h3>
-          <div className="contact-methods-grid">
-            {contactMethods.map((method, index) => (
-              <div key={index} className="contact-method-card">
-                <div className="method-icon" style={{ backgroundColor: method.color }}>
-                  {method.icon}
-                </div>
-                <div className="method-content">
-                  <h4>{method.title}</h4>
-                  <p>{method.description}</p>
-                  <div className="method-value">
-                    {method.link !== '#' ? (
-                      <a href={method.link} target={method.link.startsWith('http') ? '_blank' : '_self'} rel="noopener noreferrer">
-                        {method.value}
-                      </a>
-                    ) : (
-                      <span>{method.value}</span>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Contact Info */}
+          <h3>Contact Information</h3>
           <div className="contact-details">
-            <h4>Contact Information</h4>
-            {contactInfo.map((item, index) => (
+            {contact.contactMethods.map((item, index) => (
               <div key={index} className="contact-item">
-                <div className="contact-icon">{item.icon}</div>
+                <div className="contact-icon">{iconMap[item.type]}</div>
                 <div className="contact-text">
-                  <h5>{item.title}</h5>
+                  <h5>{item.label}</h5>
                   {item.link ? (
                     <a href={item.link}>{item.value}</a>
                   ) : (
@@ -290,182 +110,99 @@ This message was sent from the portfolio contact form.
             ))}
           </div>
 
-          {/* Social Links */}
           <div className="social-links-section">
             <h4>Connect With Me</h4>
             <div className="social-links-grid">
-              {socialLinks.map((social, index) => (
+              {contact.socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-link-card"
-                  style={{ '--hover-color': social.color }}
                 >
-                  <span className="social-icon">{social.icon}</span>
-                  <span>{social.name}</span>
+                  <span className="social-icon">{socialIconMap[social.label]}</span>
+                  <span>{social.label}</span>
                 </a>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Contact Form */}
         <div className="contact-form-section">
-          {/* Tab Navigation */}
-          <div className="contact-tabs">
-            <button
-              className={`tab-btn ${activeTab === 'form' ? 'active' : ''}`}
-              onClick={() => setActiveTab('form')}
-            >
-              Send Message
-            </button>
-            <button
-              className={`tab-btn ${activeTab === 'faq' ? 'active' : ''}`}
-              onClick={() => setActiveTab('faq')}
-            >
-              FAQ
-            </button>
-          </div>
+          <form onSubmit={handleSubmit} className="contact-form" aria-label="Contact form">
+            <h3>Send a Message</h3>
 
-          {activeTab === 'form' && (
-            <form onSubmit={handleSubmit} className="contact-form">
-              <h3>Project Inquiry</h3>
-
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="name">Full Name *</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="John Doe"
-                    required
-                    className={errors.name ? 'error' : ''}
-                  />
-                  {errors.name && <span className="error-message">{errors.name}</span>}
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="email">Email Address *</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="john@example.com"
-                    required
-                    className={errors.email ? 'error' : ''}
-                  />
-                  {errors.email && <span className="error-message">{errors.email}</span>}
-                </div>
-              </div>
-
+            <div className="form-row">
               <div className="form-group">
-                <label htmlFor="subject">Subject *</label>
+                <label htmlFor="name">Full Name *</label>
                 <input
                   type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
+                  id="name"
+                  name="name"
+                  value={formData.name}
                   onChange={handleChange}
-                  placeholder="Project title or inquiry type"
-                  required
-                  className={errors.subject ? 'error' : ''}
+                  placeholder="John Doe"
+                  className={errors.name ? 'error' : ''}
                 />
-                {errors.subject && <span className="error-message">{errors.subject}</span>}
+                {errors.name && <span className="error-message">{errors.name}</span>}
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">Project Details *</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
+                <label htmlFor="email">Email Address *</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
                   onChange={handleChange}
-                  placeholder="Describe your project requirements, goals, and any specific features you need..."
-                  rows="6"
-                  required
-                  className={errors.message ? 'error' : ''}
-                ></textarea>
-                {errors.message && <span className="error-message">{errors.message}</span>}
-              </div>
-
-              <button type="submit" className="submit-btn" disabled={isSubmitting}>
-                {isSubmitting ? (
-                  <>
-                    <div className="spinner"></div>
-                    Sending...
-                  </>
-                ) : (
-                  'Send Inquiry'
-                )}
-              </button>
-
-              {submitMessage && (
-                <div className={`submit-message ${submitMessage.includes('Thank you') ? 'success' : 'error'}`}>
-                  {submitMessage}
-                </div>
-              )}
-            </form>
-          )}
-
-          {activeTab === 'faq' && (
-            <div className="faq-section">
-              <h3>Frequently Asked Questions</h3>
-              <div className="faq-list">
-                {faqs.map((faq, index) => (
-                  <div key={index} className="faq-item">
-                    <h4>{faq.question}</h4>
-                    <p>{faq.answer}</p>
-                  </div>
-                ))}
+                  placeholder="john@example.com"
+                  className={errors.email ? 'error' : ''}
+                />
+                {errors.email && <span className="error-message">{errors.email}</span>}
               </div>
             </div>
-          )}
+
+            <div className="form-group">
+              <label htmlFor="subject">Subject *</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                placeholder="What would you like to discuss?"
+                className={errors.subject ? 'error' : ''}
+              />
+              {errors.subject && <span className="error-message">{errors.subject}</span>}
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="message">Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Tell me more..."
+                rows="6"
+                className={errors.message ? 'error' : ''}
+              ></textarea>
+              {errors.message && <span className="error-message">{errors.message}</span>}
+            </div>
+
+            <button type="submit" className="submit-btn" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
+
+            {submitMessage && (
+              <div className="submit-message success">{submitMessage}</div>
+            )}
+          </form>
         </div>
       </div>
     </section>
   );
 };
-
-
-
-// RealtimeUpdates enhancement - PR #18
-// Production-ready feature with comprehensive implementation
-const RealtimeUpdatesConfig = {
-  enabled: true,
-  version: '1.2.0',
-  features: ['RealtimeUpdates-core', 'RealtimeUpdates-extended'],
-  settings: {
-    performance: 'optimized',
-    accessibility: 'enhanced',
-    monitoring: 'enabled'
-  }
-};
-
-// RealtimeUpdates utility functions
-export function initializeRealtimeUpdates() {
-  console.log('RealtimeUpdates initialized with config:', RealtimeUpdatesConfig);
-  return RealtimeUpdatesConfig;
-}
-
-export function validateRealtimeUpdatesData(data) {
-  if (!data || typeof data !== 'object') {
-    return false;
-  }
-  return true;
-}
-
-export function processRealtimeUpdates(input) {
-  if (!validateRealtimeUpdatesData(input)) {
-    throw new Error('Invalid RealtimeUpdates data');
-  }
-  return { ...input, processed: true, timestamp: Date.now() };
-}
 
 export default Contact;

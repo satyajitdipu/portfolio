@@ -55,6 +55,25 @@
   font-weight: 500;
 }
 
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #a0a0a0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #667eea;
+}
+
 @media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
@@ -65,20 +84,4 @@
   .footer-text {
     align-items: center;
   }
-}
-
-/* PerformanceMetrics Styles - Added 2025-12-05 */
-.performancemetrics-container {
-  padding: 20px;
-  margin: 10px 0;
-}
-
-.performancemetrics-active {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-.performancemetrics-disabled {
-  opacity: 0.5;
-  pointer-events: none;
 }

@@ -3,18 +3,18 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Skills from './Skills';
 
-test('renders skills section', () => {
+test('renders skills section heading', () => {
   render(<Skills />);
-  expect(screen.getByText('Skills')).toBeInTheDocument();
+  expect(screen.getByRole('heading', { level: 2, name: /Skills & Expertise/i })).toBeInTheDocument();
 });
 
 test('renders skill categories', () => {
   render(<Skills />);
-  expect(screen.getByText(/frontend|backend|tools/i)).toBeInTheDocument();
+  expect(screen.getByText(/Backend Frameworks/i)).toBeInTheDocument();
 });
 
-test('renders skill progress bars', () => {
+test('renders skill tags', () => {
   render(<Skills />);
-  const progressBars = document.querySelectorAll('.progress-bar');
-  expect(progressBars.length).toBeGreaterThan(0);
+  const tags = document.querySelectorAll('.skill-tag');
+  expect(tags.length).toBeGreaterThan(0);
 });
